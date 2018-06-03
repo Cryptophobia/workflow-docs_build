@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://deis.com/docs/workflow/</loc>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/quickstart/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/quickstart/install-cli-tools/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/quickstart/deploy-an-app/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/understanding-workflow/concepts/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/understanding-workflow/architecture/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/understanding-workflow/components/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/installing-workflow/system-requirements/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/installing-workflow/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/installing-workflow/configuring-object-storage/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/installing-workflow/configuring-postgres/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/installing-workflow/configuring-registry/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/installing-workflow/chart-provenance/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/installing-workflow/experimental-native-ingress/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/users/cli/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/users/registration/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/users/ssh-keys/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/deploying-apps/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/using-buildpacks/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/using-dockerfiles/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/using-docker-images/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/managing-app-processes/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/managing-app-configuration/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/managing-app-lifecycle/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/inter-app-communication/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/managing-resource-limits/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/domains-and-routing/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/applications/ssl-certificates/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/tuning-component-settings/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/configuring-load-balancers/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/configuring-dns/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/deploy-hooks/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/platform-logging/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/platform-monitoring/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/production-deployments/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/security-considerations/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/platform-ssl/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/upgrading-workflow/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/managing-workflow/extending-workflow/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/troubleshooting/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/troubleshooting/kubectl/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/troubleshooting/applications/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/roadmap/planning-process/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/roadmap/roadmap/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/roadmap/releases/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/overview/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/design-documents/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/development-environment/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/testing/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/submitting-a-pull-request/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/community/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/triaging-issues/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/conduct/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/contributing/maintainers/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/reference-guide/migration/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/reference-guide/creating-a-self-signed-ssl-certificate/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/reference-guide/terms/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/reference-guide/controller-api/v2.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/reference-guide/controller-api/v2.1/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/reference-guide/controller-api/v2.2/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/reference-guide/controller-api/v2.3/</loc>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.17.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.16.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.15.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.14.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.13.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.12.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.11.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.10.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.9.1/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.9.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.8.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.7.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.6.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.5.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.4.2/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.4.1/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.4.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.3.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.2.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.1.0/</loc>
+    </url>
+        
+    <url>
+     <loc>https://deis.com/docs/workflow/changelogs/v2.0.0/</loc>
+    </url>
+        
+    
+
+</urlset>

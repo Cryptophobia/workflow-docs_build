@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="keywords" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+  <link rel="canonical" href="https://deis.com/docs/workflow/changelogs/v2.5.0/">
+
+  <meta name="msvalidate.01" content="079E754911917142D42AB2A3694F9267" />
+  <meta name="msvalidate.01" content="08598E7D936D9217891AE6C1665A645D" />
+
+  <title>v2.5.0 - Deis Workflow Documentation</title>
+
+  <script type="text/javascript">var documentationBaseURL = "../.."</script>
+  <link rel="icon" href="../../static/img/favicon/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../../static/css/styles.css" type="text/css">
+</head>
+
+<body>
+  <div class="off-canvas-wrap">
+    <div class="inner-wrap">
+      <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]--><div class="navbar top-bar" data-purpose="navbar">
+  <div class="row fullwidth">
+    <div class="small-6 large-2 columns">
+      <h1><a href="/" class="logo"><img src="../../static/img/svg/logo.svg" width="128px" height="41px" alt="Deis"></a></h1>
+    </div>
+    <div class="small-4 large-9 columns">
+
+      <nav class="nav navbar-nav navbar-right text-center">
+        <div class="show-for-large-up">
+          <ul class="inline-list">
+            <li>
+              <a class="dropdown" data-dropdown="drop2" aria-controls="drop1" aria-expanded="false">Projects <em><i class="fa fa-caret-down"></i></em></a>
+            </li>
+            <li>
+              <a href="/community" id="header-community" class="item" title="Community">Community</a>
+            </li>
+            <li>
+              <a href="/about" id="header-about" class="item" title="About">About</a>
+            </li>
+            <li>
+              <a href="/blog" id="header-blog" class="item" title="Blog">Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="right-off-canvas-toggle fa fa-bars show-for-medium-down" href="#" data-proofer-ignore></a>
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+<ul id="drop2" class="f-dropdown row hide-for-medium-down" data-dropdown-content aria-hidden="true">
+  <div class="small-12 medium-offset-3 medium-9 columns">
+    <div class="row">
+    <li class="small-6 medium-4 columns"><a href="/workflow" title="Workflow">
+      <img src="../../static/img/svg/workflow-logo.svg" alt="Workflow">
+      <h3>Workflow</h3>
+      <p>The Kubernetes-native platform (v2).</p>
+    </a></li>
+    <li class="small-6 medium-4 columns"><a href="//helm.sh" title="Helm">
+      <img src="../../static/img/svg/helm-logo.svg" alt="Helm">
+      <h3>Helm</h3>
+      <p>The Package manager for Kubernetes.</p>
+    </a></li>
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+      <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
+      <h3>Steward</h3>
+      <p>The Kubernetes-native Service Broker.</p>
+    </a></li>
+    <a class="fa fa-times right"></a>
+  </div>
+</ul><aside class="right-off-canvas-menu" data-offcanvas>
+  <ul>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="../..">Home</a>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Quick Start</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Overview" href="../../quickstart/">Overview</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Install CLI Tools" href="../../quickstart/install-cli-tools/">Install CLI Tools</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="AWS" href="">AWS</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Azure" href="">Azure</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="GKE" href="">GKE</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Minikube" href="">Minikube</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Deploy Your First App" href="../../quickstart/deploy-an-app/">Deploy Your First App</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Understanding Workflow</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Concepts" href="../../understanding-workflow/concepts/">Concepts</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Architecture" href="../../understanding-workflow/architecture/">Architecture</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Components" href="../../understanding-workflow/components/">Components</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Installing Workflow</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="System Requirements" href="../../installing-workflow/system-requirements/">System Requirements</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Installing Workflow" href="../../installing-workflow/">Installing Workflow</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Configuring Object Storage" href="../../installing-workflow/configuring-object-storage/">Configuring Object Storage</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Configuring Postgres" href="../../installing-workflow/configuring-postgres/">Configuring Postgres</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Configuring the Registry" href="../../installing-workflow/configuring-registry/">Configuring the Registry</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Chart Provenance" href="../../installing-workflow/chart-provenance/">Chart Provenance</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Experimental Native Ingress" href="../../installing-workflow/experimental-native-ingress/">Experimental Native Ingress</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Users</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Command Line Interface" href="../../users/cli/">Command Line Interface</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Users and Registration" href="../../users/registration/">Users and Registration</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="SSH Keys" href="../../users/ssh-keys/">SSH Keys</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Applications</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Deploying Apps" href="../../applications/deploying-apps/">Deploying Apps</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Buildpacks" href="../../applications/using-buildpacks/">Buildpacks</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Dockerfiles" href="../../applications/using-dockerfiles/">Dockerfiles</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Docker Images" href="../../applications/using-docker-images/">Docker Images</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Managing App Processes" href="../../applications/managing-app-processes/">Managing App Processes</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Managing App Configuration" href="../../applications/managing-app-configuration/">Managing App Configuration</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Managing App Lifecycle" href="../../applications/managing-app-lifecycle/">Managing App Lifecycle</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Inter-app Communication" href="../../applications/inter-app-communication/">Inter-app Communication</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Resource Limits" href="../../applications/managing-resource-limits/">Resource Limits</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Domains and Routing" href="../../applications/domains-and-routing/">Domains and Routing</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="SSL Certificates" href="../../applications/ssl-certificates/">SSL Certificates</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Managing Workflow</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Tuning Component Settings" href="../../managing-workflow/tuning-component-settings/">Tuning Component Settings</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Configuring Load Balancers" href="../../managing-workflow/configuring-load-balancers/">Configuring Load Balancers</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Configuring DNS" href="../../managing-workflow/configuring-dns/">Configuring DNS</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Deploy Hooks" href="../../managing-workflow/deploy-hooks/">Deploy Hooks</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Platform Logging" href="../../managing-workflow/platform-logging/">Platform Logging</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Platform Monitoring" href="../../managing-workflow/platform-monitoring/">Platform Monitoring</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Production Deployments" href="../../managing-workflow/production-deployments/">Production Deployments</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Security Considerations" href="../../managing-workflow/security-considerations/">Security Considerations</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Platform SSL" href="../../managing-workflow/platform-ssl/">Platform SSL</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Upgrading Workflow" href="../../managing-workflow/upgrading-workflow/">Upgrading Workflow</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Extending Workflow" href="../../managing-workflow/extending-workflow/">Extending Workflow</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Troubleshooting</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Troubleshooting Workflow" href="../../troubleshooting/">Troubleshooting Workflow</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Troubleshooting using Kubectl" href="../../troubleshooting/kubectl/">Troubleshooting using Kubectl</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Troubleshooting Applications" href="../../troubleshooting/applications/">Troubleshooting Applications</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Roadmap</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Planning Process" href="../../roadmap/planning-process/">Planning Process</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Roadmap" href="../../roadmap/roadmap/">Roadmap</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Releases" href="../../roadmap/releases/">Releases</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Contributing</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Overview" href="../../contributing/overview/">Overview</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Design Documents" href="../../contributing/design-documents/">Design Documents</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Development Environment" href="../../contributing/development-environment/">Development Environment</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Testing" href="../../contributing/testing/">Testing</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Submitting a Pull Request" href="../../contributing/submitting-a-pull-request/">Submitting a Pull Request</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Community" href="../../contributing/community/">Community</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Triaging Issues" href="../../contributing/triaging-issues/">Triaging Issues</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Conduct" href="../../contributing/conduct/">Conduct</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Maintainers" href="../../contributing/maintainers/">Maintainers</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1">
+      <a class="reference internal" href="">Reference Guide</a>
+      
+        <ul >
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Migrating from Deis v1" href="../../reference-guide/migration/">Migrating from Deis v1</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Creating a Self-Signed SSL Certificate" href="../../reference-guide/creating-a-self-signed-ssl-certificate/">Creating a Self-Signed SSL Certificate</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Terms" href="../../reference-guide/terms/">Terms</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Controller API v2.0" href="../../reference-guide/controller-api/v2.0/">Controller API v2.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Controller API v2.1" href="../../reference-guide/controller-api/v2.1/">Controller API v2.1</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Controller API v2.2" href="../../reference-guide/controller-api/v2.2/">Controller API v2.2</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal" id="Controller API v2.3" href="../../reference-guide/controller-api/v2.3/">Controller API v2.3</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+    <li class="toctree-l1 current">
+      <a class="reference internal current" state="open" href="">Changelogs</a>
+      
+        <ul  class="current">
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.17.0" href="../v2.17.0/">v2.17.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.16.0" href="../v2.16.0/">v2.16.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.15.0" href="../v2.15.0/">v2.15.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.14.0" href="../v2.14.0/">v2.14.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.13.0" href="../v2.13.0/">v2.13.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.12.0" href="../v2.12.0/">v2.12.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.11.0" href="../v2.11.0/">v2.11.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.10.0" href="../v2.10.0/">v2.10.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.9.1" href="../v2.9.1/">v2.9.1</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.9.0" href="../v2.9.0/">v2.9.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.8.0" href="../v2.8.0/">v2.8.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.7.0" href="../v2.7.0/">v2.7.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.6.0" href="../v2.6.0/">v2.6.0</a>
+          </li>
+        
+          <li class="toctree-l2 current">
+          <a class="reference internal current" id="v2.5.0" href="./">v2.5.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.4.2" href="../v2.4.2/">v2.4.2</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.4.1" href="../v2.4.1/">v2.4.1</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.4.0" href="../v2.4.0/">v2.4.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.3.0" href="../v2.3.0/">v2.3.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.2.0" href="../v2.2.0/">v2.2.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.1.0" href="../v2.1.0/">v2.1.0</a>
+          </li>
+        
+          <li class="toctree-l2">
+          <a class="reference internal current" id="v2.0.0" href="../v2.0.0/">v2.0.0</a>
+          </li>
+        
+        </ul>
+      
+    </li>
+    
+  </ul>
+</aside>
+
+      <!-- banner at the top of the page for temporary announcements-->
+      <!-- <div data-alert class="alert-box alert banner text-center hide-for-small">
+      </div> -->
+
+      <div class="content-wrap">
+
+        <div class="content-inner">
+          <div class="container">
+            <div class="row">
+              <div class="small-12">
+                <h2 id="workflow-v242-v250">Workflow v2.4.2 -&gt; v2.5.0<a class="headerlink" href="#workflow-v242-v250" title="Permanent link">&para;</a></h2>
+<h3 id="builder-v240-v250">Builder v2.4.0 -&gt; v2.5.0<a class="headerlink" href="#builder-v240-v250" title="Permanent link">&para;</a></h3>
+<h4 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/builder/commit/f99a28e6caeb8f84173a597c205c05790662c15c"><code>f99a28e</code></a> slugbuilder-cache: Add CACHE_PATH variable</li>
+<li><a href="https://github.com/deisthree/builder/commit/05522a05a66420f1e0c0ad7a4e616f2a5dcd9470"><code>05522a0</code></a> source_version: add SOURCE_VERSION env var</li>
+<li><a href="https://github.com/deisthree/builder/commit/f2c28ef4bc398a8fadfc1402e8c59e8a550b93c6"><code>f2c28ef</code></a> slugbuilder-cache: allow turning caching off completely</li>
+<li><a href="https://github.com/deisthree/builder/commit/47432ead77eb5087ffe79d6da4035f31c854ad34"><code>47432ea</code></a> builder: delete cache if the cache is disabled (#422)</li>
+</ul>
+<h4 id="refactors">Refactors<a class="headerlink" href="#refactors" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/builder/commit/797243e6ce9c942b8f50ca75127243038a8e9fb0"><code>797243e</code></a> util_test: placate linter by replacing test PK</li>
+</ul>
+<h4 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/builder/commit/65a7de8ec9c6528e31ed907224400d1d81d9c2d1"><code>65a7de8</code></a> README.md: correct coverage badge URL</li>
+<li><a href="https://github.com/deisthree/builder/commit/c776995ab487463691a2399870ea5d141de28c64"><code>c776995</code></a> slugbuilder-cache: fix typo in comments (#417)</li>
+</ul>
+<h4 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/builder/commit/6b04ee5b1c28ef361afa68039b09cc637b07dc43"><code>6b04ee5</code></a> CONTRIBUTING: update contributing docs (#413)</li>
+</ul>
+<h4 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/builder/commit/db92af5533ae2571d712003db5505e89f8e6d8a4"><code>db92af5</code></a> rootfs/Dockerfile: update to latest base image</li>
+<li><a href="https://github.com/deisthree/builder/commit/b916723d3933568c1a2d11305b5312403b2bbd0e"><code>b916723</code></a> Makefile: update to go-dev 0.17.0</li>
+<li><a href="https://github.com/deisthree/builder/commit/0e501478c4f0506ffbf9bdbf98f98563e5b19577"><code>0e50147</code></a> glide: update Controller SDK (#423)</li>
+</ul>
+<h3 id="controller-v242-v252">Controller v2.4.2 -&gt; v2.5.2<a class="headerlink" href="#controller-v242-v252" title="Permanent link">&para;</a></h3>
+<h4 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/controller/commit/cc0a4d58704d97fbf379c8808685581d1f5b95a4"><code>cc0a4d5</code></a> whitelist: Add support for IP whitelist</li>
+<li><a href="https://github.com/deisthree/controller/commit/50811a2d3c195265467aa0d4a87b2d1bdd6736c4"><code>50811a2</code></a> api: add deis tls (#1004)</li>
+<li><a href="https://github.com/deisthree/controller/commit/689df78084d669be214ac94d9573e61936215555"><code>689df78</code></a> scheduler: add the ability to set KUBERNETES_POD_TERMINATION_GRACE_PERIOD_SECONDS per application (#1026)</li>
+<li><a href="https://github.com/deisthree/controller/commit/5c83d80d3da7b5854e26498a8f0299381a7225d8"><code>5c83d80</code></a> autoscale: add autoscaling support to application on per proc type basis (#1018)</li>
+<li><a href="https://github.com/deisthree/controller/commit/1db6146ade0b1883509dd0ab26e1b2fbf79b2023"><code>1db6146</code></a> scheduler: use /scale endpoints for RC and Deployments to only update replicas during scale events (#1029)</li>
+</ul>
+<h4 id="refactors_1">Refactors<a class="headerlink" href="#refactors_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/controller/commit/f7a3e02943854becf3d8eaff9e0bc16a6cbaf1c8"><code>f7a3e02</code></a> hooks: remove push hook model as the builder stopped using it (#985)</li>
+<li><a href="https://github.com/deisthree/controller/commit/4e0c5a3526d5e5232eb1f4a6a9933c8c60927a56"><code>4e0c5a3</code></a> scheduler: update_application_service had an unused name argument (#983)</li>
+<li><a href="https://github.com/deisthree/controller/commit/d155e9210974ebfb065c695c72c4341209f2b313"><code>d155e92</code></a> apps: move AppSettings scheduler logic to App model for simplicity (#993)</li>
+<li><a href="https://github.com/deisthree/controller/commit/d3d18d2f8916c88aac49c68e049fad2e6783e0f0"><code>d3d18d2</code></a> scheduler: use scheduler module session singleton to add session mock (#1009)</li>
+<li><a href="https://github.com/deisthree/controller/commit/7306202c34d67218c9080f8545de660da32723ff"><code>7306202</code></a> scheduler: split up the scheduler code into individual resources and to be modular (#1016)</li>
+<li><a href="https://github.com/deisthree/controller/commit/98d809a32680e027c3b90e2969613fa49dd8d442"><code>98d809a</code></a> scheduler: scheduler passes the kubernetes endpoint to resources instead of getting it from global settings (#1039)</li>
+</ul>
+<h4 id="fixes_1">Fixes<a class="headerlink" href="#fixes_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/controller/commit/d66c20c3b85e1e1f554e4f78908f89a686249dff"><code>d66c20c</code></a> whitelist: Handle empty whitelist from user gracefully</li>
+<li><a href="https://github.com/deisthree/controller/commit/dbde253e10b821a7805371008782f6d5111a25de"><code>dbde253</code></a> tls: Update the value properly to work with morph</li>
+<li><a href="https://github.com/deisthree/controller/commit/2f5c019b4a3ee50ea93e1c3c67b63008cb7a8fee"><code>2f5c019</code></a> api: create TLS object on app create (#1043)</li>
+<li><a href="https://github.com/deisthree/controller/commit/0d454ee54a2926bb27925c6b294a47f0191a0d08"><code>0d454ee</code></a> middleware: move to 1.10 style middleware (#955)</li>
+<li><a href="https://github.com/deisthree/controller/commit/899e0085e7aad47353b6d5753fb17fde466864be"><code>899e008</code></a> models: add "added" log function, lowercase class name (#1017)</li>
+<li><a href="https://github.com/deisthree/controller/commit/ffa90402da6869f4aaec4df9863528aa10bf2a73"><code>ffa9040</code></a> certs: allow empty Common Name in certificates (#1024)</li>
+<li><a href="https://github.com/deisthree/controller/commit/8408c1f4a4083fc70df566afe4ed3fa6e506aade"><code>8408c1f</code></a> healthcheck: update healthchecks for non default process type</li>
+<li><a href="https://github.com/deisthree/controller/commit/1ca970beb61f122feca697ae6d607ed8be0b8598"><code>1ca970b</code></a> app: create image pull secrets outside of the async deploy loop (#1032)</li>
+<li><a href="https://github.com/deisthree/controller/commit/7f16439932a2cb06428165ce9f441439f9bf6c56"><code>7f16439</code></a> imagepullpolicy: Use correct environment variable for image pull policy</li>
+<li><a href="https://github.com/deisthree/controller/commit/83df91e4fab77cf4eea2dddeb900069b60bb312e"><code>83df91e</code></a> logs: app logs endpoint was returning binary string instead of a normal string (#1035)</li>
+<li><a href="https://github.com/deisthree/controller/commit/3f3a228cba46818769e7b0858daead5c3a759795"><code>3f3a228</code></a> scheduler: pass down the right variable for Deployment revision history limit (#1037)</li>
+<li><a href="https://github.com/deisthree/controller/commit/ad7fc5578f13fd6e2b33c0633df12216c132de21"><code>ad7fc55</code></a> app: rollback all process types to previous version when one (or more) process type fails a deploy (#1027)</li>
+<li><a href="https://github.com/deisthree/controller/commit/a303f25d9a149c0d5dca42614613f731e7713447"><code>a303f25</code></a> release: change release cleanup to only remove secrets related to Deployments that are no longer active (#1038)</li>
+<li><a href="https://github.com/deisthree/controller/commit/ffc9f8c36ae3ca04dea54b731d8b40c57ae7c7a9"><code>ffc9f8c</code></a> healthcheck: check if the healthchecks are failing on a new deploy</li>
+</ul>
+<h4 id="documentation_1">Documentation<a class="headerlink" href="#documentation_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/controller/commit/757a8ae441d5a599b1bfad7f625ba474067ff232"><code>757a8ae</code></a> CONTRIBUTING: update contributing doc (#1006)</li>
+</ul>
+<h4 id="maintenance_1">Maintenance<a class="headerlink" href="#maintenance_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/controller/commit/af7fe18d4f06a3032b4f61168cdcf4996e2a0bfc"><code>af7fe18</code></a> requirements: update Requests to 2.11.1 (#990)</li>
+<li><a href="https://github.com/deisthree/controller/commit/58535323b10182172821d00ec86f066bef29bca5"><code>5853532</code></a> rootfs/Dockerfile: update to latest base image</li>
+<li><a href="https://github.com/deisthree/controller/commit/9ced97ca1391099af9d5905f06d388e90326157e"><code>9ced97c</code></a> requirements: Update DRF to 3.4.5 (#997)</li>
+<li><a href="https://github.com/deisthree/controller/commit/6afa4f20f228477823f6ee6e1c509e474bca3323"><code>6afa4f2</code></a> requirements: update DRF to 3.4.6 (#1007)</li>
+<li><a href="https://github.com/deisthree/controller/commit/a2b8428581956beef91556eb59579dc690250b71"><code>a2b8428</code></a> requirements: update PyOpenSSL to 16.1.0 (#1022)</li>
+<li><a href="https://github.com/deisthree/controller/commit/cfe2f1cb18363280f359feb5737281a5ecb23d6e"><code>cfe2f1c</code></a> requirements: update to Django 1.10.1 (#1040)</li>
+</ul>
+<h3 id="dockerbuilder-v231-v232">Dockerbuilder v2.3.1 -&gt; v2.3.2<a class="headerlink" href="#dockerbuilder-v231-v232" title="Permanent link">&para;</a></h3>
+<h4 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/dockerbuilder/commit/4273b5c6bd7ff76dc659d02868ec3c698ba0a624"><code>4273b5c</code></a> tests: feat(tests) Add flake8 linting for python code (#91)</li>
+</ul>
+<h4 id="maintenance_2">Maintenance<a class="headerlink" href="#maintenance_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/dockerbuilder/commit/a67d22c07503341d6192f79931472d95b85c967c"><code>a67d22c</code></a> Makefile: clean up and update makefile (#90)</li>
+</ul>
+<h3 id="logger-v220-v230">Logger v2.2.0 -&gt; v2.3.0<a class="headerlink" href="#logger-v220-v230" title="Permanent link">&para;</a></h3>
+<h4 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/logger/commit/d1ad7c1edf16a74fe720c68797fde04dc14055bc"><code>d1ad7c1</code></a> pprof: Add pprof endpoint</li>
+</ul>
+<h4 id="documentation_2">Documentation<a class="headerlink" href="#documentation_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/logger/commit/6596685324c00991a16e17713e9c8bc5f240aefa"><code>6596685</code></a> readme: Update readme with new architecture</li>
+</ul>
+<h4 id="maintenance_3">Maintenance<a class="headerlink" href="#maintenance_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/logger/commit/d869a2e53229c6ffb744c35349182e0e07a1b7fe"><code>d869a2e</code></a> rootfs/Dockerfile: update to latest base image</li>
+<li><a href="https://github.com/deisthree/logger/commit/c79bb98b76e0c71bcd891c6df99308ce46eb2d7c"><code>c79bb98</code></a> Makefile: update to go-dev 0.17.0</li>
+</ul>
+<h3 id="minio-v220-v221">Minio v2.2.0 -&gt; v2.2.1<a class="headerlink" href="#minio-v220-v221" title="Permanent link">&para;</a></h3>
+<h4 id="fixes_2">Fixes<a class="headerlink" href="#fixes_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/minio/commit/22debea9967565d4d366bfc1b9ccb22dbd4c6942"><code>22debea</code></a> .travis.yml: unset DEIS_REGISTRY before building image</li>
+</ul>
+<h4 id="maintenance_4">Maintenance<a class="headerlink" href="#maintenance_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/minio/commit/4e55f4270ed1612d17f568bb1b341b3b7cfe678e"><code>4e55f42</code></a> Makefile: update to go-dev 0.17.0</li>
+<li><a href="https://github.com/deisthree/minio/commit/a686c8a3361ed9c6f4c3ab8236ba1dc1a651f35b"><code>a686c8a</code></a> rootfs/Dockerfile: update to latest base image</li>
+<li><a href="https://github.com/deisthree/minio/commit/4a5315c5d0934c2fa34c541483334a54995f6e99"><code>4a5315c</code></a> glide: update glide files</li>
+</ul>
+<h3 id="monitoring-v230-v240">Monitoring v2.3.0 -&gt; v2.4.0<a class="headerlink" href="#monitoring-v230-v240" title="Permanent link">&para;</a></h3>
+<h4 id="refactors_2">Refactors<a class="headerlink" href="#refactors_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/monitor/commit/1dfc015c8e45a5ca50aacb69c5082b4d45debfe3"><code>1dfc015</code></a> deis component health: Refactored deis components health dashboards</li>
+</ul>
+<h4 id="maintenance_5">Maintenance<a class="headerlink" href="#maintenance_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/monitor/commit/254249ac3b1398747408d15e18b3f20f4f04faef"><code>254249a</code></a> Dockerfile: update to latest base image</li>
+</ul>
+<h3 id="registry-v220-v221">Registry v2.2.0 -&gt; v2.2.1<a class="headerlink" href="#registry-v220-v221" title="Permanent link">&para;</a></h3>
+<h4 id="maintenance_6">Maintenance<a class="headerlink" href="#maintenance_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/registry/commit/412b4e274101995f7f9f2fa9af4531620396ac21"><code>412b4e2</code></a> Makefile: update to go-dev 0.17.0</li>
+<li><a href="https://github.com/deisthree/registry/commit/4b147080adfe14f1b779bf2bf0e0eee6d1abfda1"><code>4b14708</code></a> .travis.yml: use current Go 1.7 compiler</li>
+<li><a href="https://github.com/deisthree/registry/commit/10d8308dccd869794608bab9fd542e57c14ff1d2"><code>10d8308</code></a> rootfs/Dockerfile: update to latest base image</li>
+</ul>
+<h3 id="router-v240-v250">Router v2.4.0 -&gt; v2.5.0<a class="headerlink" href="#router-v240-v250" title="Permanent link">&para;</a></h3>
+<h4 id="features_4">Features<a class="headerlink" href="#features_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/router/commit/bd25b8289ea95a64b9ac38f69ec3e0763f9cc2a0"><code>bd25b82</code></a> router: add app SSL config</li>
+</ul>
+<h4 id="refactors_3">Refactors<a class="headerlink" href="#refactors_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/router/commit/a7da253486b7511a83235fedb44bfa057fd2867a"><code>a7da253</code></a> fix new linter errors</li>
+<li><a href="https://github.com/deisthree/router/commit/ef9a5bf7b5e518f6ab01f39db6333ee16e7dc65e"><code>ef9a5bf</code></a> Dockerfile: copy the router binary after building ngnix binary</li>
+</ul>
+<h4 id="maintenance_7">Maintenance<a class="headerlink" href="#maintenance_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/router/commit/ea7fffc54e3a4fba06d64e298827907e315e9a5e"><code>ea7fffc</code></a> Makefile: update to go-dev 0.17.0</li>
+<li><a href="https://github.com/deisthree/router/commit/8c3adedbabe8ec077db8bcd0d183152457e1eb33"><code>8c3aded</code></a> rootfs/Dockerfile: update to latest base image</li>
+</ul>
+<h3 id="slugbuilder-v231-v241">Slugbuilder v2.3.1 -&gt; v2.4.1<a class="headerlink" href="#slugbuilder-v231-v241" title="Permanent link">&para;</a></h3>
+<h4 id="features_5">Features<a class="headerlink" href="#features_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/4d634a366500e8521e1c4b17231a1af9905c7479"><code>4d634a3</code></a> Makefile: add --pull flag to docker-build</li>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/b6a2f12f71c755b6e02e2134485067df3fbcef45"><code>b6a2f12</code></a> cache: allow cache to be persisted</li>
+</ul>
+<h4 id="fixes_3">Fixes<a class="headerlink" href="#fixes_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/37c5109557a3005e3f0afd5f224781c609a8f6b4"><code>37c5109</code></a> build.sh: switch to build_root before running hooks</li>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/dcad3f0e3a6e3bddde4f1af5f9d3b421a9fba7a9"><code>dcad3f0</code></a> build: check if release yaml is nil before accessing hash (#105)</li>
+</ul>
+<h4 id="documentation_3">Documentation<a class="headerlink" href="#documentation_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/116da0537ed12b3b7f802a8bc92087ae767a1e59"><code>116da05</code></a> readme: fix formatting in readme</li>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/d05c3e42a5f6c045ef08ef8ae6f62e10aa9d209d"><code>d05c3e4</code></a> build.sh: simplify and formalize cache message</li>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/49fecd96abca9ce1e0cd5427b50c182c9d572ec4"><code>49fecd9</code></a> CONTRIBUTING: update contributing doc (#107)</li>
+</ul>
+<h4 id="maintenance_8">Maintenance<a class="headerlink" href="#maintenance_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/slugbuilder/commit/c6f948a6e892f82f32e85b0f53ad7dfb8ecad929"><code>c6f948a</code></a> buildpacks: update heroku-buildpack-go to v46</li>
+</ul>
+<h3 id="slugrunner-v220-v221">Slugrunner v2.2.0 -&gt; v2.2.1<a class="headerlink" href="#slugrunner-v220-v221" title="Permanent link">&para;</a></h3>
+<h4 id="refactors_4">Refactors<a class="headerlink" href="#refactors_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/slugrunner/commit/6b0c90df8593dc903c42a59faa20f83287d507a3"><code>6b0c90d</code></a> init: remove sdutil, which is no longer used (#51)</li>
+</ul>
+<h4 id="fixes_4">Fixes<a class="headerlink" href="#fixes_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/slugrunner/commit/166bddd90fdf08501db5191baa6074f43a9de65e"><code>166bddd</code></a> init: check for valid YAML before accessing hash (#50)</li>
+<li><a href="https://github.com/deisthree/slugrunner/commit/2d86e6ccb98e0db60dc123ebcf3c50f2c180447b"><code>2d86e6c</code></a> Makefile: ensure to use "latest" build of cedar:14</li>
+</ul>
+<h4 id="documentation_4">Documentation<a class="headerlink" href="#documentation_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/slugrunner/commit/d87b04e4c3762230979b23d76d279cdb1928003f"><code>d87b04e</code></a> CONTRIBUTING: update contributing doc (#53)</li>
+</ul>
+<h3 id="workflow-cli-v240-v251">Workflow CLI v2.4.0 -&gt; v2.5.1<a class="headerlink" href="#workflow-cli-v240-v251" title="Permanent link">&para;</a></h3>
+<h4 id="features_6">Features<a class="headerlink" href="#features_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/78118ebf1076609511cf7e6b1037c6ed8fbae847"><code>78118eb</code></a> CI: refactor CI to build and then pass around a test image (#181)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/aded419ac57ab03f833fd74551b422b87efb7d57"><code>aded419</code></a> CI: upload CLI to seperate buckets (#190)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/3cb4ad3f5a768f17301e61381e36c05df3a697d2"><code>3cb4ad3</code></a> whitelist: Add support for ip whitlising for app</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/ec466d7ab27cf4640feafb39de6f979964d328bf"><code>ec466d7</code></a> autoscale: add the ability to define autoscale rules per process type on an app (#208)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/84de6687e797b0fb54e4838d42255f19abbabe5f"><code>84de668</code></a> cmd: add <code>deis tls</code></li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/eefb125151128e6122f94d2ee09c7b81db88d392"><code>eefb125</code></a> Makefile: build using dockefile and slim image size (#215)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/a4dea1734cb63b1a65992e2d6b9ce300d13c6f2f"><code>a4dea17</code></a> Makefile: add build-stable target</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/618939c99273edc8ccfe97e60ac5ae9c959975eb"><code>618939c</code></a> users: show admins when listing users (#205)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/01ca8f8ba16f0eebb9a5bd42bad8115c8b6a4272"><code>01ca8f8</code></a> version: add deis version --all (#217)</li>
+</ul>
+<h4 id="refactors_5">Refactors<a class="headerlink" href="#refactors_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/912ad8521c6dbbca57483749fbd55f74f30afc5b"><code>912ad85</code></a> Jenkinsfile: remove shell output hack</li>
+</ul>
+<h4 id="fixes_5">Fixes<a class="headerlink" href="#fixes_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/8653f929475eee798aacb88da31612bd1a67a57f"><code>8653f92</code></a> whitelist: format the deis whitelist properly</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/82b63684db9be3a3fcaae58d8c35285098d5e108"><code>82b6368</code></a> settings: remove duplicated 'v' in user agent (#188)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/d5a004cedb4123ec5ee2f77e84520c73233d0189"><code>d5a004c</code></a> tests: start adding unit tests (#183)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/272b1cd91ea4020baf8c00c4cf6f9603e7d9f8c0"><code>272b1cd</code></a> routing, maintenance: check for existence of pointer before reading it. (#195)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/db389646b76bef387898579a99f5c0d9d1f058c8"><code>db38964</code></a> git: properly log errors from git (#199)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/09ca8391d64e29d9adf65219cdd5375c06c96505"><code>09ca839</code></a> CI: don't upload to old bucket and declare varaibles locally (#211)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/f9d85a0ac77c6c32d50dae664fe7bc80bc8fca1b"><code>f9d85a0</code></a> ps: use new sdk for sorted processes (#210)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/d49acf04d6b366f2fd882a1dd410ca21860b2e12"><code>d49acf0</code></a> CI: define more variables locally (#212)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/9b3980a4f2790a71a572a6d6a50bde90d3ac10a3"><code>9b3980a</code></a> limits: remove short cpu flag (#216)</li>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/e10caf6f2a8decfccf98ce4f809ba421e6988c2b"><code>e10caf6</code></a> cmd: fix help string when git remote already exists</li>
+</ul>
+<h4 id="documentation_5">Documentation<a class="headerlink" href="#documentation_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/260d82694e8e851b53d02a4f7dd27b60e9381268"><code>260d826</code></a> CONTRIBUTING: link contributing documentation to website (#185)</li>
+</ul>
+<h4 id="maintenance_9">Maintenance<a class="headerlink" href="#maintenance_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-cli/commit/850ee9c346e803f354d42920cf941ab6fce662a9"><code>850ee9c</code></a> glide: update Controller SDK (#220)</li>
+</ul>
+<h3 id="workflow-documentation-v241-v250">Workflow Documentation v2.4.1 -&gt; v2.5.0<a class="headerlink" href="#workflow-documentation-v241-v250" title="Permanent link">&para;</a></h3>
+<h4 id="features_7">Features<a class="headerlink" href="#features_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow/commit/2e92c778c32945d28f0a86d669af0153d72a8d08"><code>2e92c77</code></a> contributing: add more details to issue reporting (#472)</li>
+<li><a href="https://github.com/deisthree/workflow/commit/a27f00fce8bb40b275b0dd2ee49101837d8a3049"><code>a27f00f</code></a> whitelist: Add docs for specifying application whitelist using deis client</li>
+<li><a href="https://github.com/deisthree/workflow/commit/b8b3eed07537800a2feaf01b3328d885b86111ee"><code>b8b3eed</code></a> autoscale: add documentation for the autoscale functionality (#483)</li>
+</ul>
+<h4 id="fixes_6">Fixes<a class="headerlink" href="#fixes_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow/commit/e06650201eef71e2e5e490fdc2f5a827126742ce"><code>e066502</code></a> quickstart: remove references to downgrade</li>
+<li><a href="https://github.com/deisthree/workflow/commit/6f2639ad56c5dbb8f187b2c210fa44ce8a5a6e6a"><code>6f2639a</code></a> quickstart: specify how to get hostname (#469)</li>
+<li><a href="https://github.com/deisthree/workflow/commit/219179f02263afd34fcad6efba5c7b071a74b04c"><code>219179f</code></a> managing-workflow: fix broken link</li>
+<li><a href="https://github.com/deisthree/workflow/commit/0a1c57d9fa875ab0b80beb6c580ab8d3ecf1ea7d"><code>0a1c57d</code></a> apps: KUBERNETES_POD_TERMINATION_GRACE_PERIOD_SECONDS is now also per app (#486)</li>
+</ul>
+<h4 id="documentation_6">Documentation<a class="headerlink" href="#documentation_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow/commit/d7db3d402016af534ffa4967cc7c681ebe950cf0"><code>d7db3d4</code></a> triaging-issues: describe new priority labels</li>
+<li><a href="https://github.com/deisthree/workflow/commit/2c753c27dbb64f480d00a693caddb28229f1ad54"><code>2c753c2</code></a> using-docker-images: use example-dockerfile-http as sample dockerfile application instead of helloworld. (#482)</li>
+<li><a href="https://github.com/deisthree/workflow/commit/6c1f4fdeeace0d290e82666b676d8ca88e316fee"><code>6c1f4fd</code></a> ssl-certificates: add docs on deis tls:enable</li>
+<li><a href="https://github.com/deisthree/workflow/commit/5e055f07e8444daa63f1ebf241c73ad8af29c2db"><code>5e055f0</code></a> fix: add --namespace=deis to Controlling Registration Modes</li>
+<li><a href="https://github.com/deisthree/workflow/commit/c112a4643c5133625d6fec292e51a57142548996"><code>c112a46</code></a> update: using-docker-images.md</li>
+<li><a href="https://github.com/deisthree/workflow/commit/5f467693e07c2cd3b0fff15f9286e3e50318446c"><code>5f46769</code></a> src/roadmap/releases.md: add step for releasing cli stable</li>
+<li><a href="https://github.com/deisthree/workflow/commit/1e79b461d32f021cefd1b24caf742f8e699dc1bd"><code>1e79b46</code></a> upgrading-workflow.md: remove errant/redundant command</li>
+<li><a href="https://github.com/deisthree/workflow/commit/b721180f40a736c2a76f516e85c89eedad2be7e2"><code>b721180</code></a> styles: docs(styles) sticky footer to avoid overlap with sidebar</li>
+<li><a href="https://github.com/deisthree/workflow/commit/c54c2ec8a4e52a8b62aa9f8b87dbee425f177682"><code>c54c2ec</code></a> styles: docs(styles) fix mobile menu scroll issues</li>
+</ul>
+<h4 id="maintenance_10">Maintenance<a class="headerlink" href="#maintenance_10" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow/commit/bd306d457549a465399a476ec1ae25d472093c8e"><code>bd306d4</code></a> release: Workflow 2.4.1 (#463)</li>
+<li><a href="https://github.com/deisthree/workflow/commit/4afda702f435cd4a4b308a7001d02c3f734f5ac6"><code>4afda70</code></a> release: Workflow 2.4.2</li>
+<li><a href="https://github.com/deisthree/workflow/commit/469445425d16f0a498e0d613d39b278c54014372"><code>4694454</code></a> changelogs: add top-level for changelogs</li>
+<li><a href="https://github.com/deisthree/workflow/commit/f383c432d4abfe16aecaaec2d020b58bb4ef8241"><code>f383c43</code></a> changelogs: add v2.0.0 changelog</li>
+<li><a href="https://github.com/deisthree/workflow/commit/176d0807002957566365633ebf6964ead131a8fb"><code>176d080</code></a> changelog: add v2.1.0 changelog</li>
+<li><a href="https://github.com/deisthree/workflow/commit/9ab4ba81d59de17d6524885f01484d8adb9de647"><code>9ab4ba8</code></a> changelog: add v2.2.0 changelog</li>
+<li><a href="https://github.com/deisthree/workflow/commit/ebac67feb134b86634f327e23dee04c0baa81b12"><code>ebac67f</code></a> changelog: add v2.3.0 changelog</li>
+<li><a href="https://github.com/deisthree/workflow/commit/1da032d6ed99484b8fb0a2e73295e118db017c70"><code>1da032d</code></a> changelog: add v2.4.0 changelog</li>
+<li><a href="https://github.com/deisthree/workflow/commit/db9bb8deb01bc3b6b945703a08f99183f7a7c01d"><code>db9bb8d</code></a> changelog: add v2.4.2 changelog</li>
+<li><a href="https://github.com/deisthree/workflow/commit/0d434820458c8d6f2ca75da0e18170b755d2128c"><code>0d43482</code></a> changelog: add headings for clarity</li>
+<li><a href="https://github.com/deisthree/workflow/commit/d18dec47556f9d00e00972319ef7ab8a2738d408"><code>d18dec4</code></a> changelog: update release process for new changelog page</li>
+<li><a href="https://github.com/deisthree/workflow/commit/a2d58aa89fc25e02ee20ac6f6f89e09c08bb5463"><code>a2d58aa</code></a> changelogs: add v2.4.1 changelog</li>
+<li><a href="https://github.com/deisthree/workflow/commit/bd4db54186e61e2a4a743cbd78989329fe9ded1b"><code>bd4db54</code></a> api-docs: add v2.3 API docs (#485)</li>
+</ul>
+<h3 id="workflow-e2e-tests-v240-v252">Workflow E2E Tests v2.4.0 -&gt; v2.5.2<a class="headerlink" href="#workflow-e2e-tests-v240-v252" title="Permanent link">&para;</a></h3>
+<h4 id="features_8">Features<a class="headerlink" href="#features_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/a2ed8b2237880e4be7a10942dc2f796bce297c4b"><code>a2ed8b2</code></a> docker: add DEBUG option to hang build (#312)</li>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/30c8fd343c480b266542ab602cebe04401f4030d"><code>30c8fd3</code></a> procfile: unskip builds procfile test</li>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/95f4eb9cb630e1d2d0b149c08655e21b7fbf136f"><code>95f4eb9</code></a> docker-test-integration.sh: try curling cli from multiple buckets</li>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/9c294e3fb3635c86a7444f9c026eeda3810c6f5d"><code>9c294e3</code></a> maintenance: Add test for maintenance mode</li>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/013709e7f2e08728bee9dc97209d12f41098c776"><code>013709e</code></a> whitelist: Add tests for deis whitelist</li>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/5bc8cb0f487bc09887e50da7ee2409e22debd134"><code>5bc8cb0</code></a> tests: add deis tls tests (#316)</li>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/0f2df7835cce1bda9bf863d5a0d70b2b5f967545"><code>0f2df78</code></a> docker-test-integration.sh: check if 'stable'</li>
+</ul>
+<h4 id="refactors_6">Refactors<a class="headerlink" href="#refactors_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/2da83d98c31f991ae7b8bf6b548104f7af3cb19b"><code>2da83d9</code></a> Dockerfile: don't use alpine, it has known DNS issues (#313)</li>
+</ul>
+<h4 id="fixes_7">Fixes<a class="headerlink" href="#fixes_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/8a2d858b74a779d3543786d519cccb96cffdc80a"><code>8a2d858</code></a> healthcheck: use correct port the image exposes</li>
+</ul>
+<h4 id="maintenance_11">Maintenance<a class="headerlink" href="#maintenance_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/424f6256b28a872e1f633ff5041348576d972aed"><code>424f625</code></a> Makefile: update docker-go-dev to 0.17.0</li>
+<li><a href="https://github.com/deisthree/workflow-e2e/commit/88ad38f1fd6718b325824e1cc5a30ebaae05e3f3"><code>88ad38f</code></a> glide.lock: update ginkgo, gomega, controller-sdk-go</li>
+</ul>
+<h3 id="workflow-manager-v240-v241">Workflow Manager v2.4.0 -&gt; v2.4.1<a class="headerlink" href="#workflow-manager-v240-v241" title="Permanent link">&para;</a></h3>
+<h4 id="documentation_7">Documentation<a class="headerlink" href="#documentation_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-manager/commit/25f5b3279f1df73e2010261509f16b85c7fc6017"><code>25f5b32</code></a> README.md: add codecov.io badge</li>
+</ul>
+<h4 id="maintenance_12">Maintenance<a class="headerlink" href="#maintenance_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://github.com/deisthree/workflow-manager/commit/940ced5216ab300d9c62e5c2d0aa6d3a7086b172"><code>940ced5</code></a> Makefile: update to go-dev 0.17.0</li>
+<li><a href="https://github.com/deisthree/workflow-manager/commit/d9b03265826bda8ed4b42aba1528f963f8cd20c8"><code>d9b0326</code></a> rootfs/Dockerfile: update to latest base image</li>
+</ul>
+              </div>
+            </div>
+          </div>
+        </div><nav class="sidebar hide-for-medium-down">
+  <div class="sidebar-inner">
+    <h1><a href="/" class="logo"><img src="../../static/img/svg/logo.svg" width="128px" height="41px" alt="Deis"></a></h1>
+
+    <ul class="current sidebar-main">
+    <li class="toctree-l1">
+        <a class="reference internal" href="../..">Home</a>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Quick Start</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Overview" href="../../quickstart/">Overview</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Install CLI Tools" href="../../quickstart/install-cli-tools/">Install CLI Tools</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="AWS" href="">AWS</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Azure" href="">Azure</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="GKE" href="">GKE</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Minikube" href="">Minikube</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Deploy Your First App" href="../../quickstart/deploy-an-app/">Deploy Your First App</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Understanding Workflow</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Concepts" href="../../understanding-workflow/concepts/">Concepts</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Architecture" href="../../understanding-workflow/architecture/">Architecture</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Components" href="../../understanding-workflow/components/">Components</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Installing Workflow</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="System Requirements" href="../../installing-workflow/system-requirements/">System Requirements</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Installing Workflow" href="../../installing-workflow/">Installing Workflow</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Configuring Object Storage" href="../../installing-workflow/configuring-object-storage/">Configuring Object Storage</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Configuring Postgres" href="../../installing-workflow/configuring-postgres/">Configuring Postgres</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Configuring the Registry" href="../../installing-workflow/configuring-registry/">Configuring the Registry</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Chart Provenance" href="../../installing-workflow/chart-provenance/">Chart Provenance</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Experimental Native Ingress" href="../../installing-workflow/experimental-native-ingress/">Experimental Native Ingress</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Users</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Command Line Interface" href="../../users/cli/">Command Line Interface</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Users and Registration" href="../../users/registration/">Users and Registration</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="SSH Keys" href="../../users/ssh-keys/">SSH Keys</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Applications</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Deploying Apps" href="../../applications/deploying-apps/">Deploying Apps</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Buildpacks" href="../../applications/using-buildpacks/">Buildpacks</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Dockerfiles" href="../../applications/using-dockerfiles/">Dockerfiles</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Docker Images" href="../../applications/using-docker-images/">Docker Images</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Managing App Processes" href="../../applications/managing-app-processes/">Managing App Processes</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Managing App Configuration" href="../../applications/managing-app-configuration/">Managing App Configuration</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Managing App Lifecycle" href="../../applications/managing-app-lifecycle/">Managing App Lifecycle</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Inter-app Communication" href="../../applications/inter-app-communication/">Inter-app Communication</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Resource Limits" href="../../applications/managing-resource-limits/">Resource Limits</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Domains and Routing" href="../../applications/domains-and-routing/">Domains and Routing</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="SSL Certificates" href="../../applications/ssl-certificates/">SSL Certificates</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Managing Workflow</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Tuning Component Settings" href="../../managing-workflow/tuning-component-settings/">Tuning Component Settings</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Configuring Load Balancers" href="../../managing-workflow/configuring-load-balancers/">Configuring Load Balancers</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Configuring DNS" href="../../managing-workflow/configuring-dns/">Configuring DNS</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Deploy Hooks" href="../../managing-workflow/deploy-hooks/">Deploy Hooks</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Platform Logging" href="../../managing-workflow/platform-logging/">Platform Logging</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Platform Monitoring" href="../../managing-workflow/platform-monitoring/">Platform Monitoring</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Production Deployments" href="../../managing-workflow/production-deployments/">Production Deployments</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Security Considerations" href="../../managing-workflow/security-considerations/">Security Considerations</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Platform SSL" href="../../managing-workflow/platform-ssl/">Platform SSL</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Upgrading Workflow" href="../../managing-workflow/upgrading-workflow/">Upgrading Workflow</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Extending Workflow" href="../../managing-workflow/extending-workflow/">Extending Workflow</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Troubleshooting</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Troubleshooting Workflow" href="../../troubleshooting/">Troubleshooting Workflow</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Troubleshooting using Kubectl" href="../../troubleshooting/kubectl/">Troubleshooting using Kubectl</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Troubleshooting Applications" href="../../troubleshooting/applications/">Troubleshooting Applications</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Roadmap</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Planning Process" href="../../roadmap/planning-process/">Planning Process</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Roadmap" href="../../roadmap/roadmap/">Roadmap</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Releases" href="../../roadmap/releases/">Releases</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Contributing</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Overview" href="../../contributing/overview/">Overview</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Design Documents" href="../../contributing/design-documents/">Design Documents</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Development Environment" href="../../contributing/development-environment/">Development Environment</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Testing" href="../../contributing/testing/">Testing</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Submitting a Pull Request" href="../../contributing/submitting-a-pull-request/">Submitting a Pull Request</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Community" href="../../contributing/community/">Community</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Triaging Issues" href="../../contributing/triaging-issues/">Triaging Issues</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Conduct" href="../../contributing/conduct/">Conduct</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Maintainers" href="../../contributing/maintainers/">Maintainers</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1">
+        <a class="reference internal" href="">Reference Guide</a>
+        
+            <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Migrating from Deis v1" href="../../reference-guide/migration/">Migrating from Deis v1</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Creating a Self-Signed SSL Certificate" href="../../reference-guide/creating-a-self-signed-ssl-certificate/">Creating a Self-Signed SSL Certificate</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Terms" href="../../reference-guide/terms/">Terms</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Controller API v2.0" href="../../reference-guide/controller-api/v2.0/">Controller API v2.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Controller API v2.1" href="../../reference-guide/controller-api/v2.1/">Controller API v2.1</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Controller API v2.2" href="../../reference-guide/controller-api/v2.2/">Controller API v2.2</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="Controller API v2.3" href="../../reference-guide/controller-api/v2.3/">Controller API v2.3</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+    <li class="toctree-l1 current">
+        <a class="reference internal current" state="open" href="">Changelogs</a>
+        
+            <ul style="display: none;" class="current">
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.17.0" href="../v2.17.0/">v2.17.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.16.0" href="../v2.16.0/">v2.16.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.15.0" href="../v2.15.0/">v2.15.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.14.0" href="../v2.14.0/">v2.14.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.13.0" href="../v2.13.0/">v2.13.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.12.0" href="../v2.12.0/">v2.12.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.11.0" href="../v2.11.0/">v2.11.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.10.0" href="../v2.10.0/">v2.10.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.9.1" href="../v2.9.1/">v2.9.1</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.9.0" href="../v2.9.0/">v2.9.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.8.0" href="../v2.8.0/">v2.8.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.7.0" href="../v2.7.0/">v2.7.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.6.0" href="../v2.6.0/">v2.6.0</a>
+                </li>
+            
+                <li class="toctree-l2 current">
+                <a class="reference internal current" id="v2.5.0" href="./">v2.5.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.4.2" href="../v2.4.2/">v2.4.2</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.4.1" href="../v2.4.1/">v2.4.1</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.4.0" href="../v2.4.0/">v2.4.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.3.0" href="../v2.3.0/">v2.3.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.2.0" href="../v2.2.0/">v2.2.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.1.0" href="../v2.1.0/">v2.1.0</a>
+                </li>
+            
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.0.0" href="../v2.0.0/">v2.0.0</a>
+                </li>
+            
+            </ul>
+        
+    </li>
+
+<div class="clearbox"></div>
+      <li class="toctree-l1">
+        
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar-bg"></div>
+</nav>
+      </div><footer>
+  <section class="panel -gray panel-newsletter">
+    <div class="row fullwidth">
+      <div class="show-for-large-up large-6 columns subscribe">
+
+        <div id="mc_embed_signup">
+          <form action="//deis.us2.list-manage.com/subscribe/post?u=2ad6b6ca7910248391eaa8751&amp;id=9342c8c944" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <div class="mc-field-group">
+                <label for="mce-EMAIL">Subscribe to our newsletter</label>
+                <input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Subscribe to our newsletter">
+              </div>
+              <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>
+
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5e404606794b4dac9cd4667c8_2706763c5b" tabindex="-1" value=""></div>
+              <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            </div>
+          </form>
+        </div>
+
+        <script type='text/javascript' src='../../static/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+        <!--End mc_embed_signup-->
+
+      </div>
+      <div class="small-12 small-text-center large-only-text-right large-6 columns social">
+        <nav class="text-right">
+          <a id="footer-twitter" class="fa fa-twitter" title="Deis on Twitter" href="https://twitter.com/opendeis" target="_blank"></a>
+          <a id="footer-so" class="fa fa-stack-overflow" title="Deis on StackOverflow" href="http://stackoverflow.com/questions/tagged/deis?sort=active" target="_blank"></a>
+          <a id="footer-gh" class="fa fa-github" title="Deis on Github" href="https://github.com/deis" target="_blank"></a>
+          <a id="footer-slack" class="fa fa-slack" title="Deis Slack Channel" href="https://slack.deis.io/" target="_blank"></a>
+          <a id="footer-contact-email" class="fa fa-envelope" title="Contact us via email" href="mailto:services@deis.com?Subject=Website%20contact" target="_blank"></a>
+        </nav>
+      </div>
+    </div>
+  </section>
+  <section class="panel panel-links">
+    <div class="row fullwidth">
+      <div class="small-4 medium-2 large-4 small-only-text-center columns logo-and-copyright">
+        <div class="logo">
+          <a id="footer-return" href="//deis.com"><img src="../../static/img/svg/footer-logo.svg" alt="Deis"></a>
+        </div>
+        <p class="copyright show-for-large-up">
+          <a id="footer-privacy" href="//deis.com/policies/privacy">Privacy Policy</a>
+        </p>
+      </div>
+      <div class="small-8 medium-10 large-8 columns">
+        <div class="row">
+          <div class="small-6 medium-3 medium-offset-3 columns">
+            <dl>
+              <dt><a id="footer-gh-community" href="https://deis.com/community">Community</a></dt>
+              <dd><a id="footer-get-involved" href="https://deis.com/community">Events</a></dd>
+              <dd><a id="footer-videos-events" href="https://www.youtube.com/channel/UCWEgHkfXx-sUbP3QS8QTkDQ">Videos</a></dd>
+              <dd><a id="footer-get-involved" href="https://deis.com/phippy">Illustrated Guide</a></dd>
+            </dl>
+          </div>
+          <div class="small-6 medium-3 columns">
+            <dl>
+              <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
+              <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
+              <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+            </dl>
+          </div>
+          <div class="small-6 medium-3 columns">
+            <dl>
+              <dt><a id="footer-company" href="https://deis.com/about">Company</a></dt>
+              <dd><a id="footer-careers" href="https://deis.com/blog">Blog</a></dd>
+              <dd><a id="footer-about" href="https://deis.com/about">About</a></dd>
+              <dd><a id="footer-contact" href="https://deis.com/about#contact">Contact</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</footer>
+    </div>
+  </div>
+
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+  <script>window.jQuery || document.write('<script src="../../static/js/jquery-1.12.4.min.js"><\/script>')</script>
+  <!-- extra_javascript - defined in the root 'mkdocs.yml -->
+  
+    <script src="../../static/js/foundation.js" async></script>
+  
+    <script src="../../static/js/foundation.dropdown.js" async></script>
+  
+    <script src="../../static/js/foundation.offcanvas.js" async></script>
+  
+    <script src="../../static/js/headroom.min.js" async></script>
+  
+    <script src="../../static/js/adjustments.js" async></script>
+  
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42867143-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+
+</body>
+</html>
