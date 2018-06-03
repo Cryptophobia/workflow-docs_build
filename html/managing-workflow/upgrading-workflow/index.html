@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -549,12 +549,12 @@
 <h2 id="off-cluster-storage-required">Off-Cluster Storage Required<a class="headerlink" href="#off-cluster-storage-required" title="Permanent link">&para;</a></h2>
 <p>A Workflow upgrade requires using off-cluster object storage, since the default
 in-cluster storage is ephemeral. <strong>Upgrading Workflow with the in-cluster default
-of <a href="https://github.com/deisthree/minio">Minio</a> will result in data loss.</strong></p>
+of <a href="https://github.com/teamhephy/minio">Minio</a> will result in data loss.</strong></p>
 <p>See <a href="../../installing-workflow/configuring-object-storage/">Configuring Object Storage</a> to learn how to store your Workflow data off-cluster.</p>
 <h2 id="upgrade-process">Upgrade Process<a class="headerlink" href="#upgrade-process" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If upgrading from a <a href="https://github.com/helm/helm-classic">Helm Classic</a> install, you'll need to 'migrate' the cluster to a <a href="https://github.com/kubernetes/helm">Kubernetes Helm</a> installation.  See <a href="https://github.com/deisthree/workflow-migration/blob/master/README.md">Workflow-Migration</a> for steps.</p>
+<p>If upgrading from a <a href="https://github.com/helm/helm-classic">Helm Classic</a> install, you'll need to 'migrate' the cluster to a <a href="https://github.com/kubernetes/helm">Kubernetes Helm</a> installation.  See <a href="https://github.com/teamhephy/workflow-migration/blob/master/README.md">Workflow-Migration</a> for steps.</p>
 </div>
 <h3 id="step-1-apply-the-workflow-upgrade">Step 1: Apply the Workflow upgrade<a class="headerlink" href="#step-1-apply-the-workflow-upgrade" title="Permanent link">&para;</a></h3>
 <p>Helm will remove all components from the previous release. Traffic to applications deployed through
@@ -563,12 +563,12 @@ Workflow will continue to flow during the upgrade. No service interruptions shou
 period of downtime while the database recovers from backup.</p>
 <p>First, find the name of the release helm gave to your deployment with <code>helm ls</code>, then run</p>
 <pre class="codehilite"><code>$ helm repo update
-$ helm upgrade &lt;release-name&gt; deis/workflow</code></pre>
+$ helm upgrade &lt;release-name&gt; hephy/workflow</code></pre>
 
 
 <p><strong>Note:</strong> If using off-cluster object storage on <a href="https://cloud.google.com/storage/">gcs</a> and/or off-cluster registry using <a href="https://cloud.google.com/container-registry/">gcr</a> and intending to upgrade from a pre-<code>v2.10.0</code> chart to <code>v2.10.0</code> or greater, the <code>key_json</code> values will now need to be pre-base64-encoded.  Therefore, assuming the rest of the custom/off-cluster values are defined in the existing <code>values.yaml</code> used for previous installs, the following may be run:</p>
 <pre class="codehilite"><code>$ B64_KEY_JSON=&quot;$(cat ~/path/to/key.json | base64 -w 0)&quot;
-$ helm upgrade &lt;release_name&gt; deis/workflow -f values.yaml --set gcs.key_json=&quot;${B64_KEY_JSON}&quot;,registry-token-refresher.gcr.key_json=&quot;${B64_KEY_JSON}&quot;</code></pre>
+$ helm upgrade &lt;release_name&gt; hephy/workflow -f values.yaml --set gcs.key_json=&quot;${B64_KEY_JSON}&quot;,registry-token-refresher.gcr.key_json=&quot;${B64_KEY_JSON}&quot;</code></pre>
 
 
 <p>Alternatively, simply replace the appropriate values in values.yaml and do without the <code>--set</code>
@@ -1131,7 +1131,7 @@ deis-workflow-manager-2654760652-kitf9   1/1       Running   0          5m</code
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

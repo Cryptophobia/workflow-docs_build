@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -564,10 +564,10 @@
 <p>Prepare for a short downtime until both the ELB and the router have converged to the new configuration.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>ELB PROXY protocol support was added in Kubernetes 1.3. If you are still on Kubernetes 1.2, you need to first upgrade to a newer <a href="https://deis.com/docs/workflow/installing-workflow/system-requirements/#kubernetes-versions">supported Kubernetes version</a>.</p>
+<p>ELB PROXY protocol support was added in Kubernetes 1.3. If you are still on Kubernetes 1.2, you need to first upgrade to a newer <a href="https://teamhephy.info/docs/workflow/installing-workflow/system-requirements/#kubernetes-versions">supported Kubernetes version</a>.</p>
 </div>
 <h2 id="manually-configuring-a-load-balancer">Manually configuring a load balancer<a class="headerlink" href="#manually-configuring-a-load-balancer" title="Permanent link">&para;</a></h2>
-<p>If using a Kubernetes distribution or underlying infrastructure that does not support the automated provisioning of a front-facing load balancer, operators will wish to manually configure a load balancer (or use other tricks) to route inbound traffic from beyond the cluster into the cluster to the Deis router(s).  There are many ways to accomplish this.  This documentation will focus on the most common method.  Readers interested in other options may refer to <a href="https://github.com/deisthree/router#front-facing-load-balancer">the router component's own documentation</a> for further details.</p>
+<p>If using a Kubernetes distribution or underlying infrastructure that does not support the automated provisioning of a front-facing load balancer, operators will wish to manually configure a load balancer (or use other tricks) to route inbound traffic from beyond the cluster into the cluster to the Deis router(s).  There are many ways to accomplish this.  This documentation will focus on the most common method.  Readers interested in other options may refer to <a href="https://github.com/teamhephy/router#front-facing-load-balancer">the router component's own documentation</a> for further details.</p>
 <p>Begin by determining the "node ports" for the <code>deis-router</code> service:</p>
 <pre class="codehilite"><code>$ kubectl --namespace=deis describe service deis-router</code></pre>
 
@@ -1116,7 +1116,7 @@ Endpoints:      10.2.80.11:9090
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

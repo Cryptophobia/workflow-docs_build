@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -540,10 +540,10 @@
             <div class="row">
               <div class="small-12">
                 <h1 id="platform-logging">Platform Logging<a class="headerlink" href="#platform-logging" title="Permanent link">&para;</a></h1>
-<p>The logging platform is made up of 2 components - <a href="https://github.com/deisthree/fluentd">Fluentd</a> and <a href="https://github.com/deisthree/logger">Logger</a>.</p>
-<p><a href="https://github.com/deisthree/fluentd">Fluentd</a> runs on every worker node of the cluster and is deployed as a <a href="http://kubernetes.io/v1.1/docs/admin/daemons.html">Daemon Set</a>. The Fluentd pods capture all of the stderr and stdout streams of every container running on the host (even those not hosted directly by kubernetes). Once the log message arrives in our <a href="https://github.com/deisthree/fluentd/tree/master/rootfs/opt/fluentd/deis-output">custom fluentd plugin</a> we determine where the message originated.</p>
-<p>If the message was from the <a href="https://github.com/deisthree/controller">Workflow Controller</a> or from an application deployed via workflow we send it to the logs topic on the local <a href="http://nsq.io">NSQD</a> instance.</p>
-<p>If the message is from the <a href="https://github.com/deisthree/router">Workflow Router</a> we build an Influxdb compatible message and send it to the same NSQD instance but instead place the message on the metrics topic.</p>
+<p>The logging platform is made up of 2 components - <a href="https://github.com/teamhephy/fluentd">Fluentd</a> and <a href="https://github.com/teamhephy/logger">Logger</a>.</p>
+<p><a href="https://github.com/teamhephy/fluentd">Fluentd</a> runs on every worker node of the cluster and is deployed as a <a href="http://kubernetes.io/v1.1/docs/admin/daemons.html">Daemon Set</a>. The Fluentd pods capture all of the stderr and stdout streams of every container running on the host (even those not hosted directly by kubernetes). Once the log message arrives in our <a href="https://github.com/teamhephy/fluentd/tree/master/rootfs/opt/fluentd/deis-output">custom fluentd plugin</a> we determine where the message originated.</p>
+<p>If the message was from the <a href="https://github.com/teamhephy/controller">Workflow Controller</a> or from an application deployed via workflow we send it to the logs topic on the local <a href="http://nsq.io">NSQD</a> instance.</p>
+<p>If the message is from the <a href="https://github.com/teamhephy/router">Workflow Router</a> we build an Influxdb compatible message and send it to the same NSQD instance but instead place the message on the metrics topic.</p>
 <p>Logger then acts as a consumer reading messages off of the NSQ logs topic storing those messages in a local Redis instance. When a user wants to retrieve log entries using the <code>deis logs</code> command we make an HTTP request from Controller to Logger which then fetches the appropriate data from Redis.</p>
 <h2 id="configuring-off-cluster-redis">Configuring Off Cluster Redis<a class="headerlink" href="#configuring-off-cluster-redis" title="Permanent link">&para;</a></h2>
 <p>Even though we provide a redis instance with the default Workflow install, it is recommended that operators use a third-party source like Elasticache or similar offering. This way your data is durable across upgrades or outages. If you have a third-party Redis installation you would like to use all you need to do is set the following values in your helm chart:</p>
@@ -553,7 +553,7 @@
 <li>port = "6379"</li>
 <li>password = ""</li>
 </ul>
-<p>These can be changed by running <code>helm inspect values deis/workflow &gt; values.yaml</code> before using
+<p>These can be changed by running <code>helm inspect values hephy/workflow &gt; values.yaml</code> before using
 <code>helm install</code> to complete the installation. To customize the redis credentials, edit <code>values.yaml</code>
 and modify the <code>redis</code> section of the file to tune these settings.</p>
 <h2 id="debugging-logger">Debugging Logger<a class="headerlink" href="#debugging-logger" title="Permanent link">&para;</a></h2>
@@ -597,7 +597,7 @@ and modify the <code>redis</code> section of the file to tune these settings.</p
 <h2 id="default-configuration">Default Configuration<a class="headerlink" href="#default-configuration" title="Permanent link">&para;</a></h2>
 <p>By default the Fluentd pod can be configured to talk to numerous syslog endpoints. So for example it is possible to have Fluentd send log messages to both the Logger component and <a href="https://papertrailapp.com/">Papertrail</a>. This allows production deployments of Deis to satisfy stringent logging requirements such as offsite backups of log data.</p>
 <p>Configuring Fluentd to talk to multiple syslog endpoints means modifying the Fluentd daemonset
-manifest. This means you will need to fetch the chart with <code>helm fetch deis/workflow --untar</code>, then
+manifest. This means you will need to fetch the chart with <code>helm fetch hephy/workflow --untar</code>, then
 modify <code>workflow/charts/fluentd/templates/logger-fluentd-daemon.yaml</code> with the following:</p>
 <pre class="codehilite"><code>env:
 - name: &quot;SYSLOG_HOST_1&quot;
@@ -621,7 +621,7 @@ modify <code>workflow/charts/fluentd/templates/logger-fluentd-daemon.yaml</code>
 
 <p>Then run <code>helm install ./workflow --namespace deis</code> to install the modified chart.</p>
 <h3 id="customizing">Customizing:<a class="headerlink" href="#customizing" title="Permanent link">&para;</a></h3>
-<p>We currently support logging information to Syslog, Elastic Search, and Sumo Logic. However, we will gladly accept pull requests that add support to other locations. For more information please visit the <a href="https://github.com/deisthree/fluentd">fluentd repository</a>.</p>
+<p>We currently support logging information to Syslog, Elastic Search, and Sumo Logic. However, we will gladly accept pull requests that add support to other locations. For more information please visit the <a href="https://github.com/teamhephy/fluentd">fluentd repository</a>.</p>
 <h3 id="custom-fluentd-plugins">Custom Fluentd Plugins<a class="headerlink" href="#custom-fluentd-plugins" title="Permanent link">&para;</a></h3>
 <p>That are many output plugins available for <a href="https://github.com/search?q=fluentd+output&amp;ref=opensearch">Fluentd</a>. But, we purposefully do not ship our Fluentd image with these installed. Instead, we provide a mechanism that allows users to install a plugin at startup time of the container and configure it. </p>
 <p>If you would like to install a plugin you can set an environment variable such as the following: <code>FLUENTD_PLUGIN_N=some-fluentd-plugin</code> where N is a positive integer that is incremented for every plugin you wish to install. After you set this value you must then set the configuration text for the <code>FILTER</code> or <code>STORE</code> plugin you are installing. You can do that by setting <code>CUSTOM_STORE_N=configuration text</code> where N is the corresponding index value of the plugin you just installed.</p>
@@ -645,7 +645,7 @@ modify <code>workflow/charts/fluentd/templates/logger-fluentd-daemon.yaml</code>
     INSTALL_BUILD_TOOLS: &quot;|\n              true&quot;</code></pre>
 
 
-<p>For more information please see the <a href="https://github.com/deisthree/fluentd#custom-plugins">Custom Plugins</a> section of the README.</p>
+<p>For more information please see the <a href="https://github.com/teamhephy/fluentd#custom-plugins">Custom Plugins</a> section of the README.</p>
               </div>
             </div>
           </div>
@@ -1171,7 +1171,7 @@ modify <code>workflow/charts/fluentd/templates/logger-fluentd-daemon.yaml</code>
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

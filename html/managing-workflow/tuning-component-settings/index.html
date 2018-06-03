@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -543,14 +543,14 @@
 <p>Helm Charts are a set of Kubernetes manifests that reflect best practices for deploying an
 application or service on Kubernetes.</p>
 <p>After you add the Deis Chart Repository, you can customize the chart using
-<code>helm inspect values deis/workflow &gt; values.yaml</code> before using <code>helm install</code> to complete the
+<code>helm inspect values hephy/workflow &gt; values.yaml</code> before using <code>helm install</code> to complete the
 installation.</p>
 <p>There are a few ways to customize the respective component:</p>
 <ul>
 <li>
 <p>If the value is exposed in the <code>values.yaml</code> file as derived above, one may modify the section of the component to tune these settings.  The modified value(s) will then take effect at chart installation or release upgrade time via either of the two respective commands:</p>
-<pre class="codehilite"><code>$ helm install deis/workflow --namespace deis -f values.yaml
-$ helm upgrade deis -f values.yaml</code></pre>
+<pre class="codehilite"><code>$ helm install hephy/workflow -n hephy --namespace deis -f values.yaml
+$ helm upgrade hephy -f values.yaml</code></pre>
 
 
 </li>
@@ -563,11 +563,11 @@ $ helm upgrade deis -f values.yaml</code></pre>
 </li>
 <li>
 <p>Lastly, one may also fetch and edit the chart as served by version control/the chart repository itself:</p>
-<pre class="codehilite"><code>$ helm fetch deis/workflow --untar
+<pre class="codehilite"><code>$ helm fetch hephy/workflow --untar
 $ $EDITOR workflow/charts/controller/templates/controller-deployment.yaml</code></pre>
 
 
-<p>Then run <code>helm install ./workflow --namespace deis --name deis</code> to apply the changes, or <code>helm upgrade deis ./workflow</code> if the cluster is already running.</p>
+<p>Then run <code>helm install ./workflow --namespace deis --name hephy</code> to apply the changes, or <code>helm upgrade hephy ./workflow</code> if the cluster is already running.</p>
 </li>
 </ul>
 <h2 id="setting-resource-limits">Setting Resource limits<a class="headerlink" href="#setting-resource-limits" title="Permanent link">&para;</a></h2>
@@ -578,7 +578,7 @@ values.</p>
 <p>Below is an example of how the builder section of <code>values.yaml</code> might look with CPU and memory
 limits set:</p>
 <pre class="codehilite"><code>builder:
-  org: &quot;deisci&quot;
+  org: &quot;hephyci&quot;
   pullPolicy: &quot;Always&quot;
   dockerTag: &quot;canary&quot;
   limits_cpu: &quot;100m&quot;
@@ -629,7 +629,7 @@ limits set:</p>
 </tr>
 <tr>
 <td>SLUGRUNNER_IMAGE_NAME</td>
-<td>the image used to run buildpack application slugs (default: "quay.io/deisci/slugrunner:canary")</td>
+<td>the image used to run buildpack application slugs (default: "quay.io/hephyci/slugrunner:canary")</td>
 </tr>
 <tr>
 <td>DEIS_DEPLOY_HOOK_URLS</td>
@@ -824,7 +824,7 @@ authentication of user accounts in the <a href="../../understanding-workflow/com
 </tr>
 </tbody>
 </table>
-<p>For more information about the various environment variables that can be set please see the <a href="https://github.com/deisthree/fluentd/blob/master/README.md">README</a></p>
+<p>For more information about the various environment variables that can be set please see the <a href="https://github.com/teamhephy/fluentd/blob/master/README.md">README</a></p>
 <h2 id="customizing-the-logger">Customizing the Logger<a class="headerlink" href="#customizing-the-logger" title="Permanent link">&para;</a></h2>
 <p>The following environment variables are tunable for the <a href="../../understanding-workflow/components/#logger-fluentd-logger">Logger</a> component:</p>
 <table>
@@ -853,18 +853,18 @@ authentication of user accounts in the <a href="../../understanding-workflow/com
 user   | "admin" | The first user created in the database (this user has admin privileges)
 password | "admin" | Password for the first user.
 allow_sign_up | "true" | Allows users to sign up for an account.</p>
-<p>For a list of other options you can set by using environment variables please see the <a href="https://github.com/deisthree/monitor/blob/master/grafana/rootfs/usr/share/grafana/grafana.ini.tpl">configuration file</a> in Github.</p>
+<p>For a list of other options you can set by using environment variables please see the <a href="https://github.com/teamhephy/monitor/blob/master/grafana/rootfs/usr/share/grafana/grafana.ini.tpl">configuration file</a> in Github.</p>
 <h3 id="telegraf"><a href="https://docs.influxdata.com/telegraf">Telegraf</a><a class="headerlink" href="#telegraf" title="Permanent link">&para;</a></h3>
-<p>For a list of configuration values that can be set by using environment variables please see the following <a href="https://github.com/deisthree/monitor/blob/master/telegraf/rootfs/config.toml.tpl">configuration file</a>.</p>
+<p>For a list of configuration values that can be set by using environment variables please see the following <a href="https://github.com/teamhephy/monitor/blob/master/telegraf/rootfs/config.toml.tpl">configuration file</a>.</p>
 <h3 id="influxdb"><a href="https://docs.influxdata.com/influxdb">InfluxDB</a><a class="headerlink" href="#influxdb" title="Permanent link">&para;</a></h3>
-<p>You can find a list of values that can be set using environment variables <a href="https://github.com/deisthree/monitor/blob/master/influxdb/rootfs/home/influxdb/config.toml.tpl">here</a>.</p>
+<p>You can find a list of values that can be set using environment variables <a href="https://github.com/teamhephy/monitor/blob/master/influxdb/rootfs/home/influxdb/config.toml.tpl">here</a>.</p>
 <h2 id="customizing-the-registry">Customizing the Registry<a class="headerlink" href="#customizing-the-registry" title="Permanent link">&para;</a></h2>
 <p>The <a href="../../understanding-workflow/components/#registry">Registry</a> component can be tuned by following the
-<a href="https://github.com/deisthree/distribution/blob/master/docs/configuration.md">deis/distribution config doc</a>.</p>
+<a href="https://github.com/deis/distribution/blob/master/docs/configuration.md">teamhephy/distribution config doc</a>.</p>
 <h2 id="customizing-the-router">Customizing the Router<a class="headerlink" href="#customizing-the-router" title="Permanent link">&para;</a></h2>
 <p>The majority of router settings are tunable through annotations, which allows the router to be
 re-configured with zero downtime post-installation. You can find the list of annotations to tune
-<a href="https://github.com/deisthree/router#annotations">here</a>.</p>
+<a href="https://github.com/teamhephy/router#annotations">here</a>.</p>
 <p>The following environment variables are tunable for the <a href="../../understanding-workflow/components/#router">Router</a> component:</p>
 <table>
 <thead>
@@ -892,7 +892,7 @@ re-configured with zero downtime post-installation. You can find the list of ann
 <tbody>
 <tr>
 <td>CHECK_VERSIONS</td>
-<td>Enables the external version check at <a href="https://versions.deis.com/">https://versions.deis.com/</a> (default: "true")</td>
+<td>Enables the external version check at <a href="https://versions.teamhephy.info/">https://versions.teamhephy.info/</a> (default: "true")</td>
 </tr>
 <tr>
 <td>POLL_INTERVAL_SEC</td>
@@ -900,11 +900,11 @@ re-configured with zero downtime post-installation. You can find the list of ann
 </tr>
 <tr>
 <td>VERSIONS_API_URL</td>
-<td>The versions API URL (default: "<a href="https://versions-staging.deis.com">https://versions-staging.deis.com</a>")</td>
+<td>The versions API URL (default: "<a href="https://versions-staging.teamhephy.info">https://versions-staging.teamhephy.info</a>")</td>
 </tr>
 <tr>
 <td>DOCTOR_API_URL</td>
-<td>The doctor API URL (default: "<a href="https://doctor-staging.deis.com">https://doctor-staging.deis.com</a>")</td>
+<td>The doctor API URL (default: "<a href="https://doctor-staging.teamhephy.info">https://doctor-staging.teamhephy.info</a>")</td>
 </tr>
 <tr>
 <td>API_VERSION</td>
@@ -1437,7 +1437,7 @@ re-configured with zero downtime post-installation. You can find the list of ann
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

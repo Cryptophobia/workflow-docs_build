@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -549,19 +549,19 @@ architecture</a>.</p>
 need to customize one of the components for your specific deployment or need
 the functionality in your own project we invite you to give it a shot!</p>
 <h2 id="controller">Controller<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/controller">deis/controller</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/controller">teamhephy/controller</a></p>
 <p>The controller component is an HTTP API server which serves as the endpoint for
 the <code>deis</code> CLI. The controller provides all of the platform functionality as
 well as interfacing with your Kubernetes cluster. The controller persists all
 of its data to the database component.</p>
 <h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/postgres">deis/postgres</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/postgres">teamhephy/postgres</a></p>
 <p>The database component is a managed instance of <a href="http://www.postgresql.org/">PostgreSQL</a> which holds a
 majority of the platforms state. Backups and WAL files are pushed to object
 storage via <a href="https://github.com/wal-e/wal-e">WAL-E</a>. When the database is restarted, backups are fetched and
 replayed from object storage so no data is lost.</p>
 <h2 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/builder">deis/builder</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/builder">teamhephy/builder</a></p>
 <p>The builder component is responsible for accepting code pushes via <a href="http://git-scm.com/">Git</a> and
 managing the build process of your <a href="../../reference-guide/terms/#application">Application</a>. The builder process is:</p>
 <ol>
@@ -572,7 +572,7 @@ managing the build process of your <a href="../../reference-guide/terms/#applica
 <li>Triggers a new <a href="../../reference-guide/terms/#release">Release</a> via the Controller</li>
 </ol>
 <p>Builder currently supports both buildpack and Dockerfile based builds.</p>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/slugbuilder">deis/slugbuilder</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/slugbuilder">teamhephy/slugbuilder</a></p>
 <p>For Buildpack-based deploys, the builder component will launch a one-shot Pod
 in the <code>deis</code> namespace. This pod runs <code>slugbuilder</code> component which handles
 default and custom buildpacks (specified by <code>BUILDPACK_URL</code>). The "compiled"
@@ -580,20 +580,20 @@ application results in a slug, consisting of your application code and all of
 its dependencies as determined by the buildpack. The slug is pushed to the
 cluster-configured object storage for later execution. For more information
 about buildpacks see <a href="../../applications/using-buildpacks/">using buildpacks</a>.</p>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/dockerbuilder">deis/dockerbuilder</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/dockerbuilder">teamhephy/dockerbuilder</a></p>
 <p>For Applications which contain a <code>Dockerfile</code> in the root of the repository,
 <code>builder</code> will instead launch the <code>dockerbuilder</code> to package your application.
 Instead of generating a slug, <code>dockerbuilder</code> generates a Docker image (using
 the underlying Docker engine). The completed image is pushed to the managed
 Docker registry on cluster. For more information see <a href="../../applications/using-dockerfiles/">using Dockerfiles</a>.</p>
 <h2 id="slugrunner">Slugrunner<a class="headerlink" href="#slugrunner" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/slugrunner">deis/slugrunner</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/slugrunner">teamhephy/slugrunner</a></p>
 <p>Slugrunner is the component responsible for executing buildpack-based
 Applications. Slugrunner receives slug information from the controller and
 downloads the application slug just before launching your application
 processes.</p>
 <h2 id="object-storage">Object Storage<a class="headerlink" href="#object-storage" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/minio">deis/minio</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/minio">teamhephy/minio</a></p>
 <p>All of the Workflow components that need to persist data will ship them to the
 object storage that was configured for the cluster.For example, database ships
 its WAL files, registry stores Docker images, and slugbuilder stores slugs.</p>
@@ -604,13 +604,13 @@ Workflow include on-cluster object storage via <a href="https://github.com/minio
 <p>If you also feel comfortable using Kubernetes persistent volumes you may
 configure minio to use persistent storage available in your environment.</p>
 <h2 id="registry">Registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/registry">deis/registry</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/registry">teamhephy/registry</a></p>
 <p>The registry component is a managed docker registry which holds application
 images generated from the builder component. Registry persists the Docker image
 images to either local storage (in development mode) or to object storage
 configured for the cluster.</p>
 <h2 id="router">Router<a class="headerlink" href="#router" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/router">deis/router</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/router">teamhephy/router</a></p>
 <p>The router component is based on <a href="http://nginx.org/">Nginx</a> and is responsible for routing
 inbound HTTP(S) traffic to your applications. The default workflow charts
 provision a Kubernetes service in the <code>deis</code> namespace with a service type of
@@ -618,22 +618,22 @@ provision a Kubernetes service in the <code>deis</code> namespace with a service
 a cloud-based loadbalancer automatically.</p>
 <p>The router component uses Kubernetes annotations for both Application discovery
 as well as router configuration. For more detailed documentation and possible
-configuration view the router <a href="https://github.com/deisthree/router">project documentation</a>.</p>
+configuration view the router <a href="https://github.com/teamhephy/router">project documentation</a>.</p>
 <h2 id="logger-fluentd-logger">Logger: fluentd, logger<a class="headerlink" href="#logger-fluentd-logger" title="Permanent link">&para;</a></h2>
 <p>The logging subsystem consists of two components. Fluentd handles log shipping
 and logger maintains a ring-buffer of application logs.</p>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/fluentd">deis/fluentd</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/fluentd">teamhephy/fluentd</a></p>
 <p>Fluentd is deployed to your Kubernetes cluster via Daemon Sets. Fluentd
 subscribes to all container logs, decorates the output with Kubernetes metadata
 and can be configured to drain logs to multiple destinations. By default,
 fluentd ships logs to the logger component, which powers <code>deis logs</code>.</p>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/logger">deis/logger</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/logger">teamhephy/logger</a></p>
 <p>The <code>logger</code> component receives log streams from <code>fluentd</code>, collating by
 Application name. Logger does not persist logs to disk, instead maintaining an
-in-memory ring buffer. For more information on logger see the <a href="https://github.com/deisthree/logger">project
+in-memory ring buffer. For more information on logger see the <a href="https://github.com/teamhephy/logger">project
 documentation</a>.</p>
 <h2 id="monitor">Monitor<a class="headerlink" href="#monitor" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/monitor">deis/monitor</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/monitor">teamhephy/monitor</a></p>
 <p>The monitoring subsystem consists of three components: Telegraf, InfluxDB and Grafana.</p>
 <p>Telegraf is the is the metrics collection agent that runs using the daemon set API. It runs on
 every worker node in the cluster, fetches information about the pods currently running and ships it
@@ -646,7 +646,7 @@ provides a robust engine for creating dashboards on top of timeseries data. Work
 dashboards out of the box for monitoring Deis Workflow and Kubernetes. The dashboards can be used
 as a starting point for creating more custom dashboards to suit a user's needs.</p>
 <h2 id="workflow-manager">Workflow Manager<a class="headerlink" href="#workflow-manager" title="Permanent link">&para;</a></h2>
-<p><strong>Project Location:</strong> <a href="https://github.com/deisthree/workflow-manager">deis/workflow-manager</a></p>
+<p><strong>Project Location:</strong> <a href="https://github.com/teamhephy/workflow-manager">teamhephy/workflow-manager</a></p>
 <p><code>Workflow Manager</code> will regularly check your cluster against the latest stable
 components. If components are missing due to failure or are simply out of date,
 Workflow operators will know at a glance. By default, this submits component
@@ -1183,7 +1183,7 @@ Workflow Manager's Deployment.</p>
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

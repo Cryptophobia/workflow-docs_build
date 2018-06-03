@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -548,20 +548,20 @@
 <p>Squash and rebase the commit or commits in your pull request into logical units of work with <code>git</code>. Include tests and documentation changes in the same commit, so that a revert would remove all traces of the feature or fix.</p>
 <p>Most pull requests will reference a GitHub issue. In the PR description - not in the commit itself - include a line such as "closes #1234". The issue referenced will automatically be closed when your PR is merged.</p>
 <h2 id="include-tests">Include Tests<a class="headerlink" href="#include-tests" title="Permanent link">&para;</a></h2>
-<p>If you significantly alter or add functionality to a component that impacts the broader Deis Workflow PaaS, you should submit a complementary PR to modify or amend end-to-end integration tests.  These integration tests can be found in the <a href="https://github.com/deisthree/workflow-e2e">deis/workflow-e2e</a> repository.</p>
+<p>If you significantly alter or add functionality to a component that impacts the broader Deis Workflow PaaS, you should submit a complementary PR to modify or amend end-to-end integration tests.  These integration tests can be found in the <a href="https://github.com/teamhephy/workflow-e2e">teamhephy/workflow-e2e</a> repository.</p>
 <p>See <a href="../testing/">testing</a> for more information.</p>
 <h2 id="include-docs">Include Docs<a class="headerlink" href="#include-docs" title="Permanent link">&para;</a></h2>
-<p>Changes to any Deis Workflow component that could affect a user's experience also require a change or addition to the relevant documentation. For most Deis components, this involves updating the component's <em>own</em> documentation. In some cases where a component is tightly integrated into <a href="https://github.com/deisthree/workflow">deis/workflow</a>, its documentation must also be updated.</p>
+<p>Changes to any Deis Workflow component that could affect a user's experience also require a change or addition to the relevant documentation. For most Deis components, this involves updating the component's <em>own</em> documentation. In some cases where a component is tightly integrated into <a href="https://github.com/teamhephy/workflow">teamhephy/workflow</a>, its documentation must also be updated.</p>
 <h2 id="cross-repo-commits">Cross-repo commits<a class="headerlink" href="#cross-repo-commits" title="Permanent link">&para;</a></h2>
-<p>If a pull request is part of a larger piece of work involving one or more additional commits in other Workflow repositories, these commits can be referenced in the last PR to be submitted.  The downstream <a href="https://ci.deis.io/job/workflow-test-pr/">e2e test job</a> will then supply every referenced commit (derived from PR issue number supplied) to the test runner so it can source the necessary Docker images for inclusion in the generated Workflow chart to be tested.</p>
-<p>For example, consider paired commits in <a href="https://github.com/deisthree/controller">deis/controller</a> and <a href="https://github.com/deisthree/workflow-e2e">deis/workflow-e2e</a>.  The commit body for the first PR in <code>deis/workflow-e2e</code> would look like:</p>
+<p>If a pull request is part of a larger piece of work involving one or more additional commits in other Workflow repositories, these commits can be referenced in the last PR to be submitted.  The downstream <a href="https://ci.teamhephy.info/job/workflow-e2e-pr/">e2e test job</a> will then supply every referenced commit (derived from PR issue number supplied) to the test runner so it can source the necessary Docker images for inclusion in the generated Workflow chart to be tested.</p>
+<p>For example, consider paired commits in <a href="https://github.com/teamhephy/controller">teamhephy/controller</a> and <a href="https://github.com/teamhephy/workflow-e2e">teamhephy/workflow-e2e</a>.  The commit body for the first PR in <code>teamhephy/workflow-e2e</code> would look like:</p>
 <pre class="codehilite"><code>feat(foo_test): add e2e test for feature foo
 
 [skip e2e] test for controller#42</code></pre>
 
 
 <p>Adding <code>[skip e2e]</code> forgoes the e2e tests on this commit. This and any other required PRs aside from the final PR should be submitted first, so that their respective build and image push jobs run.</p>
-<p>Lastly, the final PR in <code>deis/controller</code> should be created with the required PR number(s) listed, in the form of <code>[Rr]equires &lt;repoName&gt;#&lt;pullRequestNumber&gt;</code>, for use by the downstream e2e run.</p>
+<p>Lastly, the final PR in <code>teamhephy/controller</code> should be created with the required PR number(s) listed, in the form of <code>[Rr]equires &lt;repoName&gt;#&lt;pullRequestNumber&gt;</code>, for use by the downstream e2e run.</p>
 <pre class="codehilite"><code>feat(foo): add feature foo
 
 Requires workflow-e2e#42</code></pre>
@@ -1139,7 +1139,7 @@ as in various git tools.</p>
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

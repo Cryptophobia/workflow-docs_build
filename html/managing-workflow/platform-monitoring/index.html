@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -578,7 +578,7 @@
 
 
 <h2 id="grafana"><a href="https://grafana.com/">Grafana</a><a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h2>
-<p>Grafana allows users to create custom dashboards that visualize the data captured to the running InfluxDB component. By default Grafana is exposed using a <a href="https://github.com/deisthree/router#how-it-works">service annotation</a> through the router at the following URL: <code>http://grafana.mydomain.com</code>. The default login is <code>admin/admin</code>. If you are interested in changing these values please see <a href="../tuning-component-settings/#customizing-the-monitor">Tuning Component Settings</a>.</p>
+<p>Grafana allows users to create custom dashboards that visualize the data captured to the running InfluxDB component. By default Grafana is exposed using a <a href="https://github.com/teamhephy/router#how-it-works">service annotation</a> through the router at the following URL: <code>http://grafana.mydomain.com</code>. The default login is <code>admin/admin</code>. If you are interested in changing these values please see <a href="../tuning-component-settings/#customizing-the-monitor">Tuning Component Settings</a>.</p>
 <p>Grafana will preload several dashboards to help operators get started with monitoring Kubernetes and Deis Workflow.
 These dashboards are meant as starting points and don't include every item that might be desirable to monitor in a
 production installation.</p>
@@ -588,7 +588,7 @@ production installation.</p>
 <ul>
 <li>Change the default username and password from <code>admin/admin</code>. The value for the password is passed in plain text so it is best to set this value on the command line instead of checking it into version control.</li>
 <li>Enable persistence</li>
-<li>Use a supported external database such as mysql or postgres. You can find more information <a href="https://github.com/deisthree/monitor/blob/master/grafana/rootfs/usr/share/grafana/grafana.ini.tpl#L62">here</a></li>
+<li>Use a supported external database such as mysql or postgres. You can find more information <a href="https://github.com/teamhephy/monitor/blob/master/grafana/rootfs/usr/share/grafana/grafana.ini.tpl#L62">here</a></li>
 </ul>
 <h3 id="on-cluster-persistence">On Cluster Persistence<a class="headerlink" href="#on-cluster-persistence" title="Permanent link">&para;</a></h3>
 <p>Enabling persistence will allow your custom configuration to persist across pod restarts. This means that the default sqllite database (which stores things like sessions and user data) will not disappear if you upgrade the Workflow installation. </p>
@@ -631,7 +631,7 @@ production installation.</p>
 <li>Container level metrics such as CPU and Memory</li>
 <li>Kubernetes metrics such as API request latency, Pod Startup Latency, and number of running pods</li>
 </ul>
-<p>It is possible to send these metrics to other endpoints besides InfluxDB. For more information please consult the following <a href="https://github.com/deisthree/monitor/blob/master/telegraf/rootfs/config.toml.tpl">file</a></p>
+<p>It is possible to send these metrics to other endpoints besides InfluxDB. For more information please consult the following <a href="https://github.com/teamhephy/monitor/blob/master/telegraf/rootfs/config.toml.tpl">file</a></p>
 <h3 id="customizing-the-monitoring-stack">Customizing the Monitoring Stack<a class="headerlink" href="#customizing-the-monitoring-stack" title="Permanent link">&para;</a></h3>
 <p>To learn more about customizing each of the above components please visit the <a href="../tuning-component-settings/#customizing-the-monitor">Tuning Component Settings</a> section.</p>
               </div>
@@ -1159,7 +1159,7 @@ production installation.</p>
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

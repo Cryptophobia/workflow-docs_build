@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -581,12 +581,12 @@ deliverable. This section leads a maintainer through creating a component releas
 <p>Major or minor releases should happen on the master branch. Patch releases
 should check out the previous release tag and cherry-pick specific commits from master.</p>
 <p><strong>Note:</strong> if a patch release, the release artifact will have to be manually promoted by triggering
-the <a href="https://ci.deis.io/job/component-promote">component-promote</a> job with the following values:</p>
+the <a href="https://ci.teamhephy.info/job/component-promote">component-promote</a> job with the following values:</p>
 <pre class="codehilite"><code class="language-bash">COMPONENT_NAME=&lt;component name&gt;
 COMPONENT_SHA=&lt;patch commit sha&gt;</code></pre>
 
 
-<p>Make sure you have the <a href="https://github.com/deisthree/deisrel">deisrel</a> release tool in your search <code>$PATH</code>.</p>
+<p>Make sure you have the <a href="https://github.com/teamhephy/deisrel">deisrel</a> release tool in your search <code>$PATH</code>.</p>
 <p>Run <code>deisrel release</code> once with a fake semver tag to proofread the changelog content. (If <code>HEAD</code>
 of master is not what is intended for the release, add the <code>--sha</code> flag as described
 in <code>deisrel release --help</code>.)</p>
@@ -600,7 +600,7 @@ Creating changelog for controller with tag v2.8.1 through commit 943a49267eeb285
 
 #### Fixes
 
-- [`615b834`](https://github.com/deisthree/controller/commit/615b834f39cb68a854cc1f1e2f0f82d862ea2731) boot: Ensure DEIS_DEBUG==true for debug output</code></pre>
+- [`615b834`](https://github.com/teamhephy/controller/commit/615b834f39cb68a854cc1f1e2f0f82d862ea2731) boot: Ensure DEIS_DEBUG==true for debug output</code></pre>
 
 
 <p>Based on the changelog content, determine whether the component deserves a minor or patch
@@ -616,7 +616,7 @@ Creating changelog for controller with tag v2.8.1 through commit 943a49267eeb285
 
 #### Fixes
 
-- [`615b834`](https://github.com/deisthree/controller/commit/615b834f39cb68a854cc1f1e2f0f82d862ea2731) boot: Ensure DEIS_DEBUG==true for debug output
+- [`615b834`](https://github.com/teamhephy/controller/commit/615b834f39cb68a854cc1f1e2f0f82d862ea2731) boot: Ensure DEIS_DEBUG==true for debug output
 
 
 Please review the above changelog contents and ensure:
@@ -624,24 +624,24 @@ Please review the above changelog contents and ensure:
   2. The changes agree with the semver release tag (major, minor, or patch)
 
 Create release for Deis Controller v2.8.2? [y/n]: y
-New release is available at https://github.com/deisthree/controller/releases/tag/v2.8.2</code></pre>
+New release is available at https://github.com/teamhephy/controller/releases/tag/v2.8.2</code></pre>
 
 
 <h3 id="step-2-verify-the-component-is-available">Step 2: Verify the Component is Available<a class="headerlink" href="#step-2-verify-the-component-is-available" title="Permanent link">&para;</a></h3>
 <p>Tagging the component (see <a href="../../roadmap/releases/#step-1-update-code-and-run-the-release-tool">Step 1</a>)
 starts a CI job that eventually results in an artifact being made available for public download.
-Please see the <a href="https://github.com/deisthree/jenkins-jobs/#flow">CI flow diagrams</a> for details.</p>
+Please see the <a href="https://github.com/teamhephy/jenkins-jobs/#flow">CI flow diagrams</a> for details.</p>
 <p>Double-check that the artifact is available, either by a <code>docker pull</code> command or by running the
 appropriate installer script.</p>
 <p>If the artifact can't be downloaded, ensure that its CI release jobs are still in progress, or
 fix whatever issue arose in the pipeline. For example, the
-<a href="https://github.com/deisthree/jenkins-jobs/#when-a-component-pr-is-merged-to-master">master merge pipeline</a>
+<a href="https://github.com/teamhephy/jenkins-jobs/#when-a-component-pr-is-merged-to-master">master merge pipeline</a>
 may have failed to promote the <code>:git-abc1d23</code> candidate image and needs to be restarted with
 that component and commit.</p>
 <p>If the component has a correlating <a href="https://github.com/kubernetes/helm">Kubernetes Helm</a> chart,
 this chart will also be packaged, signed and uploaded to its production chart repo.  Please
 verify it can be fetched (and verified):</p>
-<pre class="codehilite"><code>$ helm repo add controller https://charts.deis.com/controller
+<pre class="codehilite"><code>$ helm repo add controller https://charts.teamhephy.com/controller
 &quot;controller&quot; has been added to your repositories
 $ helm fetch --verify controller/controller --version v2.17.0
 Verification: &amp;{0xc4207ec870 sha256:026e766e918ff28d2a7041bc3d560d149ee7eb0cb84165c9d9d00a3045ff45c3 controller-v2.17.0.tgz}</code></pre>
@@ -660,13 +660,13 @@ deliverable. This section leads a maintainer through creating a Workflow release
 Follow the <a href="#how-to-release-a-component">component release process</a> above and ensure that
 these components are tagged:</p>
 <ul>
-<li><a href="https://github.com/deisthree/workflow-cli">deis/workflow-cli</a></li>
-<li><a href="https://github.com/deisthree/workflow-e2e">deis/workflow-e2e</a></li>
+<li><a href="https://github.com/teamhephy/workflow-cli">teamhephy/workflow-cli</a></li>
+<li><a href="https://github.com/teamhephy/workflow-e2e">teamhephy/workflow-e2e</a></li>
 </ul>
-<p>The version number for <a href="https://github.com/deisthree/workflow-cli">deis/workflow-cli</a> should always match the overall Workflow version
+<p>The version number for <a href="https://github.com/teamhephy/workflow-cli">teamhephy/workflow-cli</a> should always match the overall Workflow version
 number.</p>
 <h3 id="step-3-create-helm-chart">Step 3: Create Helm Chart<a class="headerlink" href="#step-3-create-helm-chart" title="Permanent link">&para;</a></h3>
-<p>To create and stage a release candidate chart for Workflow, we will build the <a href="https://ci.deis.io/job/workflow-chart-stage">workflow-chart-stage</a> job with the following parameters:</p>
+<p>To create and stage a release candidate chart for Workflow, we will build the <a href="https://ci.teamhephy.info/job/workflow-chart-stage">workflow-chart-stage</a> job with the following parameters:</p>
 <p><code>RELEASE_TAG=$WORKFLOW_RELEASE</code></p>
 <p>This job will gather all of the latest component release tags and use these to specify the versions of all component charts.
 It will then package the Workflow chart, upload it to the staging chart repo and kick off an e2e run against said chart.</p>
@@ -684,25 +684,25 @@ infrastructure providers.</p>
 <li>Trigger the same <code>workflow-chart-stage</code> job as mentioned in Step 3 to upload the newly-generated Workflow release candidate chart to staging.</li>
 </ol>
 <h3 id="step-5-release-the-chart">Step 5: Release the Chart<a class="headerlink" href="#step-5-release-the-chart" title="Permanent link">&para;</a></h3>
-<p>When testing has completed without uncovering any new showstopper bugs, kick off the <a href="https://ci.deis.io/job/workflow-chart-release">workflow-chart-release</a> job with the following parameter:</p>
+<p>When testing has completed without uncovering any new showstopper bugs, kick off the <a href="https://ci.teamhephy.info/job/workflow-chart-release">workflow-chart-release</a> job with the following parameter:</p>
 <p><code>RELEASE_TAG=$WORKFLOW_RELEASE</code></p>
 <p>This job will copy the release candidate chart (now approved by CI and manual testing) from the staging repo to the production repo, signing
 it if it has not done so already.</p>
 <h3 id="step-6-assemble-master-changelog">Step 6: Assemble Master Changelog<a class="headerlink" href="#step-6-assemble-master-changelog" title="Permanent link">&para;</a></h3>
 <p>Each component already updated its release notes on GitHub with CHANGELOG content. We'll now
 generate the master changelog for the Workflow chart, consisting of all component and auxilliary repo changes.</p>
-<p>We'll employ the <code>requirements.lock</code> file from the <code>WORKFLOW_PREV_RELEASE</code> chart, as well as a repo-to-chart-name <a href="https://github.com/deisthree/deisrel/blob/master/map.json">mapping file</a>, this time invoking <code>deisrel changelog global</code> to get all component changes between
+<p>We'll employ the <code>requirements.lock</code> file from the <code>WORKFLOW_PREV_RELEASE</code> chart, as well as a repo-to-chart-name <a href="https://github.com/teamhephy/deisrel/blob/master/map.json">mapping file</a>, this time invoking <code>deisrel changelog global</code> to get all component changes between
 the chart versions existing in the <code>WORKFLOW_PREV_RELEASE</code> chart and the <em>most recent</em> releases existing in GitHub.
 (Therefore, if there are any unreleased commits in a component repo, they will not appear here):</p>
-<pre class="codehilite"><code class="language-bash">helm repo add deis https://charts.deis.com/workflow
-helm fetch --untar deis/workflow --version $WORKFLOW_PREV_RELEASE
+<pre class="codehilite"><code class="language-bash">helm repo add hephy https://charts.teamhephy.com/workflow
+helm fetch --untar hephy/workflow --version $WORKFLOW_PREV_RELEASE
 deisrel changelog global workflow/requirements.lock map.json &gt; changelog-$WORKFLOW_RELEASE.md</code></pre>
 
 
 <p>This master changelog should then be placed into a single gist.  The file will also be added to the documentation
 update PR created in the next step.</p>
 <h3 id="step-7-update-documentation">Step 7: Update Documentation<a class="headerlink" href="#step-7-update-documentation" title="Permanent link">&para;</a></h3>
-<p>Create a new pull request at <a href="https://github.com/deisthree/workflow">deis/workflow</a> that updates version references to the new release.
+<p>Create a new pull request at <a href="https://github.com/teamhephy/workflow">teamhephy/workflow</a> that updates version references to the new release.
 Use <code>git grep $WORKFLOW_PREV_RELEASE</code> to find any references, but be careful not to change
 <code>CHANGELOG.md</code>.</p>
 <p>Place the <code>$WORKFLOW_RELEASE</code> master changelog generated in Step 7 in the <code>changelogs</code> directory.
@@ -711,18 +711,18 @@ Make sure to add a header to the page to make it clear that this is for a Workfl
 
 
 <p>Once the PR has been reviewed and merged, do a <a href="#how-to-release-a-component">component release</a> of
-<a href="https://github.com/deisthree/workflow">deis/workflow</a> itself. The version number for <a href="https://github.com/deisthree/workflow">deis/workflow</a> should always match the
+<a href="https://github.com/teamhephy/workflow">teamhephy/workflow</a> itself. The version number for <a href="https://github.com/teamhephy/workflow">teamhephy/workflow</a> should always match the
 overall Workflow version number.</p>
 <h3 id="step-8-close-github-milestones">Step 8: Close GitHub Milestones<a class="headerlink" href="#step-8-close-github-milestones" title="Permanent link">&para;</a></h3>
-<p>Create a pull request at <a href="https://github.com/deisthree/seed-repo">seed-repo</a> to close the release
+<p>Create a pull request at <a href="https://github.com/teamhephy/seed-repo">seed-repo</a> to close the release
 milestone and create the next one. When changes are merged to seed-repo, milestones on all
 relevant projects will be updated. If there are open issues attached to the milestone, move them
 to the next upcoming milestone before merging the pull request.</p>
-<p>Milestones map to Deis Workflow releases in <a href="https://github.com/deisthree/workflow">deis/workflow</a>. These milestones do not correspond
+<p>Milestones map to Deis Workflow releases in <a href="https://github.com/teamhephy/workflow">teamhephy/workflow</a>. These milestones do not correspond
 to individual component release tags.</p>
 <h3 id="step-9-release-workflow-cli-stable">Step 9: Release Workflow CLI Stable<a class="headerlink" href="#step-9-release-workflow-cli-stable" title="Permanent link">&para;</a></h3>
 <p>Now that the <code>$WORKFLOW_RELEASE</code> version of Workflow CLI has been vetted, we can push <code>stable</code> artifacts based on this version.</p>
-<p>Kick off https://ci.deis.io/job/workflow-cli-build-stable/ with the <code>TAG</code> build parameter of <code>$WORKFLOW_RELEASE</code>
+<p>Kick off https://ci.teamhephy.info/job/workflow-cli-build-stable/ with the <code>TAG</code> build parameter of <code>$WORKFLOW_RELEASE</code>
 and then verify <code>stable</code> artifacts are available and appropriately updated after the job completes:</p>
 <pre class="codehilite"><code>$ curl -sSL http://deis.io/deis-cli/install-v2.sh | bash
 $ ./deis version
@@ -734,7 +734,7 @@ $ ./deis version
 Post a message to the #company channel on Slack. Include a link to the released chart and to the
 master CHANGELOG:</p>
 <pre class="codehilite"><code>@here Deis Workflow v2.17.0 is now live!
-Master CHANGELOG: https://deis.com/docs/workflow/changelogs/v2.17.0/</code></pre>
+Master CHANGELOG: https://teamhephy.info/docs/workflow/changelogs/v2.17.0/</code></pre>
 
 
 <p>You're done with the release. Nice job!</p>
@@ -1263,7 +1263,7 @@ Master CHANGELOG: https://deis.com/docs/workflow/changelogs/v2.17.0/</code></pre
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">

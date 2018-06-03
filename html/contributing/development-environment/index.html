@@ -72,7 +72,7 @@
       <h3>Helm</h3>
       <p>The Package manager for Kubernetes.</p>
     </a></li>
-    <li class="small-6 medium-4 end columns"><a href="https://github.com/deisthree/steward" title="Steward">
+    <li class="small-6 medium-4 end columns"><a href="https://github.com/deis/steward" title="Steward">
       <img src="../../static/img/svg/steward-logo.svg" alt="Steward - The Kubernetes-native Service Broker">
       <h3>Steward</h3>
       <p>The Kubernetes-native Service Broker.</p>
@@ -544,7 +544,7 @@
 <p>We try to make it simple to hack on Deis components. However, there are necessarily several moving pieces and some setup required. We welcome any suggestions for automating or simplifying this process.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Deis team is actively engaged in containerizing Go and Python based development environments tailored specifically for Deis development in order to minimize the setup required.  This work is ongoing.  Refer to the <a href="https://github.com/deisthree/router">deis/router</a> project for a working example of a fully containerized development environment.</p>
+<p>The Deis team is actively engaged in containerizing Go and Python based development environments tailored specifically for Deis development in order to minimize the setup required.  This work is ongoing.  Refer to the <a href="https://github.com/teamhephy/router">teamhephy/router</a> project for a working example of a fully containerized development environment.</p>
 </div>
 <p>If you're just getting into the Deis codebase, look for GitHub issues with the label <a href="https://github.com/issues?q=user%3Adeis+label%3Aeasy-fix+is%3Aopen">easy-fix</a>. These are more straightforward or low-risk issues and are a great way to become more familiar with Deis.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
@@ -557,7 +557,7 @@
 <li><a href="https://github.com/koalaman/shellcheck">shellcheck</a></li>
 <li><a href="https://www.docker.com/">Docker</a> (in a non-Linux environment, you will additionally want <a href="http://docs.docker.com/machine/install-machine/">Docker Machine</a>)</li>
 </ul>
-<p>For <a href="https://github.com/deisthree/controller">deis/controller</a>, in particular, you will also need:</p>
+<p>For <a href="https://github.com/teamhephy/controller">teamhephy/controller</a>, in particular, you will also need:</p>
 <ul>
 <li>Python 2.7 or later (with <code>pip</code>)</li>
 <li>virtualenv (<code>sudo pip install virtualenv</code>)</li>
@@ -603,30 +603,30 @@ $ GOOS=linux GOARCH=amd64 ./make.bash --no-clean</code></pre>
 </div>
 <h2 id="fork-the-repository">Fork the Repository<a class="headerlink" href="#fork-the-repository" title="Permanent link">&para;</a></h2>
 <p>Once the prerequisites have been met, we can begin to work with Deis components.</p>
-<p>Begin at Github by forking whichever Deis project you would like to contribute to, then clone that fork locally.  Since Deis is predominantly written in Go, the best place to put it is under <code>$GOPATH/src/github.com/deis/</code>.</p>
-<pre class="codehilite"><code>$ mkdir -p  $GOPATH/src/github.com/deis
-$ cd $GOPATH/src/github.com/deis
+<p>Begin at Github by forking whichever Hephy project you would like to contribute to, then clone that fork locally.  Since Hephy is predominantly written in Go, the best place to put it is under <code>$GOPATH/src/github.com/teamhephy/</code>.</p>
+<pre class="codehilite"><code>$ mkdir -p  $GOPATH/src/github.com/teamhephy
+$ cd $GOPATH/src/github.com/teamhephy
 $ git clone git@github.com:&lt;username&gt;/&lt;component&gt;.git
 $ cd &lt;component&gt;</code></pre>
 
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By checking out the forked copy into the namespace <code>github.com/deis/&lt;component&gt;</code>, we are tricking the Go toolchain into seeing our fork as the "official" source tree.</p>
+<p>By checking out the forked copy into the namespace <code>github.com/teamhephy/&lt;component&gt;</code>, we are tricking the Go toolchain into seeing our fork as the "official" source tree.</p>
 </div>
 <p>If you are going to be issuing pull requests to the upstream repository from which you forked, we suggest configuring Git such that you can easily rebase your code to the upstream repository's master branch. There are various strategies for doing this, but the <a href="https://help.github.com/articles/fork-a-repo/">most common</a> is to add an <code>upstream</code> remote:</p>
-<pre class="codehilite"><code>$ git remote add upstream https://github.com/deisthree/&lt;component&gt;.git</code></pre>
+<pre class="codehilite"><code>$ git remote add upstream https://github.com/teamhephy/&lt;component&gt;.git</code></pre>
 
 
 <p>For the sake of simplicity, you may want to point an environment variable to your Deis code - the directory containing one or more Deis components:</p>
-<pre class="codehilite"><code>$ export DEIS=$GOPATH/src/github.com/deis</code></pre>
+<pre class="codehilite"><code>$ export DEIS=$GOPATH/src/github.com/teamhephy</code></pre>
 
 
 <p>Throughout the rest of this document, <code>$DEIS</code> refers to that location.</p>
 <h3 id="alternative-forking-with-a-pushurl">Alternative: Forking with a Pushurl<a class="headerlink" href="#alternative-forking-with-a-pushurl" title="Permanent link">&para;</a></h3>
-<p>A number of Deis contributors prefer to pull directly from <code>deis/&lt;component&gt;</code>, but push to <code>&lt;username&gt;/&lt;component&gt;</code>. If that workflow suits you better, you can set it up this way:</p>
-<pre class="codehilite"><code>$ git clone git@github.com:deis/&lt;component&gt;.git
-$ cd deis
+<p>A number of Deis contributors prefer to pull directly from <code>teamhephy/&lt;component&gt;</code>, but push to <code>&lt;username&gt;/&lt;component&gt;</code>. If that workflow suits you better, you can set it up this way:</p>
+<pre class="codehilite"><code>$ git clone git@github.com:teamhephy/&lt;component&gt;.git
+$ cd teamhephy
 $ git config remote.origin.pushurl git@github.com:&lt;username&gt;/&lt;component&gt;.git</code></pre>
 
 
@@ -695,7 +695,7 @@ $ export IMAGE_PREFIX=&lt;your quay.io username&gt;</code></pre>
 
 
 <h3 id="django-shell">Django Shell<a class="headerlink" href="#django-shell" title="Permanent link">&para;</a></h3>
-<p>Specific to <a href="https://github.com/deisthree/controller">deis/controller</a></p>
+<p>Specific to <a href="https://github.com/teamhephy/controller">teamhephy/controller</a></p>
 <pre class="codehilite"><code>$ kubectl --namespace=deis exec -it &lt;pod name&gt; -- python manage.py shell</code></pre>
 
 
@@ -1229,7 +1229,7 @@ things you should do when proposing a change to any Deis component.</p>
               <dt><a id="footer-projects" href="https://deis.com/workflow">Projects</a></dt>
               <dd><a id="footer-workflow" href="https://deis.com/workflow">Workflow</a></dd>
               <dd><a id="footer-helm" href="//helm.sh">Helm</a></dd>
-              <dd><a id="footer-steward" href="https://github.com/deisthree/steward">Steward</a></dd>
+              <dd><a id="footer-steward" href="https://github.com/deis/steward">Steward</a></dd>
             </dl>
           </div>
           <div class="small-6 medium-3 columns">
