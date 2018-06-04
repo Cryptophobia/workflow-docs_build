@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+    kubernetes.io/tls-acme: "true"
+  name: docs.teamhephy.info
+  namespace: docs
+spec:
+  rules:
+  - host: docs.teamhephy.info
+    http:
+      paths:
+      - backend:
+          serviceName: docs
+          servicePort: 80
+        path: /
+  tls:
+  - hosts:
+    - docs.teamhephy.info
+    secretName: docs.teamhephy.info
+status:
+  loadBalancer: {}
