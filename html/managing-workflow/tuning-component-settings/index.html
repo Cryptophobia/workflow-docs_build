@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.20.1" href="changelogs/v2.20.1/">v2.20.1</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.20.0" href="changelogs/v2.20.0/">v2.20.0</a>
           </li>
         
@@ -856,11 +860,32 @@ authentication of user accounts in the <a href="../../understanding-workflow/com
 <h2 id="customizing-the-monitor">Customizing the Monitor<a class="headerlink" href="#customizing-the-monitor" title="Permanent link">&para;</a></h2>
 <h3 id="grafana"><a href="https://grafana.com/">Grafana</a><a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h3>
 <p>We have exposed some of the more useful configuration values directly in the chart. This allows them to be set using either the <code>values.yaml</code> file or by using the <code>--set</code> flag with the Helm CLI. You can see these options below:</p>
-<p>Setting           | Default Value  | Description
------------------ | -------------- |------------ |
-user   | "admin" | The first user created in the database (this user has admin privileges)
-password | "admin" | Password for the first user.
-allow_sign_up | "true" | Allows users to sign up for an account.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>"admin"</td>
+<td>The first user created in the database (this user has admin privileges)</td>
+</tr>
+<tr>
+<td>password</td>
+<td>"admin"</td>
+<td>Password for the first user.</td>
+</tr>
+<tr>
+<td>allow_sign_up</td>
+<td>"true"</td>
+<td>Allows users to sign up for an account.</td>
+</tr>
+</tbody>
+</table>
 <p>For a list of other options you can set by using environment variables please see the <a href="https://github.com/teamhephy/monitor/blob/master/grafana/rootfs/usr/share/grafana/grafana.ini.tpl">configuration file</a> in Github.</p>
 <h3 id="telegraf"><a href="https://docs.influxdata.com/telegraf">Telegraf</a><a class="headerlink" href="#telegraf" title="Permanent link">&para;</a></h3>
 <p>For a list of configuration values that can be set by using environment variables please see the following <a href="https://github.com/teamhephy/monitor/blob/master/telegraf/rootfs/config.toml.tpl">configuration file</a>.</p>
@@ -1283,6 +1308,10 @@ re-configured with zero downtime post-installation. You can find the list of ann
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.20.1" href="../../changelogs/v2.20.1/">v2.20.1</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.20.0" href="../../changelogs/v2.20.0/">v2.20.0</a>
