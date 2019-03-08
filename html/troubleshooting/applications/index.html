@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.20.2" href="changelogs/v2.20.2/">v2.20.2</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.20.1" href="changelogs/v2.20.1/">v2.20.1</a>
           </li>
         
@@ -591,9 +595,12 @@ container has booted. By increasing the healthcheck initial delay timeout to 10 
 application is able to boot and is responding correctly.</p>
 <p>See <a href="../../applications/managing-app-configuration/#custom-health-checks">Custom Health Checks</a> for more information on how to customize the application's
 health checks to better suit the application's needs.</p>
-<h2 id="application-fails-to-connect-to-external-services">Application fails to connect to external services<a class="headerlink" href="#application-fails-to-connect-to-external-services" title="Permanent link">&para;</a></h2>
-<p>If the app is trying to connect to external services located in same region as the kubernetes such ie. off-cluster database, it might fail depending on how the kubernetes automatic firewall is implemented.</p>
-<p>In order to trobleshoot, google cloud GKE has this <a href="https://cloud.google.com/kubernetes-engine/docs/troubleshooting#autofirewall">guide</a> covering the auto firewall rules.</p>
+<h2 id="application-or-workflow-component-fails-to-connect-to-external-services">Application or Workflow component fails to connect to external services<a class="headerlink" href="#application-or-workflow-component-fails-to-connect-to-external-services" title="Permanent link">&para;</a></h2>
+<p>If a Workflow pod is trying to connect to external services hosted in the cloud with the Kubernetes
+cluster, ie. off-cluster database, it might fail depending on the Kubernetes automatic firewall 
+configuration. Since Kubernetes 1.9.x, Google Cloud has implemented new Automatic Firewall rules.</p>
+<p>In order to troubleshoot these issues with the automatic firewall, Google Cloud/GKE has provided
+this <a href="https://cloud.google.com/kubernetes-engine/docs/troubleshooting#autofirewall">guide</a> covering the auto firewall rules.</p>
               </div>
             </div>
           </div>
@@ -957,6 +964,10 @@ health checks to better suit the application's needs.</p>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.20.2" href="../../changelogs/v2.20.2/">v2.20.2</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.20.1" href="../../changelogs/v2.20.1/">v2.20.1</a>

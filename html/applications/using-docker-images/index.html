@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.20.2" href="changelogs/v2.20.2/">v2.20.2</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.20.1" href="changelogs/v2.20.1/">v2.20.1</a>
           </li>
         
@@ -562,8 +566,8 @@ $ cd example-dockerfile-http</code></pre>
 
 <p>Next use your local <code>docker</code> client to build the image and push
 it to <a href="https://registry.hub.docker.com/">DockerHub</a>.</p>
-<pre class="codehilite"><code>$ docker build -t &lt;username&gt;/example-dockerfile-http .
-$ docker push &lt;username&gt;/example-dockerfile-http</code></pre>
+<pre class="codehilite"><code>$ docker build -t &amp;lt;username&amp;gt;/example-dockerfile-http .
+$ docker push &amp;lt;username&amp;gt;/example-dockerfile-http</code></pre>
 
 
 <h3 id="docker-image-requirements">Docker Image Requirements<a class="headerlink" href="#docker-image-requirements" title="Permanent link">&para;</a></h3>
@@ -580,7 +584,7 @@ $ docker push &lt;username&gt;/example-dockerfile-http</code></pre>
 </div>
 <h2 id="create-an-application">Create an Application<a class="headerlink" href="#create-an-application" title="Permanent link">&para;</a></h2>
 <p>Use <code>deis create</code> to create an application on the <a href="../../understanding-workflow/components/#controller">controller</a>.</p>
-<pre class="codehilite"><code>$ mkdir -p /tmp/example-dockerfile-http &amp;&amp; cd /tmp/example-dockerfile-http
+<pre class="codehilite"><code>$ mkdir -p /tmp/example-dockerfile-http &amp;amp;&amp;amp; cd /tmp/example-dockerfile-http
 $ deis create example-dockerfile-http --no-remote
 Creating application... done, created example-dockerfile-http</code></pre>
 
@@ -593,7 +597,7 @@ as the app name if you don't specify it explicitly with <code>--app</code>.</p>
 <h2 id="deploy-the-application">Deploy the Application<a class="headerlink" href="#deploy-the-application" title="Permanent link">&para;</a></h2>
 <p>Use <code>deis pull</code> to deploy your application from <a href="https://registry.hub.docker.com/">DockerHub</a> or
 a public registry.</p>
-<pre class="codehilite"><code>$ deis pull &lt;username&gt;/example-dockerfile-http:latest
+<pre class="codehilite"><code>$ deis pull &amp;lt;username&amp;gt;/example-dockerfile-http:latest
 Creating build...  done, v2
 
 $ curl -s http://example-dockerfile-http.local3.deisapp.com
@@ -991,6 +995,10 @@ however the application <code>port</code> information can no longer be discovere
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.20.2" href="../../changelogs/v2.20.2/">v2.20.2</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.20.1" href="../../changelogs/v2.20.1/">v2.20.1</a>

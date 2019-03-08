@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.20.2" href="changelogs/v2.20.2/">v2.20.2</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.20.1" href="changelogs/v2.20.1/">v2.20.1</a>
           </li>
         
@@ -551,7 +555,7 @@
           <div class="container">
             <div class="row">
               <div class="small-12">
-                <h1 id="install-deis-workflow-on-minikube">Install Deis Workflow on Minikube<a class="headerlink" href="#install-deis-workflow-on-minikube" title="Permanent link">&para;</a></h1>
+                <h1 id="install-hephy-workflow-on-minikube">Install Hephy Workflow on Minikube<a class="headerlink" href="#install-hephy-workflow-on-minikube" title="Permanent link">&para;</a></h1>
 <h2 id="check-your-setup">Check Your Setup<a class="headerlink" href="#check-your-setup" title="Permanent link">&para;</a></h2>
 <p>First check that the <code>helm</code> command is available and the version is v2.5.0 or newer.</p>
 <pre class="codehilite"><code>$ helm version
@@ -560,15 +564,15 @@ Server: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac
 
 
 <p>Ensure the <code>kubectl</code> client is installed and can connect to your Kubernetes cluster.</p>
-<h2 id="add-the-deis-chart-repository">Add the Deis Chart Repository<a class="headerlink" href="#add-the-deis-chart-repository" title="Permanent link">&para;</a></h2>
-<p>The Deis Chart Repository contains everything needed to install Deis Workflow onto a Kubernetes cluster, with a single <code>helm install deis/workflow --namespace deis</code> command.</p>
+<h2 id="add-the-hephy-chart-repository">Add the Hephy Chart Repository<a class="headerlink" href="#add-the-hephy-chart-repository" title="Permanent link">&para;</a></h2>
+<p>The Team Hephy Chart Repository contains everything needed to install Hephy Workflow onto a Kubernetes cluster, with a single <code>helm install hephy/workflow --namespace deis</code> command.</p>
 <p>Add this repository to Helm:</p>
-<pre class="codehilite"><code>$ helm repo add deis https://charts.deis.com/workflow</code></pre>
+<pre class="codehilite"><code>$ helm repo add hephy https://charts.teamhephy.com/</code></pre>
 
 
-<h2 id="install-deis-workflow">Install Deis Workflow<a class="headerlink" href="#install-deis-workflow" title="Permanent link">&para;</a></h2>
+<h2 id="install-hephy-workflow">Install Hephy Workflow<a class="headerlink" href="#install-hephy-workflow" title="Permanent link">&para;</a></h2>
 <p>Now that Helm is installed and the repository has been added, install Workflow by running:</p>
-<pre class="codehilite"><code>$ helm install deis/workflow --namespace deis --set router.host_port.enabled=true</code></pre>
+<pre class="codehilite"><code>$ helm install hephy/workflow --namespace deis --set router.host_port.enabled=true</code></pre>
 
 
 <p>Helm will install a variety of Kubernetes resources in the <code>deis</code> namespace.
@@ -598,7 +602,7 @@ deis-router-k1ond             1/1       Running   0          5m
 deis-workflow-manager-68nu6   1/1       Running   0          5m</code></pre>
 
 
-<p>Once all of the pods are in the <code>READY</code> state, Deis Workflow is up and running!</p>
+<p>Once all of the pods are in the <code>READY</code> state, Hephy Workflow is up and running!</p>
 <p>Next, <a href="../dns/">configure dns</a> so you can register your first user and deploy an application.</p>
               </div>
             </div>
@@ -963,6 +967,10 @@ deis-workflow-manager-68nu6   1/1       Running   0          5m</code></pre>
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.20.2" href="../../../../changelogs/v2.20.2/">v2.20.2</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.20.1" href="../../../../changelogs/v2.20.1/">v2.20.1</a>

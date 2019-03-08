@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.20.2" href="changelogs/v2.20.2/">v2.20.2</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.20.1" href="changelogs/v2.20.1/">v2.20.1</a>
           </li>
         
@@ -559,15 +563,15 @@ Server: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac
 
 
 <p>Ensure the <code>kubectl</code> client is installed and can connect to your Kubernetes cluster.</p>
-<h2 id="add-the-deis-chart-repository">Add the Deis Chart Repository<a class="headerlink" href="#add-the-deis-chart-repository" title="Permanent link">&para;</a></h2>
-<p>The Deis Chart Repository contains everything needed to install Deis Workflow onto a Kubernetes cluster, with a single <code>helm install deis/workflow --namespace deis</code> command.</p>
+<h2 id="add-the-hephy-chart-repository">Add the Hephy Chart Repository<a class="headerlink" href="#add-the-hephy-chart-repository" title="Permanent link">&para;</a></h2>
+<p>The Team Hephy Chart Repository contains everything needed to install Hephy Workflow onto a Kubernetes cluster, with a single <code>helm install hephy/workflow --namespace deis</code> command.</p>
 <p>Add this repository to Helm:</p>
-<pre class="codehilite"><code>$ helm repo add deis https://charts.deis.com/workflow</code></pre>
+<pre class="codehilite"><code>$ helm repo add hephy https://charts.teamhephy.com/</code></pre>
 
 
-<h2 id="install-deis-workflow">Install Deis Workflow<a class="headerlink" href="#install-deis-workflow" title="Permanent link">&para;</a></h2>
+<h2 id="install-hephy-workflow">Install Hephy Workflow<a class="headerlink" href="#install-hephy-workflow" title="Permanent link">&para;</a></h2>
 <p>Now that Helm is installed and the repository has been added, install Workflow by running:</p>
-<pre class="codehilite"><code>$ helm install deis/workflow --namespace deis</code></pre>
+<pre class="codehilite"><code>$ helm install hephy/workflow --namespace deis</code></pre>
 
 
 <p>Helm will install a variety of Kubernetes resources in the <code>deis</code> namespace.
@@ -962,6 +966,10 @@ deis-workflow-manager-68nu6   1/1       Running   0          5m</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.20.2" href="../../changelogs/v2.20.2/">v2.20.2</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.20.1" href="../../changelogs/v2.20.1/">v2.20.1</a>

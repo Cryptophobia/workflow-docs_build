@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.20.2" href="changelogs/v2.20.2/">v2.20.2</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.20.1" href="changelogs/v2.20.1/">v2.20.1</a>
           </li>
         
@@ -602,58 +606,58 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (13/13), done.
 Writing objects: 100% (13/13), 1.99 KiB | 0 bytes/s, done.
 Total 13 (delta 2), reused 0 (delta 0)
------&gt; Building Docker image
+-----&amp;gt; Building Docker image
 Uploading context 4.096 kB
 Uploading context
 Step 0 : FROM deis/base:latest
- ---&gt; 60024338bc63
+ ---&amp;gt; 60024338bc63
 Step 1 : RUN wget -O /tmp/go1.2.1.linux-amd64.tar.gz -q https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz
- ---&gt; Using cache
- ---&gt; cf9ef8c5caa7
+ ---&amp;gt; Using cache
+ ---&amp;gt; cf9ef8c5caa7
 Step 2 : RUN tar -C /usr/local -xzf /tmp/go1.2.1.linux-amd64.tar.gz
- ---&gt; Using cache
- ---&gt; 515b1faf3bd8
+ ---&amp;gt; Using cache
+ ---&amp;gt; 515b1faf3bd8
 Step 3 : RUN mkdir -p /go
- ---&gt; Using cache
- ---&gt; ebf4927a00e9
+ ---&amp;gt; Using cache
+ ---&amp;gt; ebf4927a00e9
 Step 4 : ENV GOPATH /go
- ---&gt; Using cache
- ---&gt; c6a276eded37
+ ---&amp;gt; Using cache
+ ---&amp;gt; c6a276eded37
 Step 5 : ENV PATH /usr/local/go/bin:/go/bin:$PATH
- ---&gt; Using cache
- ---&gt; 2ba6f6c9f108
+ ---&amp;gt; Using cache
+ ---&amp;gt; 2ba6f6c9f108
 Step 6 : ADD . /go/src/github.com/deis/helloworld
- ---&gt; 94ab7f4b977b
+ ---&amp;gt; 94ab7f4b977b
 Removing intermediate container 171b7d9fdb34
-Step 7 : RUN cd /go/src/github.com/deis/helloworld &amp;&amp; go install -v .
- ---&gt; Running in 0c8fbb2d2812
+Step 7 : RUN cd /go/src/github.com/deis/helloworld &amp;amp;&amp;amp; go install -v .
+ ---&amp;gt; Running in 0c8fbb2d2812
 github.com/deis/helloworld
- ---&gt; 13b5af931393
+ ---&amp;gt; 13b5af931393
 Removing intermediate container 0c8fbb2d2812
 Step 8 : ENV PORT 80
- ---&gt; Running in 9b07da36a272
- ---&gt; 2dce83167874
+ ---&amp;gt; Running in 9b07da36a272
+ ---&amp;gt; 2dce83167874
 Removing intermediate container 9b07da36a272
 Step 9 : CMD [&quot;/go/bin/helloworld&quot;]
- ---&gt; Running in f7b215199940
- ---&gt; b1e55ce5195a
+ ---&amp;gt; Running in f7b215199940
+ ---&amp;gt; b1e55ce5195a
 Removing intermediate container f7b215199940
 Step 10 : EXPOSE 80
- ---&gt; Running in 7eb8ec45dcb0
- ---&gt; ea1a8cc93ca3
+ ---&amp;gt; Running in 7eb8ec45dcb0
+ ---&amp;gt; ea1a8cc93ca3
 Removing intermediate container 7eb8ec45dcb0
 Successfully built ea1a8cc93ca3
------&gt; Pushing image to private registry
+-----&amp;gt; Pushing image to private registry
 
        Launching... done, v2
 
------&gt; folksy-offshoot deployed to Deis
+-----&amp;gt; folksy-offshoot deployed to Deis
        http://folksy-offshoot.local3.deisapp.com
 
        To learn more, use `deis help` or visit http://deis.io
 
 To ssh://git@local3.deisapp.com:2222/folksy-offshoot.git
- * [new branch]      master -&gt; master
+ * [new branch]      master -&amp;gt; master
 
 $ curl -s http://folksy-offshoot.local3.deisapp.com
 Welcome to Deis!
@@ -1039,6 +1043,10 @@ RUN echo &quot;Powered by $POWERED_BY&quot; &gt; /etc/motd</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.20.2" href="../../changelogs/v2.20.2/">v2.20.2</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.20.1" href="../../changelogs/v2.20.1/">v2.20.1</a>
