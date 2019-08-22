@@ -217,7 +217,7 @@
           </li>
         
           <li class="toctree-l2">
-          <a class="reference internal current" id="Dockerfiles" href="applications/using-dockerfiles/">Dockerfiles</a>
+          <a class="reference internal current" id="Dockerfiles" href="applications/using-docker-files/">Dockerfiles</a>
           </li>
         
           <li class="toctree-l2">
@@ -582,7 +582,7 @@ the application server. Rails 4, for example, has the following process type:</p
 <pre class="codehilite"><code>web: bundle exec rails server -p $PORT</code></pre>
 
 
-<p>All applications utilizing <a href="../using-dockerfiles/">Dockerfiles</a> have an implied <code>cmd</code> process type, which runs the
+<p>All applications utilizing <a href="../using-docker-files/">Dockerfiles</a> have an implied <code>cmd</code> process type, which runs the
 Dockerfile's <code>CMD</code> directive unmodified:</p>
 <pre class="codehilite"><code>$ cat Dockerfile
 FROM centos:latest
@@ -601,7 +601,7 @@ specified in the Docker image.</p>
 receive HTTP traffic from Workflow’s routers. Other process types can be named arbitrarily.</p>
 </div>
 <h2 id="declaring-process-types">Declaring Process Types<a class="headerlink" href="#declaring-process-types" title="Permanent link">&para;</a></h2>
-<p>If you use <a href="../using-buildpacks/">Buildpack</a> or <a href="../using-dockerfiles/">Dockerfile</a> builds and want to override or specify additional process
+<p>If you use <a href="../using-buildpacks/">Buildpack</a> or <a href="../using-docker-files/">Dockerfile</a> builds and want to override or specify additional process
 types, simply include a file named <code>Procfile</code> in the root of your application's source tree.</p>
 <p>The format of a <code>Procfile</code> is one process type per line, with each line containing the command to invoke:</p>
 <pre class="codehilite"><code>&amp;lt;process type&amp;gt;: &amp;lt;command&amp;gt;</code></pre>
@@ -919,7 +919,7 @@ the Pod to a new node.</p>
                 </li>
             
                 <li class="toctree-l2">
-                <a class="reference internal current" id="Dockerfiles" href="../using-dockerfiles/">Dockerfiles</a>
+                <a class="reference internal current" id="Dockerfiles" href="../using-docker-files/">Dockerfiles</a>
                 </li>
             
                 <li class="toctree-l2">
