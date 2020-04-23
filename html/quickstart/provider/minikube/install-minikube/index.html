@@ -596,7 +596,7 @@ Server: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac
 
 <h2 id="install-hephy-workflow">Install Hephy Workflow<a class="headerlink" href="#install-hephy-workflow" title="Permanent link">&para;</a></h2>
 <p>Now that Helm is installed and the repository has been added, install Workflow by running:</p>
-<pre class="codehilite"><code>$ helm install hephy/workflow --namespace deis --set router.host_port.enabled=true</code></pre>
+<pre class="codehilite"><code>$ helm install hephy/workflow --namespace deis --set global.use_rbac=true,router.host_port.enabled=true</code></pre>
 
 
 <p>Helm will install a variety of Kubernetes resources in the <code>deis</code> namespace.
