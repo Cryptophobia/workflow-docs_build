@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.21.5" href="changelogs/v2.21.5/">v2.21.5</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.21.4" href="changelogs/v2.21.4/">v2.21.4</a>
           </li>
         
@@ -610,7 +614,7 @@ receive HTTP traffic from Workflow’s routers. Other process types can be named
 </div>
 <h2 id="declaring-process-types">Declaring Process Types<a class="headerlink" href="#declaring-process-types" title="Permanent link">&para;</a></h2>
 <p>If you use <a href="../using-buildpacks/">Buildpack</a> or <a href="../using-docker-files/">Dockerfile</a> builds and want to override or specify additional process
-types, simply include a file named <code>Procfile</code> in the root of your application's source tree.</p>
+types, simply pass a stringified Procfile to the <code>--procfile</code> CLI option either inline or as a local file (see examples below)</p>
 <p>The format of a <code>Procfile</code> is one process type per line, with each line containing the command to invoke:</p>
 <pre class="codehilite"><code>&amp;lt;process type&amp;gt;: &amp;lt;command&amp;gt;</code></pre>
 
@@ -627,21 +631,22 @@ web: bundle exec ruby web.rb -p ${PORT:-5000}
 sleeper: sleep 900</code></pre>
 
 
-<p>If you are using <a href="../using-docker-images/">remote Docker images</a>, you may define process types by either running <code>deis pull</code> with a
-<code>Procfile</code> in your working directory, or by passing a stringified Procfile to the <code>--procfile</code> CLI option.</p>
-<p>For example, passing process types inline:</p>
+<p>If you are using <a href="../using-docker-images/">remote Docker images</a> you may also define process types by running <code>deis pull</code> while passing a stringified Procfile to the <code>--procfile</code> CLI option.</p>
+<p>Declaring process types examples</p>
+<ul>
+<li>passing process types inline:</li>
+</ul>
 <pre class="codehilite"><code>$ deis pull deis/example-go:latest --procfile=&quot;cmd: /app/bin/boot&quot;</code></pre>
 
 
-<p>Read a <code>Procfile</code> in another directory:</p>
-<pre class="codehilite"><code>$ deis pull deis/example-go:latest --procfile=&quot;$(cat deploy/Procfile)&quot;</code></pre>
+<ul>
+<li>Reading a <code>Procfile</code>:</li>
+</ul>
+<pre class="codehilite"><code>$ deis pull deis/example-go:latest --procfile=&quot;$(cat deploy/Procfile)&quot;
 
-
-<p>Or via a Procfile located in your current, working directory:</p>
-<pre class="codehilite"><code>$ cat Procfile
+$ cat deploy/Procfile
 cmd: /bin/boot
 sleeper: echo &quot;sleeping&quot;; sleep 900
-
 
 $ deis pull -a steely-mainsail deis/example-go
 Creating build... done
@@ -1147,6 +1152,10 @@ the Pod to a new node.</p>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.21.5" href="../../changelogs/v2.21.5/">v2.21.5</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.21.4" href="../../changelogs/v2.21.4/">v2.21.4</a>
