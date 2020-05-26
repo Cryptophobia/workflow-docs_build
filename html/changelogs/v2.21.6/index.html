@@ -10,12 +10,12 @@
   <meta name="keywords" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="" />
-  <link rel="canonical" href="https://teamhephy.com/docs/workflow/changelogs/v2.19.0/">
+  <link rel="canonical" href="https://teamhephy.com/docs/workflow/changelogs/v2.21.6/">
 
   <meta name="msvalidate.01" content="079E754911917142D42AB2A3694F9267" />
   <meta name="msvalidate.01" content="08598E7D936D9217891AE6C1665A645D" />
 
-  <title>v2.19.0 - Deis Workflow Documentation</title>
+  <title>v2.21.6 - Deis Workflow Documentation</title>
 
   <script type="text/javascript">var documentationBaseURL = "../.."</script>
   <link rel="icon" href="../../static/img/favicon/favicon.png" type="image/png">
@@ -438,7 +438,7 @@
       
         <ul  class="current">
         
-          <li class="toctree-l2">
+          <li class="toctree-l2 current">
           <a class="reference internal current" id="v2.21.6" href="changelogs/v2.21.6/">v2.21.6</a>
           </li>
         
@@ -478,7 +478,7 @@
           <a class="reference internal current" id="v2.20.0" href="changelogs/v2.20.0/">v2.20.0</a>
           </li>
         
-          <li class="toctree-l2 current">
+          <li class="toctree-l2">
           <a class="reference internal current" id="v2.19.0" href="changelogs/v2.19.0/">v2.19.0</a>
           </li>
         
@@ -583,71 +583,75 @@
           <div class="container">
             <div class="row">
               <div class="small-12">
-                <h2 id="workflow-v2180-v2190">Workflow v2.18.0 -&gt; v2.19.0<a class="headerlink" href="#workflow-v2180-v2190" title="Permanent link">&para;</a></h2>
+                <h2 id="workflow-v2215-v2216">Workflow v2.21.5 -&gt; v2.21.6<a class="headerlink" href="#workflow-v2215-v2216" title="Permanent link">&para;</a></h2>
 <h4 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h4>
 <ul>
-<li>builder v2.12.0 -&gt; v2.13.0</li>
-<li>controller v2.17.3 -&gt; v2.19.0</li>
-<li>dockerbuilder v2.7.3 -&gt; v2.8.0</li>
-<li>fluentd v2.12.0 -&gt; v2.13.0</li>
-<li>logger v2.4.5 -&gt; v2.5.0</li>
-<li>minio v2.3.6 -&gt; v2.4.1</li>
-<li>monitor v2.10.1 -&gt; v2.11.0</li>
-<li>nsq v2.2.8 -&gt; v2.3.0</li>
-<li>postgres v2.5.6 -&gt; v2.6.0</li>
-<li>redis v2.2.7 -&gt; v2.3.0</li>
-<li>registry v2.4.2 -&gt; v2.5.0</li>
-<li>registry-token-refresher v1.1.3 -&gt; v1.2.0</li>
-<li>router v2.13.3 -&gt; v2.14.0</li>
-<li>slugbuilder v2.5.0 -&gt; v2.6.0</li>
-<li>slugrunner v2.4.0 -&gt; v2.5.0</li>
-<li>workflow v2.18.0 -&gt; v2.19.0</li>
-<li>workflow-cli v2.19.0 -&gt; v2.18.0</li>
-<li>workflow-e2e v2.13.0 -&gt; v2.13.99</li>
-<li>workflow-manager v2.5.1 -&gt; v2.6.0</li>
+<li>builder v2.13.3 -&gt; v2.13.5</li>
+<li>controller v2.20.6 -&gt; v2.20.7</li>
+<li>dockerbuilder v2.8.0 -&gt; v2.8.1</li>
+<li>router v2.16.3 -&gt; v2.17.0</li>
+<li>slugbuilder v2.7.4 -&gt; v2.7.5</li>
+<li>workflow v2.21.5 -&gt; v2.21.6</li>
+<li>workflow-cli v2.21.5 -&gt; v2.21.6</li>
+<li>workflow-e2e v2.21.5 -&gt; v2.21.6</li>
 </ul>
 <h4 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="https://github.com/teamhephy/controller/commit/68ee0afd620659c7c6748c9d95d30eb6a3e5b3d8">68ee0af</a> (controller) - Adding procfile_structure on app api</li>
-<li><a href="https://github.com/teamhephy/controller/commit/aef1f6b3cd3b57c778e6141cb818a8022ac5d727">aef1f6b</a> (controller) - Adding exception field on release api</li>
-<li><a href="https://github.com/teamhephy/controller/commit/5c1b73688b9435fcdb3af54f034456320bd53951">5c1b736</a> (controller) - Adding lifecycle hooks to deis-controller api</li>
+<li><a href="https://github.com/teamhephy/builder/commit/e124995ceb6c38f735046b77b0070cdba5f7f6e1"><code>e124995</code></a> (builder) - builder: Less verbose buildpack output</li>
+<li><a href="https://github.com/teamhephy/builder/commit/5c21be2aaca7a60e874391b24380f52cd31589d7"><code>5c21be2</code></a> (builder) - builder: add git_lock_timeout in values.yml</li>
+<li><a href="https://github.com/teamhephy/router/commit/b0686d708caf15c91bdd71b7b0f61d6e357af1b4"><code>b0686d7</code></a> (router) - model: add chacha draft to default ciphers</li>
+<li><a href="https://github.com/teamhephy/router/commit/a836ede19deb5e4ecca7a81418c9cbb1c5f75390"><code>a836ede</code></a> (router) - model: support equal preference ciphers</li>
+<li><a href="https://github.com/teamhephy/router/commit/f75fdc2b44261947ef6fe3ad3c7cbd283269d5d1"><code>f75fdc2</code></a> (router) - model: let clients prefer aes128 ciphers</li>
+<li><a href="https://github.com/teamhephy/router/commit/addb06a4123776a7782f893c356a82641a84d4d5"><code>addb06a</code></a> (router) - model: enable TLSv1.3 in nginx by default</li>
+<li><a href="https://github.com/teamhephy/router/commit/9e70a6dd3be8b391ebb5c91d8c6d998654f3b264"><code>9e70a6d</code></a> (router) - nginx: enable tls 1.3 0-rtt for safe http methods</li>
 </ul>
 <h4 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="https://github.com/teamhephy/minio/commit/e72b608533d63c6400d04a32a2915119415c816c"><code>e72b608</code></a> (minio) - minio: correct architecture</li>
-<li><a href="https://github.com/teamhephy/router/commit/7e76671b114039d5004a8ef7394ef7b8ab0c3a9b"><code>7e76671</code></a> (router) - nginx: fix(nginx) wait for nginx reload to avoid zombies</li>
-<li><a href="https://github.com/teamhephy/controller/commit/c60680f267ff1449281d227e9cfcb6295034d064"><code>c60680f</code></a> (controller) - clusterrole: deis run need pods-create perms rbac</li>
-<li><a href="https://github.com/teamhephy/controller/pull/5/commits/c60680f267ff1449281d227e9cfcb6295034d064"><code>c60680f</code></a> (controller) - Fixes issue <a href="https://github.com/teamhephy/controller/issues/4">#4</a> deis run need pods-create perms rbac</li>
+<li><a href="https://github.com/teamhephy/builder/commit/cfa271d9b8d367ec5837ce9961e019784a7818a6"><code>cfa271d</code></a> (builder) - Dockerfile: switch to bionic hephy/base:v0.4.1</li>
+<li><a href="https://github.com/teamhephy/controller/commit/17448e254dc2aea3ae4b42082b69ea6b6e4b38a1"><code>17448e2</code></a> (controller) - Dockerfile: fix django python3-distutils on bionic 18.04</li>
+<li><a href="https://github.com/teamhephy/router/commit/fa24e707b90f963514281df66603fb4de6ee955b"><code>fa24e70</code></a> (router) - model: fix(model) allow enabling TLSv1.3 protocol</li>
+<li><a href="https://github.com/teamhephy/router/commit/406f0bbf57b1aef252f523ffdb3eed551668cecb"><code>406f0bb</code></a> (router) - model: fix advanced ciphers validation</li>
+<li><a href="https://github.com/teamhephy/router/commit/492abc3e6bc254870c430effa670b5b2d599f76d"><code>492abc3</code></a> (router) - model: allow tls 1.3 cipher suite names</li>
+<li><a href="https://github.com/teamhephy/router/commit/35ac8c3edd1cdeb6fd09dc08a115f3e637a1e5ee"><code>35ac8c3</code></a> (router) - model: add missing tls 1.3 default ciphers</li>
+<li><a href="https://github.com/teamhephy/router/commit/94e77aeb8f9f646ebfb2f26bd72aabc2f8156308"><code>94e77ae</code></a> (router) - readme: escape pipe characters in table cells</li>
 </ul>
 <h4 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="https://github.com/teamhephy/builder/commit/64fea2112d19cafa15137320633e9416019e09fb"><code>64fea21</code></a> (builder) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/builder/commit/81c9d54bcd0a9669fe7abc1cfacf93e249a31103"><code>81c9d54</code></a> (builder) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/dockerbuilder/commit/54181df684d96de97bb1738d8fdc5b5624a9115e"><code>54181df</code></a> (dockerbuilder) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/dockerbuilder/commit/aec212a396d9a49cf5362073d75e73d5bf081e77"><code>aec212a</code></a> (dockerbuilder) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/minio/commit/ffb243b3249367dd60763481802664c0627d29af"><code>ffb243b</code></a> (minio) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/minio/commit/2edc14f4aa159d2c3fd507d9a0e13ba7394d5446"><code>2edc14f</code></a> (minio) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/monitor/commit/9e637e4f5025614a6280f454a6d6f0acd0823277"><code>9e637e4</code></a> (monitor) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/monitor/commit/f5ab74041f95281accbc5365a601bfd9a46eecc7"><code>f5ab740</code></a> (monitor) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/nsq/commit/27562f5cda35e1b54445b84da3871cb4d8864dd9"><code>27562f5</code></a> (nsq) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/nsq/commit/110ddb46f5a922f868f19b321c854c20d1585fcc"><code>110ddb4</code></a> (nsq) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/redis/commit/f8d0b02394abd213253d1d88b209a8369895abc4"><code>f8d0b02</code></a> (redis) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/redis/commit/10b6ba4012d98518ceedad8c03ee1fc8c31d506d"><code>10b6ba4</code></a> (redis) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/registry/commit/993044cf65211768cf9c22b7b2ee5aba2be35090"><code>993044c</code></a> (registry) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/registry/commit/8d663188eae011b4475ad32ce2431ec0b9a1e808"><code>8d66318</code></a> (registry) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/registry-token-refresher/commit/4de040efd6298a3399b2561278caf66af1eeabf8"><code>4de040e</code></a> (registry-token-refresher) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/registry-token-refresher/commit/245ff33c2b9772ac4ecae36a178cf83d89bd6b6c"><code>245ff33</code></a> (registry-token-refresher) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/slugbuilder/commit/ee5cd1a59655e81e8df6318039fb4a57969f485f"><code>ee5cd1a</code></a> (slugbuilder) - README.md: remove outdated license blurb</li>
-<li><a href="https://github.com/teamhephy/slugbuilder/commit/e3fcacc0a19d913a83f7bb0c1227070007073c93"><code>e3fcacc</code></a> (slugbuilder) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/slugrunner/commit/63b716e8c43693c75dcd47450c8c5a244c074882"><code>63b716e</code></a> (slugrunner) - README.md: add notice of final release and maintenance mode</li>
-<li><a href="https://github.com/teamhephy/workflow-manager/commit/3ed81960bef0eea133f7c151023f410d8d001727"><code>3ed8196</code></a> (workflow-manager) - README.md: add notice of final release and maintenance mode</li>
+<li><a href="https://github.com/teamhephy/workflow/commit/952b1887c9326384ac430d12be307bf685b5bdc5"><code>952b188</code></a> (workflow) - cli: fix to stable on cli instructions and date of v2.21.5</li>
+<li><a href="https://github.com/teamhephy/workflow/commit/86b5fa8d48047c335db6eebecfef2ea35f15cfe7"><code>86b5fa8</code></a> (workflow) - README: add new hephy fox static logos</li>
+<li><a href="https://github.com/teamhephy/workflow/commit/0cb9ae5dbcba25019763a13b537789ab6a5cb013"><code>0cb9ae5</code></a> (workflow) - README: add new hephy fox static logos</li>
+<li><a href="https://github.com/teamhephy/workflow/commit/5202b295b5e24877523bb99e3fd8d32ca49df42a"><code>5202b29</code></a> (workflow) - logo: change logo to svg and make responsive</li>
 </ul>
 <h4 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="https://github.com/teamhephy/router/commit/28c463f58a87937e531c6a6e0134c033e3ac23b9"><code>28c463f</code></a> (router) - nginx: Updating to nginx 1.13.7 </li>
-<li><a href="https://github.com/teamhephy/controller/commit/ddbd8acef713e10c2918c28f1967ed937e32a817"><code>713e10c</code></a> (controller) - charts: add support for rbac v1 API endpoint</li>
-<li><a href="https://github.com/teamhephy/controller/commit/ddbd8acef713e10c2918c28f1967ed937e32a817"><code>713e10c</code></a> (router) - charts: add support for rbac v1 API endpoint</li>
-<li><a href="https://github.com/teamhephy/controller/commit/ddbd8acef713e10c2918c28f1967ed937e32a817"><code>713e10c</code></a> (builder) - charts: add support for rbac v1 API endpoint</li>
+<li><a href="https://github.com/teamhephy/builder/commit/250b066dff75d100046c13d009a4f7b97eea1a64"><code>250b066</code></a> (builder) - glide: update the google api and grpc packages</li>
+<li><a href="https://github.com/teamhephy/builder/commit/1dae5787cacf00e053abed38f6e23fd5119bb532"><code>1dae578</code></a> (builder) - travis: add travis ci build status badge</li>
+<li><a href="https://github.com/teamhephy/builder/commit/227bc7af239b60e0f910c119b3e006b51db4450a"><code>227bc7a</code></a> (builder) - travis: running gofmt to fix lint errors</li>
+<li><a href="https://github.com/teamhephy/builder/commit/9bdabc8b30b7a27877f725e3c5cdacd5077fce45"><code>9bdabc8</code></a> (builder) - travis: trying go version 1.12.x</li>
+<li><a href="https://github.com/teamhephy/builder/commit/2ff442fa10136593af0c299db6bcae9e2761b5bc"><code>2ff442f</code></a> (builder) - go-dev: upgrading go-dev container to v1.25.0</li>
+<li><a href="https://github.com/teamhephy/builder/commit/77a6c090d3caf634936f9ef5c74ccce0d39c63a5"><code>77a6c09</code></a> (builder) - linter: Make the mandatory linters happy</li>
+<li><a href="https://github.com/teamhephy/builder/commit/7bae8b64c501e76d4f79253cc38fb4829ac169d8"><code>7bae8b6</code></a> (builder) - linter: gofmt -s</li>
+<li><a href="https://github.com/teamhephy/builder/commit/79eaf4ed0f1a528a999fab86eb36f03fa3090f22"><code>79eaf4e</code></a> (builder) - linter: fix missing buildPackDebug in k8s_util_test</li>
+<li><a href="https://github.com/teamhephy/builder/commit/c765eaf58d92e6868913765e65795548931032d5"><code>c765eaf</code></a> (builder) - go-dev: move to image fork hephy/go-dev:v1.25.1</li>
+<li><a href="https://github.com/teamhephy/builder/commit/5d382c3670d628815c94230472f927b22c02f829"><code>5d382c3</code></a> (builder) - glide: upgrade and pin glide and fix distribution package</li>
+<li><a href="https://github.com/teamhephy/builder/commit/541cf245996078b5291ee804b522ed990ddd88fe"><code>541cf24</code></a> (builder) - go-dev: upgrading go-dev container to v1.26.2</li>
+<li><a href="https://github.com/teamhephy/builder/commit/4591544a61520a69d2cdb4c87b5895d9a51960ce"><code>4591544</code></a> (builder) - glide: upgrade k8s.io/kubernetes to 1.4.0-alpha.2</li>
+<li><a href="https://github.com/teamhephy/builder/commit/71c4322169c8fcbc1693d845f93dc065d97f7266"><code>71c4322</code></a> (builder) - glide: upgrade k8s.io/kubernetes to 1.4.12</li>
+<li><a href="https://github.com/teamhephy/builder/commit/79f825cbc6e25161b663758260435c5699536763"><code>79f825c</code></a> (builder) - Dockerfile: switch to bionic lts hephy/base:v0.4.0</li>
+<li><a href="https://github.com/teamhephy/controller/commit/1c585dafa69f9fd26e23ae6341958f167742b30b"><code>1c585da</code></a> (controller) - Dockerfile: switch to bionic lts hephy/base:v0.4.0</li>
+<li><a href="https://github.com/teamhephy/controller/commit/8e2e254f31e8784dbf0e963da7751ee5eed856c2"><code>8e2e254</code></a> (controller) - Dockerfile.test: switch to posgresql 10 on bionic for testing</li>
+<li><a href="https://github.com/teamhephy/dockerbuilder/commit/d024ffd5869d3e0591ac6c45f6f3a427dad51526"><code>d024ffd</code></a> (dockerbuilder) - Dockerfile: switch to bionic lts hephy/base:v0.4.0</li>
+<li><a href="https://github.com/teamhephy/dockerbuilder/commit/c023f8d777b5116569b00c8e42f5359fec0931f2"><code>c023f8d</code></a> (dockerbuilder) - Dockerfile: add hephy-obj-storage-cli gcs bucket</li>
+<li><a href="https://github.com/teamhephy/router/commit/c66187bd2977d59f72f019a5022664092300e590"><code>c66187b</code></a> (router) - rootfs: nginx 1.18.0, openssl 1.1.1g</li>
+<li><a href="https://github.com/teamhephy/router/commit/3b3fd71c91f97b5506cd3b4728c6e9f5b8d25323"><code>3b3fd71</code></a> (router) - rootfs: use cloudflare zlib for nginx</li>
+<li><a href="https://github.com/teamhephy/router/commit/63e6a3564bb43ec9a5f24243b18548fe6df0608f"><code>63e6a35</code></a> (router) - model: remove redundant !DSS cipher rule</li>
+<li><a href="https://github.com/teamhephy/router/commit/4bec8bd01552d6d6dc9f7b58fab4d9e1311e5a5e"><code>4bec8bd</code></a> (router) - build: chore(build) update to latest go-dev image</li>
+<li><a href="https://github.com/teamhephy/router/commit/ae978f824d8bbfbff2d7b55d7b3ee26707f084ec"><code>ae978f8</code></a> (router) - Dockerfile: switch to bionic lts hephy/base:v0.4.0</li>
+<li><a href="https://github.com/teamhephy/router/commit/8418aeec68c3929a6156e1d15712718cdf945df6"><code>8418aee</code></a> (router) - Dockerfile: switch to bionic lts hephy/base:v0.4.0</li>
+<li><a href="https://github.com/teamhephy/router/commit/29e3c653520e50072695d21bd3e7c520d355f230"><code>29e3c65</code></a> (router) - scripts: ensure get scripts fail when errors</li>
+<li><a href="https://github.com/teamhephy/router/commit/b75142d633abc0748225028f06de262d933c13c2"><code>b75142d</code></a> (router) - rootfs: update to hephy/base:v0.4.1 image</li>
+<li><a href="https://github.com/teamhephy/router/commit/8338d41668ff4a0476f2c8f82434e0ac7eab7947"><code>8338d41</code></a> (router) - rootfs: build custom openssl debs for nginx</li>
+<li><a href="https://github.com/teamhephy/slugbuilder/commit/6196ed6f3e23621e151535c20e588746fb9fe031"><code>6196ed6</code></a> (slugbuilder) - buildpacks: update all buildpacks to latest versions</li>
 </ul>
               </div>
             </div>
@@ -1013,8 +1017,8 @@
         
             <ul style="display: none;" class="current">
             
-                <li class="toctree-l2">
-                <a class="reference internal current" id="v2.21.6" href="../v2.21.6/">v2.21.6</a>
+                <li class="toctree-l2 current">
+                <a class="reference internal current" id="v2.21.6" href="./">v2.21.6</a>
                 </li>
             
                 <li class="toctree-l2">
@@ -1053,8 +1057,8 @@
                 <a class="reference internal current" id="v2.20.0" href="../v2.20.0/">v2.20.0</a>
                 </li>
             
-                <li class="toctree-l2 current">
-                <a class="reference internal current" id="v2.19.0" href="./">v2.19.0</a>
+                <li class="toctree-l2">
+                <a class="reference internal current" id="v2.19.0" href="../v2.19.0/">v2.19.0</a>
                 </li>
             
                 <li class="toctree-l2">
