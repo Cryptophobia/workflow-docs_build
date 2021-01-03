@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -608,22 +612,22 @@
 </li>
 </ul>
 <pre class="codehilite"><code>$ deis keys:add ~/.ssh/id_deis.pub
-Uploading id_deis.pub to deis... done</code></pre>
-
+Uploading id_deis.pub to deis... done
+</code></pre>
 
 <p>Read more about adding/removing SSH Keys <a href="../../users/ssh-keys/#adding-and-removing-ssh-keys">here</a>.</p>
 <h2 id="prepare-an-application">Prepare an Application<a class="headerlink" href="#prepare-an-application" title="Permanent link">&para;</a></h2>
 <p>If you do not have an existing application, you can clone an example application that demonstrates the Heroku Buildpack workflow.</p>
 <pre class="codehilite"><code>$ git clone https://github.com/teamhephy/example-go.git
-$ cd example-go</code></pre>
-
+$ cd example-go
+</code></pre>
 
 <h2 id="create-an-application">Create an Application<a class="headerlink" href="#create-an-application" title="Permanent link">&para;</a></h2>
 <p>Use <code>deis create</code> to create an application on the <a href="../../understanding-workflow/components/#controller">Controller</a>.</p>
 <pre class="codehilite"><code>$ deis create
 Creating application... done, created skiing-keypunch
-Git remote deis added</code></pre>
-
+Git remote deis added
+</code></pre>
 
 <h2 id="push-to-deploy">Push to Deploy<a class="headerlink" href="#push-to-deploy" title="Permanent link">&para;</a></h2>
 <p>Use <code>git push deis master</code> to deploy your application.</p>
@@ -634,13 +638,13 @@ Compressing objects: 100% (48/48), done.
 Writing objects: 100% (75/75), 18.28 KiB | 0 bytes/s, done.
 Total 75 (delta 30), reused 58 (delta 22)
 Starting build... but first, coffee!
------&amp;gt; Go app detected
------&amp;gt; Checking Godeps/Godeps.json file.
------&amp;gt; Installing go1.4.2... done
------&amp;gt; Running: godep go install -tags heroku ./...
------&amp;gt; Discovering process types
-       Procfile declares types -&amp;gt; web
------&amp;gt; Compiled slug size is 1.7M
+-----&gt; Go app detected
+-----&gt; Checking Godeps/Godeps.json file.
+-----&gt; Installing go1.4.2... done
+-----&gt; Running: godep go install -tags heroku ./...
+-----&gt; Discovering process types
+       Procfile declares types -&gt; web
+-----&gt; Compiled slug size is 1.7M
 Build complete.
 Launching app.
 Launching...
@@ -651,12 +655,12 @@ Use 'deis open' to view this application in your browser
 To learn more, use 'deis help' or visit http://deis.io
 
 To ssh://git@deis.staging-2.deis.com:2222/skiing-keypunch.git
- * [new branch]      master -&amp;gt; master
+ * [new branch]      master -&gt; master
 
 $ curl -s http://skiing-keypunch.example.com
 Powered by Deis
-Release v2 on skiing-keypunch-v2-web-02zb9</code></pre>
-
+Release v2 on skiing-keypunch-v2-web-02zb9
+</code></pre>
 
 <p>Because a Heroku-style application is detected, the <code>web</code> process type is automatically scaled to 1 on first deploy.</p>
 <p>Use <code>deis scale web=3</code> to increase <code>web</code> processes to 3, for example. Scaling a
@@ -690,8 +694,8 @@ are pushing.</p>
 Creating config... done, v2
 
 === humble-autoharp
-BUILDPACK_URL: https://github.com/dpiddy/heroku-buildpack-ruby-minimal</code></pre>
-
+BUILDPACK_URL: https://github.com/dpiddy/heroku-buildpack-ruby-minimal
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -703,8 +707,8 @@ BUILDPACK_URL: https://github.com/dpiddy/heroku-buildpack-ruby-minimal</code></p
 app, which may require notifying a service that the <a href="../../understanding-workflow/components/#builder">Builder</a> has finished compiling the app. In
 order to do this, an app can provide two files in their <code>bin/</code> directory:</p>
 <pre class="codehilite"><code>bin/pre-compile
-bin/post-compile</code></pre>
-
+bin/post-compile
+</code></pre>
 
 <p>The builder will run these commands before and after the build process, respectively.</p>
 <h2 id="using-private-repositories">Using Private Repositories<a class="headerlink" href="#using-private-repositories" title="Permanent link">&para;</a></h2>
@@ -713,15 +717,16 @@ which has access. Use either the path of a private key file or the raw key mater
 <pre class="codehilite"><code>$ deis config:set SSH_KEY=/home/user/.ssh/id_rsa
 $ deis config:set SSH_KEY=&quot;&quot;&quot;-----BEGIN RSA PRIVATE KEY-----
 (...)
------END RSA PRIVATE KEY-----&quot;&quot;&quot;</code></pre>
-
+-----END RSA PRIVATE KEY-----&quot;&quot;&quot;
+</code></pre>
 
 <p>For example, to use a custom buildpack hosted at a private GitHub URL, ensure that an SSH public
 key exists in your <a href="https://github.com/settings/ssh">GitHub settings</a>. Then set <code>SSH_KEY</code> to the corresponding SSH private key
 and set <code>BUILDPACK_URL</code> to the URL:</p>
 <pre class="codehilite"><code>$ deis config:set SSH_KEY=/home/user/.ssh/github_id_rsa
 $ deis config:set BUILDPACK_URL=git@github.com:user/private_buildpack.git
-$ git push deis master</code></pre>
+$ git push deis master
+</code></pre>
               </div>
             </div>
           </div>
@@ -1085,6 +1090,10 @@ $ git push deis master</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

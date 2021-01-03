@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -622,8 +626,8 @@
 <h3 id="configuring-go">Configuring Go<a class="headerlink" href="#configuring-go" title="Permanent link">&para;</a></h3>
 <p>If your local workstation does not support the <code>linux/amd64</code> target environment, you will have to install Go from source with cross-compile support for that environment. This is because some of the components are built on your local machine and then injected into a Docker container.</p>
 <p>Homebrew users can just install with cross compiling support:</p>
-<pre class="codehilite"><code>$ brew install go --with-cc-common</code></pre>
-
+<pre class="codehilite"><code>$ brew install go --with-cc-common
+</code></pre>
 
 <p>It is also straightforward to build Go from source:</p>
 <pre class="codehilite"><code>$ sudo su
@@ -631,8 +635,8 @@ $ curl -sSL https://golang.org/dl/go1.5.src.tar.gz | tar -v -C /usr/local -xz
 $ cd /usr/local/go/src
 $ # compile Go for our default platform first, then add cross-compile support
 $ ./make.bash --no-clean
-$ GOOS=linux GOARCH=amd64 ./make.bash --no-clean</code></pre>
-
+$ GOOS=linux GOARCH=amd64 ./make.bash --no-clean
+</code></pre>
 
 <p>Once you can compile to <code>linux/amd64</code>, you should be able to compile Deis components as normal.</p>
 <h3 id="configuring-docker-machine-mac">Configuring Docker Machine (Mac)<a class="headerlink" href="#configuring-docker-machine-mac" title="Permanent link">&para;</a></h3>
@@ -644,13 +648,13 @@ $ GOOS=linux GOARCH=amd64 ./make.bash --no-clean</code></pre>
     --engine-insecure-registry 10.0.0.0/8 \
     --engine-insecure-registry 172.16.0.0/12 \
     --engine-insecure-registry 192.168.0.0/16 \
-    --engine-insecure-registry 100.64.0.0/10</code></pre>
-
+    --engine-insecure-registry 100.64.0.0/10
+</code></pre>
 
 <p>This will create a new virtual machine named <code>deis-docker</code> that will take up as much as 100,000 MB of disk space. The images you build may be large, so allocating a big disk is a good idea.</p>
 <p>Once the <code>deis-docker</code> machine exists, source its values into your environment so your docker client knows how to use the new machine. You may even choose to add this to your bash profile or similar.</p>
-<pre class="codehilite"><code>$ eval &quot;$(docker-machine env deis-docker)&quot;</code></pre>
-
+<pre class="codehilite"><code>$ eval &quot;$(docker-machine env deis-docker)&quot;
+</code></pre>
 
 <p>After following these steps, some Docker Machine users report a slight delay (30 - 60 seconds) before the Docker server is ready.</p>
 <div class="admonition note">
@@ -663,28 +667,28 @@ $ GOOS=linux GOARCH=amd64 ./make.bash --no-clean</code></pre>
 <pre class="codehilite"><code>$ mkdir -p  $GOPATH/src/github.com/teamhephy
 $ cd $GOPATH/src/github.com/teamhephy
 $ git clone git@github.com:&lt;username&gt;/&lt;component&gt;.git
-$ cd &lt;component&gt;</code></pre>
-
+$ cd &lt;component&gt;
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By checking out the forked copy into the namespace <code>github.com/teamhephy/&lt;component&gt;</code>, we are tricking the Go toolchain into seeing our fork as the "official" source tree.</p>
 </div>
 <p>If you are going to be issuing pull requests to the upstream repository from which you forked, we suggest configuring Git such that you can easily rebase your code to the upstream repository's master branch. There are various strategies for doing this, but the <a href="https://help.github.com/articles/fork-a-repo/">most common</a> is to add an <code>upstream</code> remote:</p>
-<pre class="codehilite"><code>$ git remote add upstream https://github.com/teamhephy/&lt;component&gt;.git</code></pre>
-
+<pre class="codehilite"><code>$ git remote add upstream https://github.com/teamhephy/&lt;component&gt;.git
+</code></pre>
 
 <p>For the sake of simplicity, you may want to point an environment variable to your Deis code - the directory containing one or more Deis components:</p>
-<pre class="codehilite"><code>$ export DEIS=$GOPATH/src/github.com/teamhephy</code></pre>
-
+<pre class="codehilite"><code>$ export DEIS=$GOPATH/src/github.com/teamhephy
+</code></pre>
 
 <p>Throughout the rest of this document, <code>$DEIS</code> refers to that location.</p>
 <h3 id="alternative-forking-with-a-pushurl">Alternative: Forking with a Pushurl<a class="headerlink" href="#alternative-forking-with-a-pushurl" title="Permanent link">&para;</a></h3>
 <p>A number of Deis contributors prefer to pull directly from <code>teamhephy/&lt;component&gt;</code>, but push to <code>&lt;username&gt;/&lt;component&gt;</code>. If that workflow suits you better, you can set it up this way:</p>
 <pre class="codehilite"><code>$ git clone git@github.com:teamhephy/&lt;component&gt;.git
 $ cd teamhephy
-$ git config remote.origin.pushurl git@github.com:&lt;username&gt;/&lt;component&gt;.git</code></pre>
-
+$ git config remote.origin.pushurl git@github.com:&lt;username&gt;/&lt;component&gt;.git
+</code></pre>
 
 <p>In this setup, fetching and pulling code will work directly with the upstream repository, while pushing code will send changes to your fork. This makes it easy to stay up to date, but also make changes and then issue pull requests.</p>
 <h2 id="make-your-changes">Make Your Changes<a class="headerlink" href="#make-your-changes" title="Permanent link">&para;</a></h2>
@@ -699,27 +703,27 @@ $ git config remote.origin.pushurl git@github.com:&lt;username&gt;/&lt;component
 <p>To facilitate deploying Docker images containing your changes to your Kubernetes cluster, you will need to make use of a Docker registry.  This is a location to where you can push your custom-built images and from where your Kubernetes cluster can retrieve those same images.</p>
 <p>If your development cluster runs locally (in Minikube, for instance), the most efficient and economical means of achieving this is to run a Docker registry locally <em>as</em> a Docker container.</p>
 <p>To facilitate this, most Deis components provide a make target to create such a registry:</p>
-<pre class="codehilite"><code>$ make dev-registry</code></pre>
-
+<pre class="codehilite"><code>$ make dev-registry
+</code></pre>
 
 <p>In a Linux environment, to begin using the registry:</p>
-<pre class="codehilite"><code>export DEIS_REGISTRY=&lt;IP of the host machine&gt;:5000</code></pre>
-
+<pre class="codehilite"><code>export DEIS_REGISTRY=&lt;IP of the host machine&gt;:5000
+</code></pre>
 
 <p>In non-Linux environments:</p>
-<pre class="codehilite"><code>export DEIS_REGISTRY=&lt;IP of the deis-docker Docker Machine VM&gt;:5000/</code></pre>
-
+<pre class="codehilite"><code>export DEIS_REGISTRY=&lt;IP of the deis-docker Docker Machine VM&gt;:5000/
+</code></pre>
 
 <p>If your development cluster runs on a cloud provider such as Google Container Engine, a local registry such as the one above will not be accessible to your Kubernetes nodes.  In such cases, a public registry such as <a href="https://hub.docker.com/">DockerHub</a> or <a href="https://quay.io/">quay.io</a> will suffice.</p>
 <p>To use DockerHub for this purpose, for instance:</p>
 <pre class="codehilite"><code>$ export DEIS_REGISTRY=&quot;&quot;
-$ export IMAGE_PREFIX=&lt;your DockerHub username&gt;</code></pre>
-
+$ export IMAGE_PREFIX=&lt;your DockerHub username&gt;
+</code></pre>
 
 <p>To use quay.io:</p>
 <pre class="codehilite"><code>$ export DEIS_REGISTRY=quay.io/
-$ export IMAGE_PREFIX=&lt;your quay.io username&gt;</code></pre>
-
+$ export IMAGE_PREFIX=&lt;your quay.io username&gt;
+</code></pre>
 
 <p>Note the importance of the trailing slash.</p>
 <h3 id="dev-deployment-workflow">Dev / Deployment Workflow<a class="headerlink" href="#dev-deployment-workflow" title="Permanent link">&para;</a></h3>
@@ -732,28 +736,28 @@ $ export IMAGE_PREFIX=&lt;your quay.io username&gt;</code></pre>
 <li>Use <code>make deploy</code> to restart the component using the updated manifest</li>
 </ol>
 <p>This can be shortened to a one-liner using just the <code>deploy</code> target:</p>
-<pre class="codehilite"><code>$ make deploy</code></pre>
-
+<pre class="codehilite"><code>$ make deploy
+</code></pre>
 
 <h2 id="useful-commands">Useful Commands<a class="headerlink" href="#useful-commands" title="Permanent link">&para;</a></h2>
 <p>Once your customized Deis component has been deployed, here are some helpful commands that will allow you to inspect your cluster and to troubleshoot, if necessary:</p>
 <h3 id="see-all-deis-pods">See All Deis Pods<a class="headerlink" href="#see-all-deis-pods" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code>$ kubectl --namespace=deis get pods</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis get pods
+</code></pre>
 
 <h3 id="describe-a-pod">Describe a Pod<a class="headerlink" href="#describe-a-pod" title="Permanent link">&para;</a></h3>
 <p>This is often useful for troubleshooting pods that are in pending or crashed states:</p>
-<pre class="codehilite"><code>$ kubectl --namespace=deis describe -f &lt;pod name&gt;</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis describe -f &lt;pod name&gt;
+</code></pre>
 
 <h3 id="tail-logs">Tail Logs<a class="headerlink" href="#tail-logs" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code>$ kubectl --namespace=deis logs -f &lt;pod name&gt;</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis logs -f &lt;pod name&gt;
+</code></pre>
 
 <h3 id="django-shell">Django Shell<a class="headerlink" href="#django-shell" title="Permanent link">&para;</a></h3>
 <p>Specific to <a href="https://github.com/teamhephy/controller">teamhephy/controller</a></p>
-<pre class="codehilite"><code>$ kubectl --namespace=deis exec -it &lt;pod name&gt; -- python manage.py shell</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis exec -it &lt;pod name&gt; -- python manage.py shell
+</code></pre>
 
 <p>Have commands other Deis contributors might find useful? Send us a PR!</p>
 <h2 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h2>
@@ -1123,6 +1127,10 @@ things you should do when proposing a change to any Deis component.</p>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

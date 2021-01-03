@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -600,13 +604,13 @@
 with Deis Workflow.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>Install the latest <code>deis</code> client for Linux or Mac OS X with:</p>
-<pre class="codehilite"><code>$ curl -sSL https://raw.githubusercontent.com/teamhephy/workflow-cli/master/install-v2.sh | bash -s v2.20.0</code></pre>
-
+<pre class="codehilite"><code>$ curl -sSL https://raw.githubusercontent.com/teamhephy/workflow-cli/master/install-v2.sh | bash -s v2.20.0
+</code></pre>
 
 <p>The installer puts <code>deis</code> in your current directory, but you should move it
 somewhere in your $PATH:</p>
-<pre class="codehilite"><code>$ ln -fs $PWD/deis /usr/local/bin/deis</code></pre>
-
+<pre class="codehilite"><code>$ ln -fs $PWD/deis /usr/local/bin/deis
+</code></pre>
 
 <h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
 <p>The Deis client comes with comprehensive documentation for every command.
@@ -614,7 +618,7 @@ Use <code>deis help</code> to explore the commands available to you:</p>
 <pre class="codehilite"><code>$ deis help
 The Deis command-line client issues API calls to a Deis controller.
 
-Usage: deis &amp;lt;command&amp;gt; [&amp;lt;args&amp;gt;...]
+Usage: deis &lt;command&gt; [&lt;args&gt;...]
 
 Auth commands::
 
@@ -623,8 +627,8 @@ Auth commands::
   logout        logout from the current controller
 
 Subcommands, use `deis help [subcommand]` to learn more::
-...</code></pre>
-
+...
+</code></pre>
 
 <p>To get help on subcommands, use <code>deis help [subcommand]</code>:</p>
 <pre class="codehilite"><code>$ deis help apps
@@ -638,8 +642,8 @@ apps:logs          view aggregated application logs
 apps:run           run a command in an ephemeral app container
 apps:destroy       destroy an application
 
-Use `deis help [command]` to learn more</code></pre>
-
+Use `deis help [command]` to learn more
+</code></pre>
 
 <h2 id="support-for-multiple-profiles">Support for Multiple Profiles<a class="headerlink" href="#support-for-multiple-profiles" title="Permanent link">&para;</a></h2>
 <p>The CLI reads from the default <code>client</code> profile, which is located on your
@@ -658,20 +662,20 @@ the <code>$DEIS_PROFILE</code> environment variable or by using the <code>-c</co
 Configuration saved to /home/testuser/.deis/production.json
 $ DEIS_PROFILE=~/config.json deis login deis.example.com
 ...
-Configuration saved to /home/testuser/config.json</code></pre>
-
+Configuration saved to /home/testuser/config.json
+</code></pre>
 
 <p>The configuration flag works identically to and overrides <code>$DEIS_PROFILE</code>:</p>
 <pre class="codehilite"><code>$ deis whoami -c ~/config.json
-You are deis at deis.example.com</code></pre>
-
+You are deis at deis.example.com
+</code></pre>
 
 <h2 id="proxy-support">Proxy Support<a class="headerlink" href="#proxy-support" title="Permanent link">&para;</a></h2>
 <p>If your workstation uses a proxy to reach the network where the cluster lies,
 set the <code>http_proxy</code> or <code>https_proxy</code> environment variable to enable proxy support:</p>
 <pre class="codehilite"><code>$ export http_proxy=&quot;http://proxyip:port&quot;
-$ export https_proxy=&quot;http://proxyip:port&quot;</code></pre>
-
+$ export https_proxy=&quot;http://proxyip:port&quot;
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -682,19 +686,20 @@ $ export https_proxy=&quot;http://proxyip:port&quot;</code></pre>
 <p>If an unknown command is specified, the client will attempt to execute the command as a dash-separated command. In this case, <code>deis resource:command</code> will execute <code>deis-resource</code> with the argument list <code>command</code>. In full form:</p>
 <pre class="codehilite"><code>$ # these two are identical
 $ deis accounts:list
-$ deis-accounts list</code></pre>
-
+$ deis-accounts list
+</code></pre>
 
 <p>Any flags after the command will also be sent to the plugin as an argument:</p>
 <pre class="codehilite"><code>$ # these two are identical
 $ deis accounts:list --debug
-$ deis-accounts list --debug</code></pre>
-
+$ deis-accounts list --debug
+</code></pre>
 
 <p>But flags preceding the command will not:</p>
 <pre class="codehilite"><code>$ # these two are identical
 $ deis --debug accounts:list
-$ deis-accounts list</code></pre>
+$ deis-accounts list
+</code></pre>
               </div>
             </div>
           </div>
@@ -1058,6 +1063,10 @@ $ deis-accounts list</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

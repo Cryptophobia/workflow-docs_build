@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -623,16 +627,16 @@ provider, see <a href="https://www.rapidssl.com/buy-ssl/">buy an SSL certificate
 your domain through Deis. Unless you've already done so, add the domain specified when generating
 the CSR to your app with:</p>
 <pre class="codehilite"><code>$ deis domains:add www.example.com -a foo
-Adding www.example.com to foo... done</code></pre>
-
+Adding www.example.com to foo... done
+</code></pre>
 
 <h2 id="add-a-certificate">Add a Certificate<a class="headerlink" href="#add-a-certificate" title="Permanent link">&para;</a></h2>
 <p>Add your certificate, any intermediate certificates, and private key to the endpoint with the
 <code>certs:add</code> command.</p>
 <pre class="codehilite"><code>$ deis certs:add example-com server.crt server.key
 Adding SSL endpoint... done
-www.example.com</code></pre>
-
+www.example.com
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -645,25 +649,25 @@ such as the Common Name, Subject Alt Names (SAN), fingerprint and more.</p>
 <p>Sometimes, your certificates (such as a self-signed or a cheap certificate) need additional
 certificates to establish the chain of trust. What you need to do is bundle all the certificates
 into one file and give that to Deis. Importantly, your site’s certificate must be the first one:</p>
-<pre class="codehilite"><code>$ cat server.crt server.ca &amp;gt; server.bundle</code></pre>
-
+<pre class="codehilite"><code>$ cat server.crt server.ca &gt; server.bundle
+</code></pre>
 
 <p>After that, you can add them to Deis with the <code>certs:add</code> command:</p>
 <pre class="codehilite"><code>$ deis certs:add example-com server.bundle server.key
 Adding SSL endpoint... done
-www.example.com</code></pre>
-
+www.example.com
+</code></pre>
 
 <h2 id="attach-ssl-certificate-to-a-domain">Attach SSL certificate to a domain<a class="headerlink" href="#attach-ssl-certificate-to-a-domain" title="Permanent link">&para;</a></h2>
 <p>Certificates are not automagically connected up to domains, instead you will have to attach a
 certificate to a domain</p>
-<pre class="codehilite"><code>$ deis certs:attach example-com example.com</code></pre>
-
+<pre class="codehilite"><code>$ deis certs:attach example-com example.com
+</code></pre>
 
 <p>Each certificate can be connected to many domains. There is no need to upload duplicates.</p>
 <p>To remove an association</p>
-<pre class="codehilite"><code>$ deis certs:detach example-com example.com</code></pre>
-
+<pre class="codehilite"><code>$ deis certs:detach example-com example.com
+</code></pre>
 
 <h2 id="endpoint-overview">Endpoint overview<a class="headerlink" href="#endpoint-overview" title="Permanent link">&para;</a></h2>
 <p>You can verify the details of your domain's SSL configuration with <code>deis certs</code>.</p>
@@ -671,8 +675,8 @@ certificate to a domain</p>
 
      Name     |    Common Name    | SubjectAltName    |         Expires         |   Fingerprint   |   Domains    |   Updated   |   Created
 +-------------+-------------------+-------------------+-------------------------+-----------------+--------------+-------------+-------------+
-  example-com |     example.com   | blog.example.com  | 31 Dec 2017 (in 1 year) | 8F:8E[...]CD:EB |  example.com | 30 Jan 2016 | 29 Jan 2016</code></pre>
-
+  example-com |     example.com   | blog.example.com  | 31 Dec 2017 (in 1 year) | 8F:8E[...]CD:EB |  example.com | 30 Jan 2016 | 29 Jan 2016
+</code></pre>
 
 <p>or by looking at at each certificates detailed information</p>
 <pre class="codehilite"><code>$ deis certs:info example-com
@@ -689,8 +693,8 @@ Subject:            /C=US/ST=CA/L=San Francisco/O=Deis/OU=Engineering/CN=example
 Connected Domains:  example.com
 Owner:              admin-user
 Created:            2016-01-28 19:07:41 +0000 UTC
-Updated:            2016-01-30 00:10:02 +0000 UTC</code></pre>
-
+Updated:            2016-01-30 00:10:02 +0000 UTC
+</code></pre>
 
 <h2 id="testing-ssl">Testing SSL<a class="headerlink" href="#testing-ssl" title="Permanent link">&para;</a></h2>
 <p>Use a command line utility like <code>curl</code> to test that everything is configured correctly for your
@@ -706,21 +710,21 @@ configured correctly.</p>
 <p>To enforce all HTTP requests be redirected to HTTPS, TLS can be enforced at the router level by
 running</p>
 <pre class="codehilite"><code>$ deis tls:enable -a foo
-Enabling https-only requests for foo... done</code></pre>
-
+Enabling https-only requests for foo... done
+</code></pre>
 
 <p>Users hitting the HTTP endpoint for the application will now receive a 301 redirect to the HTTPS
 endpoint.</p>
 <p>To disable enforced TLS, run</p>
 <pre class="codehilite"><code>$ deis tls:disable -a foo
-Disabling https-only requests for foo... done</code></pre>
-
+Disabling https-only requests for foo... done
+</code></pre>
 
 <h2 id="remove-certificate">Remove Certificate<a class="headerlink" href="#remove-certificate" title="Permanent link">&para;</a></h2>
 <p>You can remove a certificate using the <code>certs:remove</code> command:</p>
 <pre class="codehilite"><code>$ deis certs:remove my-cert
-Removing www.example.com... Done.</code></pre>
-
+Removing www.example.com... Done.
+</code></pre>
 
 <h2 id="swapping-out-certificates">Swapping out certificates<a class="headerlink" href="#swapping-out-certificates" title="Permanent link">&para;</a></h2>
 <p>Over the lifetime of an application an operator will have to acquire certificates with new expire
@@ -730,8 +734,8 @@ signifies the expiry year. This allows for <code>example-com-2018</code> when a 
 <p>Assuming all applications are already using <code>example-com-2017</code> the following commands can be ran,
 chained together or otherwise:</p>
 <pre class="codehilite"><code>$ deis certs:detach example-com-2017 example.com
-$ deis certs:attach example-com-2018 example.com</code></pre>
-
+$ deis certs:attach example-com-2018 example.com
+</code></pre>
 
 <p>This will take care of a singular domain which allows the operator to verify everything went
 as planned and slowly roll it out to any other application using the same method.</p>
@@ -1108,6 +1112,10 @@ remove the certificate from Deis and re-run the <code>certs:add</code> command.<
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

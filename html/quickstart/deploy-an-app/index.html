@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -600,8 +604,8 @@
 <h4 id="option-1-standard-installation">Option 1: Standard Installation<a class="headerlink" href="#option-1-standard-installation" title="Permanent link">&para;</a></h4>
 <p>For a standard installation that includes deis-router, you can calculate the hostname value using its public IP address and a wildcard DNS record.</p>
 <p>If your router IP is <code>1.1.1.1</code>, its <code>$hostname</code> will be <code>deis.1.1.1.1.nip.io</code>. You can find your IP address by running:</p>
-<pre class="codehilite"><code>kubectl --namespace=deis describe svc deis-router</code></pre>
-
+<pre class="codehilite"><code>kubectl --namespace=deis describe svc deis-router
+</code></pre>
 
 <p>If you do not have an load balancer IP, the router automatically forwards traffic from a kubernetes node to the router. In this case, use the IP of a kubernetes node and the node
 port that routes to port 80 on the controller.</p>
@@ -619,8 +623,8 @@ email: jhansen@deis.com
 Registered admin
 Logged in as admin
 $ deis whoami
-You are admin at http://$hostname</code></pre>
-
+You are admin at http://$hostname
+</code></pre>
 
 <p>You have now registered your first user and you are ready to deploy an application.</p>
 <h2 id="deploy-an-application">Deploy an Application<a class="headerlink" href="#deploy-an-application" title="Permanent link">&para;</a></h2>
@@ -632,8 +636,8 @@ specify a name for your application, Workflow automatically generates a
 friendly (and sometimes funny) name.</p>
 <pre class="codehilite"><code>$ deis create --no-remote
 Creating Application... done, created proper-barbecue
-If you want to add a git remote for this app later, use `deis git:remote -a proper-barbecue`</code></pre>
-
+If you want to add a git remote for this app later, use `deis git:remote -a proper-barbecue`
+</code></pre>
 
 <p>Our application has been created and named <code>proper-barbecue</code>. As with the
 <code>deis</code> hostname, any HTTP traffic to <code>proper-barbecue</code> will be automatically
@@ -642,8 +646,8 @@ routed to your application pods by the edge router.</p>
 <pre class="codehilite"><code>$ deis pull deis/example-go -a proper-barbecue
 Creating build... done
 $ curl http://proper-barbecue.$hostname
-Powered by Deis</code></pre>
-
+Powered by Deis
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note<p>If you see a 404 error, make sure you specified your application name with <code>-a &lt;appname&gt;</code>!</p>
@@ -661,15 +665,15 @@ change how the application behaves:</p>
 Creating config... done
 
 === proper-barbecue Config
-POWERED_BY      Docker Images + Kubernetes</code></pre>
-
+POWERED_BY      Docker Images + Kubernetes
+</code></pre>
 
 <p>Behind the scenes, Workflow creates a new release for your application and uses
 Kubernetes to provide a zero-downtime rolling deploy to the new release!</p>
 <p>Validate that our configuration change has worked:</p>
 <pre class="codehilite"><code>$ curl http://proper-barbecue.104.197.125.75.nip.io
-Powered by Docker Images + Kubernetes</code></pre>
-
+Powered by Docker Images + Kubernetes
+</code></pre>
 
 <h2 id="scale-your-application">Scale Your Application<a class="headerlink" href="#scale-your-application" title="Permanent link">&para;</a></h2>
 <p>Last, let's scale our application by adding more application processes. Using the CLI you can easily add and remove
@@ -680,8 +684,8 @@ done in 36s
 === proper-barbecue Processes
 --- cmd:
 proper-barbecue-v18-cmd-rk644 up (v18)
-proper-barbecue-v18-cmd-0ag04 up (v18)</code></pre>
-
+proper-barbecue-v18-cmd-0ag04 up (v18)
+</code></pre>
 
 <p>Congratulations! You have deployed, configured, and scaled your first application using Deis Workflow.</p>
 <h2 id="going-further">Going Further<a class="headerlink" href="#going-further" title="Permanent link">&para;</a></h2>
@@ -1066,6 +1070,10 @@ For more information, please check <a href="../users/ssh-keys/">Users and SSH Ke
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

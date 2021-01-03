@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -604,8 +608,8 @@ to the <a href="../../../../understanding-workflow/components/#builder">Builder<
 Workflow cluster:</p>
 <pre class="codehilite"><code>$ kubectl --namespace=deis describe svc deis-router | egrep LoadBalancer
 Type:                   LoadBalancer
-LoadBalancer Ingress:   abce0d48217d311e69a470643b4d9062-2074277678.us-west-1.elb.amazonaws.com</code></pre>
-
+LoadBalancer Ingress:   abce0d48217d311e69a470643b4d9062-2074277678.us-west-1.elb.amazonaws.com
+</code></pre>
 
 <h2 id="prepare-the-hostname">Prepare the Hostname<a class="headerlink" href="#prepare-the-hostname" title="Permanent link">&para;</a></h2>
 <h3 id="using-dns">Using DNS<a class="headerlink" href="#using-dns" title="Permanent link">&para;</a></h3>
@@ -650,8 +654,8 @@ be an IP address associated with your ELB today will be something else later on.
 <p>First, pick one of the IP addresses allocated to your ELB:</p>
 <pre class="codehilite"><code>$ host abce0d48217d311e69a470643b4d9062-2074277678.us-west-1.elb.amazonaws.com
 abce0d48217d311e69a470643b4d9062-2074277678.us-west-1.elb.amazonaws.com has address 52.8.166.233
-abce0d48217d311e69a470643b4d9062-2074277678.us-west-1.elb.amazonaws.com has address 54.193.5.73</code></pre>
-
+abce0d48217d311e69a470643b4d9062-2074277678.us-west-1.elb.amazonaws.com has address 54.193.5.73
+</code></pre>
 
 <p>Grab either address for the next step. We'll use <code>52.8.166.233</code> for this example.</p>
 <p>To verify the Workflow API server and nip.io, construct your hostname by taking
@@ -661,14 +665,14 @@ above, the address would be: <code>52.8.166.233.nip.io</code>.</p>
 <pre class="codehilite"><code>$ host 52.8.166.233.nip.io
 52.8.166.233.nip.io has address 52.8.166.233
 $ host something-random.52.8.166.233.nip.io
-something-random.52.8.166.233.nip.io has address 52.8.166.233</code></pre>
-
+something-random.52.8.166.233.nip.io has address 52.8.166.233
+</code></pre>
 
 <p>By default, any HTTP traffic for the hostname <code>deis</code> will be sent to the Workflow API service. To
 test that everything is connected properly you may validate connectivity using <code>curl</code>:</p>
 <pre class="codehilite"><code>$ curl http://deis.52.8.166.233.nip.io/v2/ &amp;&amp; echo
-{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}</code></pre>
-
+{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}
+</code></pre>
 
 <p>You should see a failed request because we provided no credentials to the API server.</p>
 <p>Remember the hostname, we will use it in the next step.</p>
@@ -1037,6 +1041,10 @@ test that everything is connected properly you may validate connectivity using <
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>

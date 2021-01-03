@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -613,15 +617,15 @@
 <p>For example, consider paired commits in <a href="https://github.com/teamhephy/controller">teamhephy/controller</a> and <a href="https://github.com/teamhephy/workflow-e2e">teamhephy/workflow-e2e</a>.  The commit body for the first PR in <code>teamhephy/workflow-e2e</code> would look like:</p>
 <pre class="codehilite"><code>feat(foo_test): add e2e test for feature foo
 
-[skip e2e] test for controller#42</code></pre>
-
+[skip e2e] test for controller#42
+</code></pre>
 
 <p>Adding <code>[skip e2e]</code> forgoes the e2e tests on this commit. This and any other required PRs aside from the final PR should be submitted first, so that their respective build and image push jobs run.</p>
 <p>Lastly, the final PR in <code>teamhephy/controller</code> should be created with the required PR number(s) listed, in the form of <code>[Rr]equires &lt;repoName&gt;#&lt;pullRequestNumber&gt;</code>, for use by the downstream e2e run.</p>
 <pre class="codehilite"><code>feat(foo): add feature foo
 
-Requires workflow-e2e#42</code></pre>
-
+Requires workflow-e2e#42
+</code></pre>
 
 <h2 id="code-standards">Code Standards<a class="headerlink" href="#code-standards" title="Permanent link">&para;</a></h2>
 <p>Deis components are implemented in <a href="http://golang.org/">Go</a> and <a href="http://www.python.org/">Python</a>. For both languages, we agree with <a href="http://www.python.org/dev/peps/pep-0020/">The Zen of Python</a>, which emphasizes simple over clever. Readability counts.</p>
@@ -633,16 +637,16 @@ from AngularJS. This is an example of a commit:</p>
 <pre class="codehilite"><code>feat(scripts/test-cluster): add a cluster test command
 
 this uses tmux to setup a test cluster that you can easily kill and
-start for debugging.</code></pre>
-
+start for debugging.
+</code></pre>
 
 <p>To make it more formal, it looks something like this:</p>
 <pre class="codehilite"><code>{type}({scope}): {subject}
 &lt;BLANK LINE&gt;
 {body}
 &lt;BLANK LINE&gt;
-{footer}</code></pre>
-
+{footer}
+</code></pre>
 
 <p>The allowed <code>{types}</code> are as follows:</p>
 <ul>
@@ -1033,6 +1037,10 @@ as in various git tools.</p>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

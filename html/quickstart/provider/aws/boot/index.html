@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -603,42 +607,42 @@ guide uses AWS EC2 to boot a Kubernetes cluster using <a href="https://github.co
 <h4 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h4>
 <pre class="codehilite"><code class="language-bash">$ curl -sSL https://github.com/kubernetes/kops/releases/download/1.5.3/kops-darwin-amd64 -O
 $ chmod +x kops-darwin-amd64
-$ sudo mv kops-darwin-amd64 /usr/local/bin/kops</code></pre>
-
+$ sudo mv kops-darwin-amd64 /usr/local/bin/kops
+</code></pre>
 
 <h4 id="linux">linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
 <pre class="codehilite"><code class="language-bash">$ curl -sSL https://github.com/kubernetes/kops/releases/download/1.5.3/kops-linux-amd64 -O
 $ chmod +x kops-linux-amd64
-$ sudo mv kops-linux-amd64 /usr/local/bin/kops</code></pre>
-
+$ sudo mv kops-linux-amd64 /usr/local/bin/kops
+</code></pre>
 
 <p>For more information see the official <a href="https://github.com/kubernetes/kops/blob/master/docs/aws.md">kops installation guide</a>.</p>
 <h2 id="validate-kops-is-installed">Validate kops is installed<a class="headerlink" href="#validate-kops-is-installed" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code class="language-bash">$ kops version
-Version 1.5.3</code></pre>
-
+Version 1.5.3
+</code></pre>
 
 <h2 id="install-kubectl-if-you-havent-done-so-yet">Install kubectl if you haven't done so yet<a class="headerlink" href="#install-kubectl-if-you-havent-done-so-yet" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code class="language-bash">$ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
 $ chmod +x kubectl
-$ sudo mv kubectl /usr/local/bin/</code></pre>
-
+$ sudo mv kubectl /usr/local/bin/
+</code></pre>
 
 <h2 id="setup-your-aws-account">Setup your AWS account<a class="headerlink" href="#setup-your-aws-account" title="Permanent link">&para;</a></h2>
 <h3 id="install-the-awscli-tool">Install the <code>awscli</code> tool<a class="headerlink" href="#install-the-awscli-tool" title="Permanent link">&para;</a></h3>
 <p>The officially supported way of installing the tool is with <code>pip</code> as in</p>
-<pre class="codehilite"><code class="language-bash">$ pip install awscli</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ pip install awscli
+</code></pre>
 
 <p>You can also grab the tool with homebrew (for macOS users <strong>only</strong>), although this is not officially supported by AWS.</p>
-<pre class="codehilite"><code class="language-bash">$ brew update &amp;&amp; brew install awscli</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ brew update &amp;&amp; brew install awscli
+</code></pre>
 
 <h4 id="configure-the-awscli-tool">Configure the <code>awscli</code> tool<a class="headerlink" href="#configure-the-awscli-tool" title="Permanent link">&para;</a></h4>
 <p>The first thing you need to do is get valid AWS credentials out of the console. See <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey">the official documentation</a> on how to find your <em>SecretAccessKey</em> and <em>AccessKeyID</em>.</p>
 <p>Once you have those you can configure the <code>awscli</code> tool with</p>
-<pre class="codehilite"><code class="language-bash">$ aws configure # Input your credentials here</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ aws configure # Input your credentials here
+</code></pre>
 
 <h4 id="setting-up-iam-permission-for-kops">Setting up IAM permission for kops<a class="headerlink" href="#setting-up-iam-permission-for-kops" title="Permanent link">&para;</a></h4>
 <p>The recommended practice is to use a dedicated IAM user for kops. At a minimum <code>kops</code> will require the following IAM permissions to function properly.</p>
@@ -667,13 +671,13 @@ $ sudo mv kubectl /usr/local/bin/</code></pre>
 <h4 id="optional-create-a-dedicated-iam-user-from-the-command-line">(Optional) Create a dedicated IAM user from the command line<a class="headerlink" href="#optional-create-a-dedicated-iam-user-from-the-command-line" title="Permanent link">&para;</a></h4>
 <p><strong>Note</strong>: This can only be done <strong>AFTER</strong> you already have valid aws credentials in place. We will use the official <code>kops</code> provided convenience script to configure a new user with the following syntax: <code>sh new-iam-user.sh $group $user</code></p>
 <pre class="codehilite"><code class="language-bash">$ curl -O https://raw.githubusercontent.com/kubernetes/kops/master/hack/new-iam-user.sh
-$ sh new-iam-user.sh kops-group kops-user</code></pre>
-
+$ sh new-iam-user.sh kops-group kops-user
+</code></pre>
 
 <p>Note the <em>SecretAccessKey</em> and <em>AccessKeyID</em> so you can enter them in the following commands</p>
 <pre class="codehilite"><code class="language-bash">$ aws configure # Input your credentials here
-$ aws iam list-users</code></pre>
-
+$ aws iam list-users
+</code></pre>
 
 <h4 id="configure-dns">Configure DNS<a class="headerlink" href="#configure-dns" title="Permanent link">&para;</a></h4>
 <p>In order to build a Kubernetes cluster with <code>kops</code>, we need to prepare
@@ -694,15 +698,15 @@ in route53, and then setting up route delegation to the new zone.</p>
 look like <code>etcd-us-east-1c.internal.clustername.kubernetes.example.com</code></p>
 <p>This is copying the NS servers of your <strong>SUBDOMAIN</strong> up to the <strong>PARENT</strong>
 domain in Route53.  To do this you should:</p>
-<pre class="codehilite"><code class="language-bash">$ ID=$(uuidgen) &amp;&amp; aws route53 create-hosted-zone --name subdomain.example.com --caller-reference $ID | jq .DelegationSet.NameServers</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ ID=$(uuidgen) &amp;&amp; aws route53 create-hosted-zone --name subdomain.example.com --caller-reference $ID | jq .DelegationSet.NameServers
+</code></pre>
 
 <ul>
 <li>Note your <strong>PARENT</strong> hosted zone ID</li>
 </ul>
 <pre class="codehilite"><code class="language-bash"># Note: This example assumes you have jq installed locally.
-aws route53 list-hosted-zones | jq '.HostedZones[] | select(.Name==&quot;example.com.&quot;) | .Id'</code></pre>
-
+aws route53 list-hosted-zones | jq '.HostedZones[] | select(.Name==&quot;example.com.&quot;) | .Id'
+</code></pre>
 
 <ul>
 <li>Create a new JSON file with your values (<code>subdomain.json</code>)</li>
@@ -734,16 +738,16 @@ aws route53 list-hosted-zones | jq '.HostedZones[] | select(.Name==&quot;example
       }
     }
   ]
-}</code></pre>
-
+}
+</code></pre>
 
 <ul>
 <li>Apply the <strong>SUBDOMAIN</strong> NS records to the <strong>PARENT</strong> hosted zone.</li>
 </ul>
 <pre class="codehilite"><code>$ aws route53 change-resource-record-sets \
  --hosted-zone-id &lt;parent-zone-id&gt; \
- --change-batch file://subdomain.json</code></pre>
-
+ --change-batch file://subdomain.json
+</code></pre>
 
 <p>Now traffic to <code>*.example.com</code> will be routed to the correct subdomain hosted zone in Route53.</p>
 <p>You can now skip to <a href="#testing-your-dns-setup">testing your DNS setup</a></p>
@@ -757,8 +761,8 @@ a hosted zone in Route53, and then migrate the subdomain's NS records to your
 other registrar.</p>
 <p>You might need to install <a href="https://github.com/stedolan/jq/wiki/Installation">jq</a>
 for some of these instructions.</p>
-<pre class="codehilite"><code class="language-bash">$ ID=$(uuidgen) &amp;&amp; aws route53 create-hosted-zone --name subdomain.kubernetes.com --caller-reference $ID | jq .DelegationSet.NameServers</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ ID=$(uuidgen) &amp;&amp; aws route53 create-hosted-zone --name subdomain.kubernetes.com --caller-reference $ID | jq .DelegationSet.NameServers
+</code></pre>
 
 <ul>
 <li>
@@ -779,22 +783,22 @@ for some of these instructions.</p>
 <p>By default the assumption is that NS records are publically available.  If you
 require private DNS records you should modify the commands we run later in this
 guide to include:</p>
-<pre class="codehilite"><code>$ kops create cluster --dns private $NAME</code></pre>
-
+<pre class="codehilite"><code>$ kops create cluster --dns private $NAME
+</code></pre>
 
 <h4 id="testing-your-dns-setup">Testing your DNS setup<a class="headerlink" href="#testing-your-dns-setup" title="Permanent link">&para;</a></h4>
 <p>You should now able to <code>dig</code> your domain (or subdomain) and see the AWS Name
 Servers on the other end.</p>
-<pre class="codehilite"><code class="language-bash">$ dig ns subdomain.example.com</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ dig ns subdomain.example.com
+</code></pre>
 
 <p>Should return something similar to:</p>
 <pre class="codehilite"><code>;; ANSWER SECTION:
 subdomain.example.com.        172800  IN  NS  ns-1.awsdns-1.net.
 subdomain.example.com.        172800  IN  NS  ns-2.awsdns-2.org.
 subdomain.example.com.        172800  IN  NS  ns-3.awsdns-3.com.
-subdomain.example.com.        172800  IN  NS  ns-4.awsdns-4.co.uk.</code></pre>
-
+subdomain.example.com.        172800  IN  NS  ns-4.awsdns-4.co.uk.
+</code></pre>
 
 <p>This is a critical component of setting up clusters. If you are experiencing
 problems with the Kubernetes API not coming up, chances are something is wrong
@@ -808,36 +812,36 @@ this guide we'll call this bucket <code>example-com-state-store</code>, but you 
 add a custom prefix as bucket names need to be unique.</p>
 <p>We recommend keeping the creation of this bucket confined to us-east-1,
 otherwise more work will be required.</p>
-<pre class="codehilite"><code class="language-bash">$ aws s3api create-bucket --bucket prefix-example-com-state-store --region us-east-1</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ aws s3api create-bucket --bucket prefix-example-com-state-store --region us-east-1
+</code></pre>
 
 <p>Note: We <strong>STRONGLY</strong> recommend versioning your S3 bucket in case you ever need
 to revert or recover a previous state store.</p>
-<pre class="codehilite"><code class="language-bash">$ aws s3api put-bucket-versioning --bucket prefix-example-com-state-store  --versioning-configuration Status=Enabled</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ aws s3api put-bucket-versioning --bucket prefix-example-com-state-store  --versioning-configuration Status=Enabled
+</code></pre>
 
 <h2 id="creating-your-first-cluster">Creating your first cluster<a class="headerlink" href="#creating-your-first-cluster" title="Permanent link">&para;</a></h2>
 <h4 id="prepare-local-environment">Prepare local environment<a class="headerlink" href="#prepare-local-environment" title="Permanent link">&para;</a></h4>
 <p>We're ready to start creating our first cluster!  Let's first setup a few
 environment variables to make this process easier.</p>
 <pre class="codehilite"><code class="language-bash">$ export NAME=myfirstcluster.example.com
-$ export KOPS_STATE_STORE=s3://prefix-example-com-state-store</code></pre>
-
+$ export KOPS_STATE_STORE=s3://prefix-example-com-state-store
+</code></pre>
 
 <p>Note: You don’t have to use environmental variables here. You can always define
 the values using the <code>–name</code> and <code>–state</code> flags later.</p>
 <h4 id="create-cluster-configuration">Create cluster configuration<a class="headerlink" href="#create-cluster-configuration" title="Permanent link">&para;</a></h4>
 <p>We will need to note which availability zones are available to us. In this
 example we will be deploying our cluster to the us-west-2 region.</p>
-<pre class="codehilite"><code class="language-bash">$ aws ec2 describe-availability-zones --region us-west-2</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ aws ec2 describe-availability-zones --region us-west-2
+</code></pre>
 
 <p>Below is a basic create cluster command. The
 below command will generate a cluster configuration, but not start building it.</p>
 <pre class="codehilite"><code class="language-bash">$ kops create cluster \
     --zones us-west-2a \
-    ${NAME}</code></pre>
-
+    ${NAME}
+</code></pre>
 
 <p>All instances created by <code>kops</code> will be built within ASG (Auto Scaling Groups),
 which means each instance will be automatically monitored and rebuilt by AWS if
@@ -845,8 +849,8 @@ it suffers any failure.</p>
 <h4 id="customize-cluster-configuration">Customize Cluster Configuration<a class="headerlink" href="#customize-cluster-configuration" title="Permanent link">&para;</a></h4>
 <p>Now we have a cluster configuration, we can look at every aspect that defines
 our cluster by editing the description.</p>
-<pre class="codehilite"><code class="language-bash">$ kops edit cluster ${NAME}</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ kops edit cluster ${NAME}
+</code></pre>
 
 <p>This opens your editor (as defined by $EDITOR) and allows you to edit the
 configuration.  The configuration is loaded from the S3 bucket we created
@@ -857,32 +861,32 @@ documentation covers additional settings and configuration you can enable.</p>
 <p>Now we take the final step of actually building the cluster.  This'll take a
 while.  Once it finishes you'll have to wait longer while the booted instances
 finish downloading Kubernetes components and reach a "ready" state.</p>
-<pre class="codehilite"><code class="language-bash">$ kops update cluster ${NAME} --yes</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ kops update cluster ${NAME} --yes
+</code></pre>
 
 <h4 id="use-the-cluster">Use the Cluster<a class="headerlink" href="#use-the-cluster" title="Permanent link">&para;</a></h4>
 <p>Remember when you installed <code>kubectl</code> earlier? The configuration for your
 cluster was automatically generated and written to <code>~/.kube/config</code> for you!</p>
 <p>Optionally you can always pull the configuration with the following command:</p>
-<pre class="codehilite"><code class="language-bash">$ kops export kubecfg --name ${NAME}</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ kops export kubecfg --name ${NAME}
+</code></pre>
 
 <p>A simple Kubernetes API call can be used to check if the API is online and
 listening. Let's use <code>kubectl</code> to check the nodes.</p>
-<pre class="codehilite"><code class="language-bash">$ kubectl get nodes</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ kubectl get nodes
+</code></pre>
 
 <p>You will see a list of nodes that should match the <code>--zones</code> flag defined
 earlier. This is a great sign that your Kubernetes cluster is online and
 working.</p>
 <p>Also <code>kops</code> ships with a handy validation tool that can be ran to ensure your
 cluster is working as expected.</p>
-<pre class="codehilite"><code class="language-bash">$ kubectl cluster-info</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ kubectl cluster-info
+</code></pre>
 
 <p>You can look at all the system components with the following command.</p>
-<pre class="codehilite"><code class="language-bash">$ kubectl -n kube-system get po</code></pre>
-
+<pre class="codehilite"><code class="language-bash">$ kubectl -n kube-system get po
+</code></pre>
 
 <p>You are now ready to <a href="../install-aws/">install Deis Workflow</a></p>
               </div>
@@ -1248,6 +1252,10 @@ cluster is working as expected.</p>
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>

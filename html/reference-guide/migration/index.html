@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -606,32 +610,32 @@ the known commands administrators would use with <code>deisctl</code> and transl
 $ deisctl list
 
 # Workflow
-$ kubectl --namespace=deis get deployments</code></pre>
-
+$ kubectl --namespace=deis get deployments
+</code></pre>
 
 <h2 id="listing-all-nodes">Listing all Nodes<a class="headerlink" href="#listing-all-nodes" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code># Deis v1
 $ fleetctl list-machines
 
 # Workflow
-$ kubectl get nodes</code></pre>
-
+$ kubectl get nodes
+</code></pre>
 
 <h2 id="custom-configuration">Custom Configuration<a class="headerlink" href="#custom-configuration" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code># Deis v1
 $ deisctl config controller set registrationMode=admin_only
 
 # Workflow
-$ kubectl --namespace=deis patch deployment deis-controller -p '{&quot;spec&quot;:{&quot;containers&quot;:{&quot;env&quot;:[{&quot;name&quot;:&quot;REGISTRATION_MODE&quot;,&quot;value&quot;:&quot;admin_only&quot;}]}}}'</code></pre>
-
+$ kubectl --namespace=deis patch deployment deis-controller -p '{&quot;spec&quot;:{&quot;containers&quot;:{&quot;env&quot;:[{&quot;name&quot;:&quot;REGISTRATION_MODE&quot;,&quot;value&quot;:&quot;admin_only&quot;}]}}}'
+</code></pre>
 
 <h2 id="view-component-configuration">View Component Configuration<a class="headerlink" href="#view-component-configuration" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code># Deis v1
 $ deisctl config router get bodySize
 
 # Workflow
-$ kubectl --namespace=deis get deployment deis-router -o yaml</code></pre>
-
+$ kubectl --namespace=deis get deployment deis-router -o yaml
+</code></pre>
 
 <h2 id="running-a-command-within-a-component">Running a Command Within a Component<a class="headerlink" href="#running-a-command-within-a-component" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code># Deis v1
@@ -640,8 +644,8 @@ $ deisctl dock router@1
 # Workflow
 $ kubectl get po --namespace=deis -l app=deis-router --output=&quot;jsonpath={.items[0].metadata.name}&quot;
 deis-router-1930478716-iz6oq
-$ kubectl --namespace=deis exec -it deis-router-1930478716-iz6oq bash</code></pre>
-
+$ kubectl --namespace=deis exec -it deis-router-1930478716-iz6oq bash
+</code></pre>
 
 <h2 id="follow-the-logs-for-a-component">Follow the Logs for a Component<a class="headerlink" href="#follow-the-logs-for-a-component" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code># Deis v1
@@ -650,7 +654,8 @@ $ fleetctl journal -f deis-builder
 # Workflow
 $ kubectl get po --namespace=deis -l app=deis-builder --output=&quot;jsonpath={.items[0].metadata.name}&quot;
 deis-builder-1851090495-5n0sn
-$ kubectl --namespace=deis logs -f deis-builder-1851090495-5n0sn</code></pre>
+$ kubectl --namespace=deis logs -f deis-builder-1851090495-5n0sn
+</code></pre>
               </div>
             </div>
           </div>
@@ -1014,6 +1019,10 @@ $ kubectl --namespace=deis logs -f deis-builder-1851090495-5n0sn</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

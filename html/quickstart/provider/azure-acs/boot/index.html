@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -633,8 +637,8 @@ and location to environment variables for use by later commands:</p>
 $ az account list-locations --query [].name --output tsv
 $ export AZURE_DC_LOCATION=southcentralus  # for example
 $ export AZURE_RG_NAME=myresourcegroup
-$ az group create --name &quot;${AZURE_RG_NAME}&quot; --location &quot;${AZURE_DC_LOCATION}&quot;</code></pre>
-
+$ az group create --name &quot;${AZURE_RG_NAME}&quot; --location &quot;${AZURE_DC_LOCATION}&quot;
+</code></pre>
 
 <p>Run the <code>az acs create</code> command to create your Kubernetes cluster, replacing the <code>--dns-prefix</code>
 and <code>--ssh-key-value</code> arguments below with your values:</p>
@@ -645,8 +649,8 @@ $ az acs create --resource-group=&quot;${AZURE_RG_NAME}&quot; --location=&quot;$
   --agent-vm-size=&quot;Standard_D2_v2&quot; \
   --admin-username=&quot;k8sadmin&quot; \
   --name=&quot;${AZURE_SERVICE_NAME}&quot; --dns-prefix=&quot;${AZURE_DNS_PREFIX}&quot; \
-  --ssh-key-value @$HOME/.ssh/id_rsa.pub</code></pre>
-
+  --ssh-key-value @$HOME/.ssh/id_rsa.pub
+</code></pre>
 
 <p>Azure Container Services immediately begins creating the Kubernetes cluster. After a few minutes,
 the command returns with information about the new deployment:</p>
@@ -662,8 +666,8 @@ the command returns with information about the new deployment:</p>
 ...
   },
   &quot;resourceGroup&quot;: &quot;myresourcegroup&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Your Kubernetes cluster on Azure is ready. Skip the next section and
 <a href="#connect-to-the-acs-kubernetes-cluster">connect to the ACS Kubernetes cluster</a>.</p>
@@ -717,12 +721,12 @@ notification that it has completed.</p>
 <a href="#connect-to-the-acs-kubernetes-cluster">connect to the ACS Kubernetes cluster</a>.</p>
 <h2 id="connect-to-the-acs-kubernetes-cluster">Connect to the ACS Kubernetes Cluster<a class="headerlink" href="#connect-to-the-acs-kubernetes-cluster" title="Permanent link">&para;</a></h2>
 <p><code>kubectl</code> is the Kubernetes command line client.  If you don't already have it installed, you can install it with:</p>
-<pre class="codehilite"><code>az acs kubernetes install-cli</code></pre>
-
+<pre class="codehilite"><code>az acs kubernetes install-cli
+</code></pre>
 
 <p>Download the master kubernetes cluster configuration to the ~/.kube/config file by running the following command:</p>
-<pre class="codehilite"><code>az acs kubernetes get-credentials --resource-group=$AZURE_RG_NAME --name=$AZURE_SERVICE_NAME</code></pre>
-
+<pre class="codehilite"><code>az acs kubernetes get-credentials --resource-group=$AZURE_RG_NAME --name=$AZURE_SERVICE_NAME
+</code></pre>
 
 <blockquote>
 <p>Note: If the cluster was provisioned using any other SSH key than <code>/home/myusername/.ssh/id_rsa</code> then the <code>--ssh-key-file</code> parameter must be used pointing to the SSH key utilized to provision the cluster.</p>
@@ -732,8 +736,8 @@ notification that it has completed.</p>
 Kubernetes master is running at https://mydnsprefix.myregion.cloudapp.azure.com
 Heapster is running at https://mydnsprefix.myregion.cloudapp.azure.com/api/v1/proxy/namespaces/kube-system/services/heapster
 KubeDNS is running at https://mydnsprefix.myregion.cloudapp.azure.com/api/v1/proxy/namespaces/kube-system/services/kube-dns
-kubernetes-dashboard is running at https://mydnsprefix.myregion.cloudapp.azure.com/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard</code></pre>
-
+kubernetes-dashboard is running at https://mydnsprefix.myregion.cloudapp.azure.com/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
+</code></pre>
 
 <p>You are now ready to <a href="../install-azure-acs/">install Deis Workflow</a></p>
               </div>
@@ -1099,6 +1103,10 @@ kubernetes-dashboard is running at https://mydnsprefix.myregion.cloudapp.azure.c
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>

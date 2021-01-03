@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -606,22 +610,22 @@ installation.</p>
 <li>
 <p>If the value is exposed in the <code>values.yaml</code> file as derived above, one may modify the section of the component to tune these settings.  The modified value(s) will then take effect at chart installation or release upgrade time via either of the two respective commands:</p>
 <pre class="codehilite"><code>$ helm install hephy/workflow -n hephy --namespace deis -f values.yaml
-$ helm upgrade hephy -f values.yaml</code></pre>
-
+$ helm upgrade hephy -f values.yaml
+</code></pre>
 
 </li>
 <li>
 <p>If the value hasn't yet been exposed in the <code>values.yaml</code> file, one may edit the component deployment with the tuned setting.  Here we edit the <code>deis-controller</code> deployment:</p>
-<pre class="codehilite"><code>$ kubectl --namespace deis edit deployment deis-controller</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace deis edit deployment deis-controller
+</code></pre>
 
 <p>Add/edit the setting via the appropriate environment variable and value under the <code>env</code> section and save.  The updated deployment will recreate the component pod with the new/modified setting.</p>
 </li>
 <li>
 <p>Lastly, one may also fetch and edit the chart as served by version control/the chart repository itself:</p>
 <pre class="codehilite"><code>$ helm fetch hephy/workflow --untar
-$ $EDITOR workflow/charts/controller/templates/controller-deployment.yaml</code></pre>
-
+$ $EDITOR workflow/charts/controller/templates/controller-deployment.yaml
+</code></pre>
 
 <p>Then run <code>helm install ./workflow --namespace deis --name hephy</code> to apply the changes, or <code>helm upgrade hephy ./workflow</code> if the cluster is already running.</p>
 </li>
@@ -638,8 +642,8 @@ limits set:</p>
   pullPolicy: &quot;Always&quot;
   dockerTag: &quot;canary&quot;
   limits_cpu: &quot;100m&quot;
-  limits_memory: &quot;50Mi&quot;</code></pre>
-
+  limits_memory: &quot;50Mi&quot;
+</code></pre>
 
 <h2 id="customizing-the-builder">Customizing the Builder<a class="headerlink" href="#customizing-the-builder" title="Permanent link">&para;</a></h2>
 <p>The following environment variables are tunable for the <a href="../../understanding-workflow/components/#builder">Builder</a> component:</p>
@@ -1364,6 +1368,10 @@ re-configured with zero downtime post-installation. You can find the list of ann
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

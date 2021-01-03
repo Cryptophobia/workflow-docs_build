@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -655,8 +659,8 @@ Applying limits... done
 cmd     32M/64M
 
 --- CPU
-Unlimited</code></pre>
-
+Unlimited
+</code></pre>
 
 <p>If you would like to remove any configured memory limits use <code>deis limits:unset web</code>:</p>
 <pre class="codehilite"><code>$ deis limits:unset web
@@ -668,8 +672,8 @@ Applying limits... done
 Unlimited
 
 --- CPU
-Unlimited</code></pre>
-
+Unlimited
+</code></pre>
 
 <h2 id="limiting-cpu">Limiting CPU<a class="headerlink" href="#limiting-cpu" title="Permanent link">&para;</a></h2>
 <p>You can also use <code>deis limits:set &lt;type&gt;=&lt;value&gt; --cpu</code> to restrict CPU shares,  where value can be &lt;limit> or
@@ -721,8 +725,8 @@ Applying limits... done
 web     64M
 
 --- CPU
-web     1500m/2000m</code></pre>
-
+web     1500m/2000m
+</code></pre>
 
 <p>You can verify the CPU and memory limits by inspecting the application process Pod with <code>kubectl</code>:</p>
 <pre class="codehilite"><code>$ deis ps
@@ -740,8 +744,8 @@ Containers:
       memory:  64Mi
     Requests:
       memory:  64Mi
-      cpu:     1500m</code></pre>
-
+      cpu:     1500m
+</code></pre>
 
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -759,7 +763,8 @@ Applying limits... done
 Unlimited
 
 --- CPU
-Unlimited</code></pre>
+Unlimited
+</code></pre>
               </div>
             </div>
           </div>
@@ -1123,6 +1128,10 @@ Unlimited</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

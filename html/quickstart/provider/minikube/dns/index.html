@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -603,8 +607,8 @@ environments, Kubernetes provisions and attaches a load balancer for you. Since 
 local environment, we need to do a little bit of extra work to send requests to the router.</p>
 <p>First, determine the ip address allocated to the worker node.</p>
 <pre class="codehilite"><code>$ minikube ip
-192.168.99.100</code></pre>
-
+192.168.99.100
+</code></pre>
 
 <h2 id="prepare-the-hostname">Prepare the Hostname<a class="headerlink" href="#prepare-the-hostname" title="Permanent link">&para;</a></h2>
 <p>Now that you have the ip address of your virtual machine, we can use the <code>nip.io</code> DNS service or <code>dnsmasq</code> to
@@ -617,8 +621,8 @@ your load balancer and adding <code>nip.io</code>. For our example above, the ad
 <pre class="codehilite"><code>$ host 192.168.99.100.nip.io
 192.168.99.100.nip.io has address 192.168.99.100
 $ host something-random.192.168.99.100.nip.io
-something-random.192.168.99.100.nip.io has address 192.168.99.100</code></pre>
-
+something-random.192.168.99.100.nip.io has address 192.168.99.100
+</code></pre>
 
 <h3 id="using-dnsmasq">Using DNSMasq<a class="headerlink" href="#using-dnsmasq" title="Permanent link">&para;</a></h3>
 <p>If <code>nip.io</code> is working for you, you can skip this section, and proceed to verify the hostname.</p>
@@ -636,8 +640,8 @@ $ sudo mkdir /etc/resolver
 $ echo nameserver 127.0.0.1 | sudo tee /etc/resolver/minikube
 
 # You might need to clear the DNS resolver cache:
-$ sudo killall -HUP mDNSResponder</code></pre>
-
+$ sudo killall -HUP mDNSResponder
+</code></pre>
 
 <p>You may need to ensure that the <code>dnsmasq</code> service at 127.0.0.1 is listed as a DNS server for your network connection. You may check this using the following command:</p>
 <pre class="codehilite"><code class="language-sh">$ scutil --dns | grep minikube -B 1 -A 3
@@ -645,15 +649,15 @@ resolver #8
   domain   : minikube
   nameserver[0] : 127.0.0.1
   flags    : Request A records, Request AAAA records
-  reach    : Reachable, Local Address, Directly Reachable Address</code></pre>
-
+  reach    : Reachable, Local Address, Directly Reachable Address
+</code></pre>
 
 <p>To verify the hostname, you will need to use <code>deis.minikube</code> as hostname instead of <code>deis.192.168.99.100.nip.io</code> in the next section. We will also use it in the next step.</p>
 <h3 id="verify-the-hostname">Verify the hostname<a class="headerlink" href="#verify-the-hostname" title="Permanent link">&para;</a></h3>
 <p>By default, any HTTP traffic for the hostname <code>deis</code> will be sent to the Workflow API service. To test that everything is connected properly you may validate connectivity using <code>curl</code>:</p>
 <pre class="codehilite"><code>$ curl http://deis.192.168.99.100.nip.io/v2/ &amp;&amp; echo
-{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}</code></pre>
-
+{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}
+</code></pre>
 
 <p>You should see a failed request because we provided no credentials to the API server.</p>
 <p>Remember the hostname, we will use it in the next step.</p>
@@ -1021,6 +1025,10 @@ resolver #8
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>

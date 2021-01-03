@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -608,17 +612,17 @@ config:unset       unset environment variables for an app
 config:pull        extract environment variables to .env
 config:push        set environment variables from .env
 
-Use `deis help [command]` to learn more.</code></pre>
-
+Use `deis help [command]` to learn more.
+</code></pre>
 
 <p>When config is changed, a new release is created and deployed automatically.</p>
 <p>You can set multiple environment variables with one <code>deis config:set</code> command,
 or with <code>deis config:push</code> and a local .env file.</p>
-<pre class="codehilite"><code>$ deis config:set FOO=1 BAR=baz &amp;amp;&amp;amp; deis config:pull
+<pre class="codehilite"><code>$ deis config:set FOO=1 BAR=baz &amp;&amp; deis config:pull
 $ cat .env
 FOO=1
 BAR=baz
-$ echo &quot;TIDE=high&quot; &amp;gt;&amp;gt; .env
+$ echo &quot;TIDE=high&quot; &gt;&gt; .env
 $ deis config:push
 Creating config... done, v4
 
@@ -626,8 +630,8 @@ Creating config... done, v4
 DEIS_APP: yuppie-earthman
 FOO: 1
 BAR: baz
-TIDE: high</code></pre>
-
+TIDE: high
+</code></pre>
 
 <h2 id="attach-to-backing-services">Attach to Backing Services<a class="headerlink" href="#attach-to-backing-services" title="Permanent link">&para;</a></h2>
 <p>Deis treats backing services like databases, caches and queues as <a href="http://12factor.net/backing-services">attached resources</a>.
@@ -636,8 +640,8 @@ Attachments are performed using environment variables.</p>
 the application to an external PostgreSQL database.</p>
 <pre class="codehilite"><code>$ deis config:set DATABASE_URL=postgres://user:pass@example.com:5432/db
 === peachy-waxworks
-DATABASE_URL: postgres://user:pass@example.com:5432/db</code></pre>
-
+DATABASE_URL: postgres://user:pass@example.com:5432/db
+</code></pre>
 
 <p>Detachments can be performed with <code>deis config:unset</code>.</p>
 <h2 id="slugbuilder-cache">Slugbuilder Cache<a class="headerlink" href="#slugbuilder-cache" title="Permanent link">&para;</a></h2>
@@ -657,8 +661,8 @@ cache, Deis will clear up files it created to store the cache. After having it t
 <pre class="codehilite"><code>$ deis config:set DEIS_DISABLE_CACHE=1
 $ git commit --allow-empty -m &quot;Clearing Deis cache&quot;
 $ git push deis # (if you use a different remote, you should use your remote name)
-$ deis config:unset DEIS_DISABLE_CACHE</code></pre>
-
+$ deis config:unset DEIS_DISABLE_CACHE
+</code></pre>
 
 <h2 id="custom-health-checks">Custom Health Checks<a class="headerlink" href="#custom-health-checks" title="Permanent link">&para;</a></h2>
 <p>By default, Workflow only checks that the application starts in their Container. If it is preferred
@@ -699,8 +703,8 @@ TCP Socket Probe: N/A
 
 Readiness
 ---------
-No readiness probe configured.</code></pre>
-
+No readiness probe configured.
+</code></pre>
 
 <p>If the application relies on certain headers being set (such as the <code>Host</code> header) or a specific
 URL path relative to the root, you can also send specific HTTP headers:</p>
@@ -723,8 +727,8 @@ TCP Socket Probe: N/A
 
 Readiness
 ---------
-No readiness probe configured.</code></pre>
-
+No readiness probe configured.
+</code></pre>
 
 <p>To configure an <code>exec</code> readiness probe:</p>
 <pre class="codehilite"><code>$ deis healthchecks:set readiness exec -- /bin/echo -n hello --type cmd
@@ -744,8 +748,8 @@ Success Threshold: 1
 Failure Threshold: 3
 Exec Probe: Command=[/bin/echo -n hello]
 HTTP GET Probe: N/A
-TCP Socket Probe: N/A</code></pre>
-
+TCP Socket Probe: N/A
+</code></pre>
 
 <p>You can overwrite a probe by running <code>deis healthchecks:set</code> again:</p>
 <pre class="codehilite"><code>$ deis healthchecks:set readiness httpGet 80 --type cmd
@@ -765,8 +769,8 @@ Success Threshold: 1
 Failure Threshold: 3
 Exec Probe: N/A
 HTTP GET Probe: Path=&quot;/&quot; Port=80 HTTPHeaders=[]
-TCP Socket Probe: N/A</code></pre>
-
+TCP Socket Probe: N/A
+</code></pre>
 
 <p>Configured health checks also modify the default application deploy behavior. When starting a new
 Pod, Workflow will wait for the health check to pass before moving onto the next Pod.</p>
@@ -782,7 +786,8 @@ the application to those nodes:</p>
 <pre class="codehilite"><code>$ deis tags:set environ=prod
 Applying tags...  done, v4
 
-environ  prod</code></pre>
+environ  prod
+</code></pre>
               </div>
             </div>
           </div>
@@ -1146,6 +1151,10 @@ environ  prod</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

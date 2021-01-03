@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -611,8 +615,8 @@ password:
 password (confirm):
 email: myuser@example.com
 Registered myuser
-Logged in as myuser</code></pre>
-
+Logged in as myuser
+</code></pre>
 
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -623,20 +627,20 @@ Logged in as myuser</code></pre>
 <pre class="codehilite"><code>$ deis login http://deis.example.com
 username: deis
 password:
-Logged in as deis</code></pre>
-
+Logged in as deis
+</code></pre>
 
 <h2 id="logout-from-workflow">Logout from Workflow<a class="headerlink" href="#logout-from-workflow" title="Permanent link">&para;</a></h2>
 <p>Logout of an existing controller session using <code>deis logout</code>.</p>
 <pre class="codehilite"><code>$ deis logout
-Logged out as deis</code></pre>
-
+Logged out as deis
+</code></pre>
 
 <h2 id="verify-your-session">Verify Your Session<a class="headerlink" href="#verify-your-session" title="Permanent link">&para;</a></h2>
 <p>You can verify your client configuration by running <code>deis whoami</code>.</p>
 <pre class="codehilite"><code>$ deis whoami
-You are deis at http://deis.example.com</code></pre>
-
+You are deis at http://deis.example.com
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -646,8 +650,8 @@ You are deis at http://deis.example.com</code></pre>
 <p>By default, new users are not allowed to register after an initial user does. That initial user
 becomes the first "admin" user. Others will now receive an error when trying to register, but when
 logged in, an admin user can register new users:</p>
-<pre class="codehilite"><code class="language-shell">$ deis register --login=false --username=newuser --password=changeme123 --email=newuser@deis.io</code></pre>
-
+<pre class="codehilite"><code class="language-shell">$ deis register --login=false --username=newuser --password=changeme123 --email=newuser@deis.io
+</code></pre>
 
 <h2 id="controlling-registration-modes">Controlling Registration Modes<a class="headerlink" href="#controlling-registration-modes" title="Permanent link">&para;</a></h2>
 <p>After creating your first user, you may wish to change the registration mode for Deis Workflow.</p>
@@ -682,57 +686,58 @@ controller component. If Deis Workflow is already running, use:</p>
 <h2 id="managing-administrative-permissions">Managing Administrative Permissions<a class="headerlink" href="#managing-administrative-permissions" title="Permanent link">&para;</a></h2>
 <p>You can use the <code>deis perms</code> command to promote a user to an admin:</p>
 <pre class="codehilite"><code>$ deis perms:create john --admin
-Adding john to system administrators... done</code></pre>
-
+Adding john to system administrators... done
+</code></pre>
 
 <p>View current admins:</p>
 <pre class="codehilite"><code>$ deis perms:list --admin
 === Administrators
 admin
-john</code></pre>
-
+john
+</code></pre>
 
 <p>Demote admins to normal users:</p>
 <pre class="codehilite"><code>$ deis perms:delete john --admin
-Removing john from system administrators... done</code></pre>
-
+Removing john from system administrators... done
+</code></pre>
 
 <h2 id="re-issuing-user-authentication-tokens">Re-issuing User Authentication Tokens<a class="headerlink" href="#re-issuing-user-authentication-tokens" title="Permanent link">&para;</a></h2>
 <p>The controller API uses a simple token-based HTTP Authentication scheme. Token authentication is appropriate for
 client-server setups, such as native desktop and mobile clients. Each user of the platform is issued a token the first
 time that they sign up on the platform. If this token is compromised, it will need to be regenerated.</p>
 <p>A user can regenerate their own token like this:</p>
-<pre class="codehilite"><code>$ deis auth:regenerate</code></pre>
-
+<pre class="codehilite"><code>$ deis auth:regenerate
+</code></pre>
 
 <p>An administrator can also regenerate the token of another user like this:</p>
-<pre class="codehilite"><code>$ deis auth:regenerate -u test-user</code></pre>
-
+<pre class="codehilite"><code>$ deis auth:regenerate -u test-user
+</code></pre>
 
 <p>At this point, the user will no longer be able to authenticate against the controller with his auth token:</p>
 <pre class="codehilite"><code>$ deis apps
 401 UNAUTHORIZED
 Detail:
-Invalid token</code></pre>
-
+Invalid token
+</code></pre>
 
 <p>They will need to log back in to use their new auth token.</p>
 <p>If there is a cluster wide security breach, an administrator can regenerate everybody's auth token like this:</p>
-<pre class="codehilite"><code>$ deis auth:regenerate --all=true</code></pre>
-
+<pre class="codehilite"><code>$ deis auth:regenerate --all=true
+</code></pre>
 
 <h2 id="changing-account-password">Changing Account Password<a class="headerlink" href="#changing-account-password" title="Permanent link">&para;</a></h2>
 <p>A user can change their own account's password like this:</p>
 <pre class="codehilite"><code>$ deis auth:passwd
 current password:
 new password:
-new password (confirm):</code></pre>
-
+new password (confirm):
+</code></pre>
 
 <p>An administrator can change the password of another user's account like this:</p>
 <pre class="codehilite"><code>$ deis auth:passwd --username=&lt;username&gt;
 new password:
-new password (confirm):</code></pre>
+new password (confirm):
+</code></pre>
               </div>
             </div>
           </div>
@@ -1096,6 +1101,10 @@ new password (confirm):</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

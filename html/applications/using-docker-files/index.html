@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -609,15 +613,15 @@ Dockerfiles are incredibly powerful but require some extra work to define your e
 </li>
 </ul>
 <pre class="codehilite"><code>$ deis keys:add ~/.ssh/id_deis.pub
-Uploading id_deis.pub to deis... done</code></pre>
-
+Uploading id_deis.pub to deis... done
+</code></pre>
 
 <p>Read more about adding/removing SSH Keys <a href="../../users/ssh-keys/#adding-and-removing-ssh-keys">here</a>.</p>
 <h2 id="prepare-an-application">Prepare an Application<a class="headerlink" href="#prepare-an-application" title="Permanent link">&para;</a></h2>
 <p>If you do not have an existing application, you can clone an example application that demonstrates the Dockerfile workflow.</p>
 <pre class="codehilite"><code>$ git clone https://github.com/teamhephy/helloworld.git
-$ cd helloworld</code></pre>
-
+$ cd helloworld
+</code></pre>
 
 <h3 id="dockerfile-requirements">Dockerfile Requirements<a class="headerlink" href="#dockerfile-requirements" title="Permanent link">&para;</a></h3>
 <p>In order to deploy Dockerfile applications, they must conform to the following requirements:</p>
@@ -635,8 +639,8 @@ $ cd helloworld</code></pre>
 <p>Use <code>deis create</code> to create an application on the <a href="../../understanding-workflow/components/#controller">Controller</a>.</p>
 <pre class="codehilite"><code>$ deis create
 Creating application... done, created folksy-offshoot
-Git remote deis added</code></pre>
-
+Git remote deis added
+</code></pre>
 
 <h2 id="push-to-deploy">Push to Deploy<a class="headerlink" href="#push-to-deploy" title="Permanent link">&para;</a></h2>
 <p>Use <code>git push deis master</code> to deploy your application.</p>
@@ -646,63 +650,63 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (13/13), done.
 Writing objects: 100% (13/13), 1.99 KiB | 0 bytes/s, done.
 Total 13 (delta 2), reused 0 (delta 0)
------&amp;gt; Building Docker image
+-----&gt; Building Docker image
 Uploading context 4.096 kB
 Uploading context
 Step 0 : FROM deis/base:latest
- ---&amp;gt; 60024338bc63
+ ---&gt; 60024338bc63
 Step 1 : RUN wget -O /tmp/go1.2.1.linux-amd64.tar.gz -q https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz
- ---&amp;gt; Using cache
- ---&amp;gt; cf9ef8c5caa7
+ ---&gt; Using cache
+ ---&gt; cf9ef8c5caa7
 Step 2 : RUN tar -C /usr/local -xzf /tmp/go1.2.1.linux-amd64.tar.gz
- ---&amp;gt; Using cache
- ---&amp;gt; 515b1faf3bd8
+ ---&gt; Using cache
+ ---&gt; 515b1faf3bd8
 Step 3 : RUN mkdir -p /go
- ---&amp;gt; Using cache
- ---&amp;gt; ebf4927a00e9
+ ---&gt; Using cache
+ ---&gt; ebf4927a00e9
 Step 4 : ENV GOPATH /go
- ---&amp;gt; Using cache
- ---&amp;gt; c6a276eded37
+ ---&gt; Using cache
+ ---&gt; c6a276eded37
 Step 5 : ENV PATH /usr/local/go/bin:/go/bin:$PATH
- ---&amp;gt; Using cache
- ---&amp;gt; 2ba6f6c9f108
+ ---&gt; Using cache
+ ---&gt; 2ba6f6c9f108
 Step 6 : ADD . /go/src/github.com/deis/helloworld
- ---&amp;gt; 94ab7f4b977b
+ ---&gt; 94ab7f4b977b
 Removing intermediate container 171b7d9fdb34
-Step 7 : RUN cd /go/src/github.com/deis/helloworld &amp;amp;&amp;amp; go install -v .
- ---&amp;gt; Running in 0c8fbb2d2812
+Step 7 : RUN cd /go/src/github.com/deis/helloworld &amp;&amp; go install -v .
+ ---&gt; Running in 0c8fbb2d2812
 github.com/deis/helloworld
- ---&amp;gt; 13b5af931393
+ ---&gt; 13b5af931393
 Removing intermediate container 0c8fbb2d2812
 Step 8 : ENV PORT 80
- ---&amp;gt; Running in 9b07da36a272
- ---&amp;gt; 2dce83167874
+ ---&gt; Running in 9b07da36a272
+ ---&gt; 2dce83167874
 Removing intermediate container 9b07da36a272
 Step 9 : CMD [&quot;/go/bin/helloworld&quot;]
- ---&amp;gt; Running in f7b215199940
- ---&amp;gt; b1e55ce5195a
+ ---&gt; Running in f7b215199940
+ ---&gt; b1e55ce5195a
 Removing intermediate container f7b215199940
 Step 10 : EXPOSE 80
- ---&amp;gt; Running in 7eb8ec45dcb0
- ---&amp;gt; ea1a8cc93ca3
+ ---&gt; Running in 7eb8ec45dcb0
+ ---&gt; ea1a8cc93ca3
 Removing intermediate container 7eb8ec45dcb0
 Successfully built ea1a8cc93ca3
------&amp;gt; Pushing image to private registry
+-----&gt; Pushing image to private registry
 
        Launching... done, v2
 
------&amp;gt; folksy-offshoot deployed to Deis
+-----&gt; folksy-offshoot deployed to Deis
        http://folksy-offshoot.local3.deisapp.com
 
        To learn more, use `deis help` or visit http://deis.io
 
 To ssh://git@local3.deisapp.com:2222/folksy-offshoot.git
- * [new branch]      master -&amp;gt; master
+ * [new branch]      master -&gt; master
 
 $ curl -s http://folksy-offshoot.local3.deisapp.com
 Welcome to Deis!
-See the documentation at http://docs.deis.io/ for more information.</code></pre>
-
+See the documentation at http://docs.deis.io/ for more information.
+</code></pre>
 
 <p>Because a Dockerfile application is detected, the <code>cmd</code> process type is automatically scaled to 1 on first deploy.</p>
 <p>Use <code>deis scale cmd=3</code> to increase <code>cmd</code> processes to 3, for example. Scaling a
@@ -712,14 +716,15 @@ running that process.</p>
 <p>As of Workflow v2.13.0, users can inject their application config into the Docker image using
 <a href="https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg">Docker build arguments</a>. To opt into this, users must add a new environment variable
 to their application:</p>
-<pre class="codehilite"><code>$ deis config:set DEIS_DOCKER_BUILD_ARGS_ENABLED=1</code></pre>
-
+<pre class="codehilite"><code>$ deis config:set DEIS_DOCKER_BUILD_ARGS_ENABLED=1
+</code></pre>
 
 <p>Every environment variable set with <code>deis config:set</code> will then be available for use inside the
 user's Dockerfile. For example, if a user runs <code>deis config:set POWERED_BY=Workflow</code>,
 the user can utilize that build argument in their Dockerfile:</p>
 <pre class="codehilite"><code>ARG POWERED_BY
-RUN echo &quot;Powered by $POWERED_BY&quot; &gt; /etc/motd</code></pre>
+RUN echo &quot;Powered by $POWERED_BY&quot; &gt; /etc/motd
+</code></pre>
               </div>
             </div>
           </div>
@@ -1083,6 +1088,10 @@ RUN echo &quot;Powered by $POWERED_BY&quot; &gt; /etc/motd</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

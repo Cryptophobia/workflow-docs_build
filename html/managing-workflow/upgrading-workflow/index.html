@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -619,13 +623,13 @@ Workflow will continue to flow during the upgrade. No service interruptions shou
 period of downtime while the database recovers from backup.</p>
 <p>First, find the name of the release helm gave to your deployment with <code>helm ls</code>, then run</p>
 <pre class="codehilite"><code>$ helm repo update
-$ helm upgrade &lt;release-name&gt; hephy/workflow</code></pre>
-
+$ helm upgrade &lt;release-name&gt; hephy/workflow
+</code></pre>
 
 <p><strong>Note:</strong> If using off-cluster object storage on <a href="https://cloud.google.com/storage/">gcs</a> and/or off-cluster registry using <a href="https://cloud.google.com/container-registry/">gcr</a> and intending to upgrade from a pre-<code>v2.10.0</code> chart to <code>v2.10.0</code> or greater, the <code>key_json</code> values will now need to be pre-base64-encoded.  Therefore, assuming the rest of the custom/off-cluster values are defined in the existing <code>values.yaml</code> used for previous installs, the following may be run:</p>
 <pre class="codehilite"><code>$ B64_KEY_JSON=&quot;$(cat ~/path/to/key.json | base64 -w 0)&quot;
-$ helm upgrade &lt;release_name&gt; hephy/workflow -f values.yaml --set gcs.key_json=&quot;${B64_KEY_JSON}&quot;,registry-token-refresher.gcr.key_json=&quot;${B64_KEY_JSON}&quot;</code></pre>
-
+$ helm upgrade &lt;release_name&gt; hephy/workflow -f values.yaml --set gcs.key_json=&quot;${B64_KEY_JSON}&quot;,registry-token-refresher.gcr.key_json=&quot;${B64_KEY_JSON}&quot;
+</code></pre>
 
 <p>Alternatively, simply replace the appropriate values in values.yaml and do without the <code>--set</code>
 parameter. Make sure to wrap it in single quotes as double quotes will give a parser error when
@@ -656,12 +660,13 @@ deis-registry-proxy-no3r1                1/1       Running   0          5m
 deis-registry-proxy-ou8is                1/1       Running   0          5m
 deis-registry-proxy-zyajl                1/1       Running   0          5m
 deis-router-1357759721-a3ard             1/1       Running   0          5m
-deis-workflow-manager-2654760652-kitf9   1/1       Running   0          5m</code></pre>
-
+deis-workflow-manager-2654760652-kitf9   1/1       Running   0          5m
+</code></pre>
 
 <h3 id="step-3-upgrade-the-deis-client">Step 3: Upgrade the Deis Client<a class="headerlink" href="#step-3-upgrade-the-deis-client" title="Permanent link">&para;</a></h3>
 <p>Users of Deis Workflow should now upgrade their deis client to avoid getting <code>WARNING: Client and server API versions do not match. Please consider upgrading.</code> warnings.</p>
-<pre class="codehilite"><code>curl -sSL https://raw.githubusercontent.com/teamhephy/workflow-cli/master/install-v2.sh | bash -s v2.20.0 &amp;&amp; sudo mv deis $(which deis)</code></pre>
+<pre class="codehilite"><code>curl -sSL https://raw.githubusercontent.com/teamhephy/workflow-cli/master/install-v2.sh | bash -s v2.20.0 &amp;&amp; sudo mv deis $(which deis)
+</code></pre>
               </div>
             </div>
           </div>
@@ -1025,6 +1030,10 @@ deis-workflow-manager-2654760652-kitf9   1/1       Running   0          5m</code
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

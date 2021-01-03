@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -626,15 +630,15 @@ Minikube to pull its Docker images. It might take Minikube some time to start.</
 <a href="https://github.com/kubernetes/minikube/releases">latest release of minikube</a>.</p>
 <h2 id="set-your-vm-driver-optional">Set your VM driver (optional)<a class="headerlink" href="#set-your-vm-driver-optional" title="Permanent link">&para;</a></h2>
 <p>You can set your preferred driver (virtualbox - default, vmwarefusion, kvm, xhyve) using the following command:</p>
-<pre class="codehilite"><code>minikube config set vm-driver virtualbox</code></pre>
-
+<pre class="codehilite"><code>minikube config set vm-driver virtualbox
+</code></pre>
 
 <h2 id="boot-your-first-cluster">Boot Your First Cluster<a class="headerlink" href="#boot-your-first-cluster" title="Permanent link">&para;</a></h2>
 <p>We are now ready to boot our first Kubernetes cluster using Minikube!</p>
 <pre class="codehilite"><code>$ minikube start --disk-size=60g --memory=4096
 Starting local Kubernetes cluster...
-Kubectl is now configured to use the cluster.</code></pre>
-
+Kubectl is now configured to use the cluster.
+</code></pre>
 
 <p>Now that the cluster is up and ready, <code>minikube</code> automatically configures <code>kubectl</code> on your machine
 with the appropriate authentication and endpoint information.</p>
@@ -643,8 +647,8 @@ Kubernetes master is running at https://192.168.99.100:8443
 KubeDNS is running at https://192.168.99.100:8443/api/v1/proxy/namespaces/kube-system/services/kube-dns
 kubernetes-dashboard is running at https://192.168.99.100:8443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
 
-To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.</code></pre>
-
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+</code></pre>
 
 <p>You are now ready to <a href="../install-minikube/">install Deis Workflow</a></p>
               </div>
@@ -1010,6 +1014,10 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>

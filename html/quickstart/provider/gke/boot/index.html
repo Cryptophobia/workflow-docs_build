@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -622,22 +626,22 @@
 <p>Once you have installed the CLI tooling set your default project and list your container clusters:</p>
 <pre class="codehilite"><code>$ gcloud projects list
 PROJECT_ID             NAME               PROJECT_NUMBER
-ascendant-yeti-130419  My First Cluster   614974141267</code></pre>
-
+ascendant-yeti-130419  My First Cluster   614974141267
+</code></pre>
 
 <p>Set your default project:</p>
-<pre class="codehilite"><code>$ gcloud config set project ascendant-yeti-130419</code></pre>
-
+<pre class="codehilite"><code>$ gcloud config set project ascendant-yeti-130419
+</code></pre>
 
 <p>Then list your container clusters:</p>
 <pre class="codehilite"><code>$ gcloud container clusters list
 NAME       ZONE           MASTER_VERSION  MASTER_IP        MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
-cluster-1  us-central1-b  1.4.0           104.154.234.246  n1-standard-2  1.4.0 *       2          RUNNING</code></pre>
-
+cluster-1  us-central1-b  1.4.0           104.154.234.246  n1-standard-2  1.4.0 *       2          RUNNING
+</code></pre>
 
 <p>If you haven't configured your default zone, make sure it matches the ZONE for your cluster:</p>
-<pre class="codehilite"><code>$ gcloud config set compute/zone us-central1-b</code></pre>
-
+<pre class="codehilite"><code>$ gcloud config set compute/zone us-central1-b
+</code></pre>
 
 <p>Now you may fetch credentials to connect to Kubernetes:</p>
 <pre class="codehilite"><code>$ gcloud auth application-default login
@@ -647,13 +651,13 @@ https://accounts.google.com/o/oauth2/auth?redirect_uri=....
 Credentials saved to file: [~/.config/gcloud/application_default_credentials.json]
 
 These credentials will be used by any library that requests
-Application Default Credentials.</code></pre>
-
+Application Default Credentials.
+</code></pre>
 
 <p>If you don't have <code>kubectl</code> CLI setup just yet, run this to get it available
 locally:</p>
-<pre class="codehilite"><code>$ gcloud components install kubectl</code></pre>
-
+<pre class="codehilite"><code>$ gcloud components install kubectl
+</code></pre>
 
 <p>Your local <code>kubectl</code> utility should now be pointed at your new container cluster. You can verify your credentials and local configuration by running:</p>
 <pre class="codehilite"><code>$ kubectl cluster-info
@@ -661,16 +665,16 @@ Kubernetes master is running at https://104.154.234.246
 GLBCDefaultBackend is running at https://104.154.234.246/api/v1/proxy/namespaces/kube-system/services/default-http-backend
 Heapster is running at https://104.154.234.246/api/v1/proxy/namespaces/kube-system/services/heapster
 KubeDNS is running at https://104.154.234.246/api/v1/proxy/namespaces/kube-system/services/kube-dns
-kubernetes-dashboard is running at https://104.154.234.246/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard</code></pre>
-
+kubernetes-dashboard is running at https://104.154.234.246/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
+</code></pre>
 
 <p>If <code>kubectl cluster-info</code> returned with the following error:</p>
-<pre class="codehilite"><code>The connection to the server localhost:8080 was refused - did you specify the right host or port?</code></pre>
-
+<pre class="codehilite"><code>The connection to the server localhost:8080 was refused - did you specify the right host or port?
+</code></pre>
 
 <p>You'll need to run:</p>
-<pre class="codehilite"><code>$ gcloud container clusters get-credentials</code></pre>
-
+<pre class="codehilite"><code>$ gcloud container clusters get-credentials
+</code></pre>
 
 <p>To download the credentials necessary. The <code>kubectl cluster-info</code> command should then work as intended.</p>
 <p>You are now ready to <a href="../install-gke/">install Deis Workflow</a></p>
@@ -1037,6 +1041,10 @@ kubernetes-dashboard is running at https://104.154.234.246/api/v1/proxy/namespac
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>

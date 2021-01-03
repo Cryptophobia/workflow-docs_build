@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -615,8 +619,8 @@
 <p>DNS for any applications using a "custom domain" (a fully-qualified domain name that is not a subdomain of the cluster's own domain) can be configured by creating a <code>CNAME</code> record that references the wildcard record described above.</p>
 <p>Although it is dependent upon your distribution of Kubernetes and your underlying infrastructure, in many cases, the IP(s) or existing fully-qualified domain name of a load balancer can be determined directly using the <code>kubectl</code> tool:</p>
 <pre class="codehilite"><code>$ kubectl --namespace=deis describe service deis-router | grep &quot;LoadBalancer Ingress&quot;
-LoadBalancer Ingress:   a493e4e58ea0511e5bb390686bc85da3-1558404688.us-west-2.elb.amazonaws.com</code></pre>
-
+LoadBalancer Ingress:   a493e4e58ea0511e5bb390686bc85da3-1558404688.us-west-2.elb.amazonaws.com
+</code></pre>
 
 <p>The <code>LoadBalancer Ingress</code> field typically describes an existing domain name or public IP(s).  Note that if Kubernetes is able to automatically provision a load balancer for you, it does so asynchronously.  If the command shown above is issued very soon after Workflow installation, the load balancer may not exist yet.</p>
 <h2 id="without-a-load-balancer">Without a Load Balancer<a class="headerlink" href="#without-a-load-balancer" title="Permanent link">&para;</a></h2>
@@ -626,16 +630,16 @@ LoadBalancer Ingress:   a493e4e58ea0511e5bb390686bc85da3-1558404688.us-west-2.el
 <p>To begin, find the node(s) hosting router instances using <code>kubectl</code>:</p>
 <pre class="codehilite"><code>$ kubectl --namespace=deis describe pod deis-router | grep Node
 Node:       ip-10-0-0-199.us-west-2.compute.internal/10.0.0.199
-Node:       ip-10-0-0-198.us-west-2.compute.internal/10.0.0.198</code></pre>
-
+Node:       ip-10-0-0-198.us-west-2.compute.internal/10.0.0.198
+</code></pre>
 
 <p>The command will display information for every router pod.  For each, a node name and IP are displayed in the <code>Node</code> field.  If the IPs appearing in these fields are public, any of these may be used to configure your local <code>/etc/hosts</code> file or may be used with <a href="http://xip.io/">xip.io</a>.  If the IPs shown are not public, further investigation may be needed.</p>
 <p>You can list the IP addresses of a node using <code>kubectl</code>:</p>
 <pre class="codehilite"><code>$ kubectl describe node ip-10-0-0-199.us-west-2.compute.internal
 # ...
 Addresses:  10.0.0.199,10.0.0.199,54.218.85.175
-# ...</code></pre>
-
+# ...
+</code></pre>
 
 <p>Here, the <code>Addresses</code> field lists all the node's IPs.  If any of them are public, again, they may be used to configure your local <code>/etc/hosts</code> file or may be used with <a href="http://xip.io/">xip.io</a>.</p>
 <h2 id="tutorial-configuring-dns-with-google-cloud-dns">Tutorial: Configuring DNS with <a href="https://cloud.google.com/dns/docs">Google Cloud DNS</a><a class="headerlink" href="#tutorial-configuring-dns-with-google-cloud-dns" title="Permanent link">&para;</a></h2>
@@ -678,15 +682,16 @@ Addresses:  10.0.0.199,10.0.0.199,54.218.85.175
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <p>To test that traffic reaches its intended destination, a request can be
 sent to the Deis controller like so (do not forget the trailing slash!):</p>
-<pre class="codehilite"><code>curl http://deis.example.com/v2/</code></pre>
-
+<pre class="codehilite"><code>curl http://deis.example.com/v2/
+</code></pre>
 
 <p>Or:</p>
-<pre class="codehilite"><code>curl http://deis.54.218.85.175.xip.io/v2/</code></pre>
-
+<pre class="codehilite"><code>curl http://deis.54.218.85.175.xip.io/v2/
+</code></pre>
 
 <p>Since such requests require authentication, a response such as the following should be considered an indicator of success:</p>
-<pre class="codehilite"><code>{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}</code></pre>
+<pre class="codehilite"><code>{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}
+</code></pre>
               </div>
             </div>
           </div>
@@ -1050,6 +1055,10 @@ sent to the Deis controller like so (do not forget the trailing slash!):</p>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

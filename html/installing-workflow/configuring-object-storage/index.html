@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -626,8 +630,8 @@
 <p class="admonition-title">Note</p>
 <p>All values will be automatically (base64) encoded <em>except</em> the <code>key_json</code> values under <code>gcs</code>/<code>gcr</code>.  These must be base64-encoded.  This is to support cleanly passing said encoded text via <code>helm --set</code> cli functionality rather than attempting to pass the raw JSON data.  For example:</p>
 <pre class="codehilite"><code>$ helm install workflow --namespace deis \
-    --set global.storage=gcs,gcs.key_json=&quot;$(cat /path/to/gcs_creds.json | base64 -w 0)&quot;</code></pre>
-
+    --set global.storage=gcs,gcs.key_json=&quot;$(cat /path/to/gcs_creds.json | base64 -w 0)&quot;
+</code></pre>
 
 </div>
 <p>You are now ready to run <code>helm install deis/workflow --namespace deis -f values.yaml</code> using your desired object storage.</p>
@@ -994,6 +998,10 @@
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

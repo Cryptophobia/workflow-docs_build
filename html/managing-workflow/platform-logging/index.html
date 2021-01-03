@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -617,8 +621,8 @@ and modify the <code>redis</code> section of the file to tune these settings.</p
 <pre class="codehilite"><code>Error: There are currently no log messages. Please check the following things:
 1) Logger and fluentd pods are running.
 2) The application is writing logs to the logger component by checking that an entry in the ring buffer was created: kubectl  --namespace=deis logs &lt;logger pod&gt;
-3) Making sure that the container logs were mounted properly into the fluentd pod: kubectl --namespace=deis exec &lt;fluentd pod&gt; ls /var/log/containers</code></pre>
-
+3) Making sure that the container logs were mounted properly into the fluentd pod: kubectl --namespace=deis exec &lt;fluentd pod&gt; ls /var/log/containers
+</code></pre>
 
 <h2 id="architecture-diagram">Architecture Diagram<a class="headerlink" href="#architecture-diagram" title="Permanent link">&para;</a></h2>
 <pre class="codehilite"><code>                        ┌────────┐                                        
@@ -647,8 +651,8 @@ and modify the <code>redis</code> section of the file to tune these settings.</p
 │ HOST        │   │          ▼                                    
 │  Telegraf   │───┘    ┌──────────┐                               
 └─────────────┘        │ Grafana  │                               
-                       └──────────┘                               </code></pre>
-
+                       └──────────┘                               
+</code></pre>
 
 <h2 id="default-configuration">Default Configuration<a class="headerlink" href="#default-configuration" title="Permanent link">&para;</a></h2>
 <p>By default the Fluentd pod can be configured to talk to numerous syslog endpoints. So for example it is possible to have Fluentd send log messages to both the Logger component and <a href="https://papertrailapp.com/">Papertrail</a>. This allows production deployments of Deis to satisfy stringent logging requirements such as offsite backups of log data.</p>
@@ -664,16 +668,16 @@ modify <code>workflow/charts/fluentd/templates/logger-fluentd-daemon.yaml</code>
 - name: &quot;SYSLOG_HOST_N&quot;
   value: &quot;my.syslog.host.n&quot;
 - name: &quot;SYSLOG_PORT_N&quot;
-  value: &quot;51333&quot;</code></pre>
-
+  value: &quot;51333&quot;
+</code></pre>
 
 <p>If you only need to talk to 1 Syslog endpoint you can use the following configuration within your chart:</p>
 <pre class="codehilite"><code>env:
 - name: &quot;SYSLOG_HOST&quot;
   value: &quot;my.syslog.host&quot;
 - name: &quot;SYSLOG_PORT&quot;
-  value: &quot;5144&quot;</code></pre>
-
+  value: &quot;5144&quot;
+</code></pre>
 
 <p>Then run <code>helm install ./workflow --namespace deis</code> to install the modified chart.</p>
 <h3 id="customizing">Customizing:<a class="headerlink" href="#customizing" title="Permanent link">&para;</a></h3>
@@ -690,16 +694,16 @@ modify <code>workflow/charts/fluentd/templates/logger-fluentd-daemon.yaml</code>
       &lt;store&gt;
         @type kafka \
         default_topic some_topic
-      &lt;/store&gt;</code></pre>
-
+      &lt;/store&gt;
+</code></pre>
 
 <p>Or you could configure it using the <code>daemon_environment</code> key in the <code>values.yaml</code>:</p>
 <pre class="codehilite"><code>fluentd:
   daemon_environment:
     FLUENTD_PLUGIN_1: &quot;fluent-plugin-kafka&quot;
     CUSTOM_STORE_1: &quot;|\n              &lt;store&gt;\n                @type kafka\n                        default_topic some_topic\n                        &lt;/store&gt;&quot;
-    INSTALL_BUILD_TOOLS: &quot;|\n              true&quot;</code></pre>
-
+    INSTALL_BUILD_TOOLS: &quot;|\n              true&quot;
+</code></pre>
 
 <p>For more information please see the <a href="https://github.com/teamhephy/fluentd#custom-plugins">Custom Plugins</a> section of the README.</p>
               </div>
@@ -1065,6 +1069,10 @@ modify <code>workflow/charts/fluentd/templates/logger-fluentd-daemon.yaml</code>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

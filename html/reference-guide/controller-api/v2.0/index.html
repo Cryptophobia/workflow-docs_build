@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -610,15 +614,15 @@ Content-Type: application/json
     &quot;username&quot;: &quot;test&quot;,
     &quot;password&quot;: &quot;opensesame&quot;,
     &quot;email&quot;: &quot;test@example.com&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Optional Parameters:</p>
 <pre class="codehilite"><code>{
     &quot;first_name&quot;: &quot;test&quot;,
     &quot;last_name&quot;: &quot;testerson&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -639,8 +643,8 @@ Content-Type: application/json
     &quot;date_joined&quot;: &quot;2014-10-19T22:01:00.601Z&quot;,
     &quot;groups&quot;: [],
     &quot;user_permissions&quot;: []
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="log-in">Log in<a class="headerlink" href="#log-in" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -648,8 +652,8 @@ Content-Type: application/json
 Host: deis.example.com
 Content-Type: application/json
 
-{&quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;opensesame&quot;}</code></pre>
-
+{&quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;opensesame&quot;}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -657,21 +661,21 @@ DEIS_API_VERSION: 2.0
 DEIS_PLATFORM_VERSION: 2.1.0
 Content-Type: application/json
 
-{&quot;token&quot;: &quot;abc123&quot;}</code></pre>
-
+{&quot;token&quot;: &quot;abc123&quot;}
+</code></pre>
 
 <h3 id="cancel-account">Cancel Account<a class="headerlink" href="#cancel-account" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/auth/cancel/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h3 id="regenerate-token">Regenerate Token<a class="headerlink" href="#regenerate-token" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -681,15 +685,15 @@ DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
 <p>Example Request:</p>
 <pre class="codehilite"><code>POST /v2/auth/tokens/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Optional Parameters:</p>
 <pre class="codehilite"><code>{
     &quot;username&quot; : &quot;test&quot;
     &quot;all&quot; : &quot;true&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -697,8 +701,8 @@ DEIS_API_VERSION: 2.0
 DEIS_PLATFORM_VERSION: 2.1.0
 Content-Type: application/json
 
-{&quot;token&quot;: &quot;abc123&quot;}</code></pre>
-
+{&quot;token&quot;: &quot;abc123&quot;}
+</code></pre>
 
 <h3 id="change-password">Change Password<a class="headerlink" href="#change-password" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -709,12 +713,12 @@ Authorization: token abc123
 {
     &quot;password&quot;: &quot;foo&quot;,
     &quot;new_password&quot;: &quot;bar&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Optional parameters:</p>
-<pre class="codehilite"><code>{&quot;username&quot;: &quot;testuser&quot;}</code></pre>
-
+<pre class="codehilite"><code>{&quot;username&quot;: &quot;testuser&quot;}
+</code></pre>
 
 <blockquote>
 <p><strong>note</strong></p>
@@ -723,16 +727,16 @@ Authorization: token abc123
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h2>
 <h3 id="list-all-applications">List all Applications<a class="headerlink" href="#list-all-applications" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -755,20 +759,20 @@ Content-Type: application/json
             &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="create-an-application">Create an Application<a class="headerlink" href="#create-an-application" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>POST /v2/apps/ HTTP/1.1
 Host: deis.example.com
 Content-Type: application/json
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Optional parameters:</p>
-<pre class="codehilite"><code>{&quot;id&quot;: &quot;example-go&quot;}</code></pre>
-
+<pre class="codehilite"><code>{&quot;id&quot;: &quot;example-go&quot;}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -784,28 +788,28 @@ Content-Type: application/json
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;url&quot;: &quot;example-go.example.com&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="destroy-an-application">Destroy an Application<a class="headerlink" href="#destroy-an-application" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/apps/example-go/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h3 id="list-application-details">List Application Details<a class="headerlink" href="#list-application-details" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -821,39 +825,39 @@ Content-Type: application/json
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;url&quot;: &quot;example-go.example.com&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="update-application-details">Update Application Details<a class="headerlink" href="#update-application-details" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>POST /v2/apps/example-go/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Optional parameters:</p>
 <pre class="codehilite"><code>{
   &quot;owner&quot;: &quot;test&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
 DEIS_API_VERSION: 2.0
 DEIS_PLATFORM_VERSION: 1.8.0
-Content-Type: application/json</code></pre>
-
+Content-Type: application/json
+</code></pre>
 
 <h3 id="retrieve-application-logs">Retrieve Application Logs<a class="headerlink" href="#retrieve-application-logs" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/logs/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Optional URL Query Parameters:</p>
-<pre class="codehilite"><code>?log_lines=</code></pre>
-
+<pre class="codehilite"><code>?log_lines=
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -861,8 +865,8 @@ DEIS_API_VERSION: 2.0
 DEIS_PLATFORM_VERSION: 2.1.0
 Content-Type: text/plain
 
-&quot;16:51:14 deis[api]: test created initial release\n&quot;</code></pre>
-
+&quot;16:51:14 deis[api]: test created initial release\n&quot;
+</code></pre>
 
 <h3 id="run-one-off-commands">Run one-off Commands<a class="headerlink" href="#run-one-off-commands" title="Permanent link">&para;</a></h3>
 <pre class="codehilite"><code>POST /v2/apps/example-go/run/ HTTP/1.1
@@ -870,8 +874,8 @@ Host: deis.example.com
 Content-Type: application/json
 Authorization: token abc123
 
-{&quot;command&quot;: &quot;echo hi&quot;}</code></pre>
-
+{&quot;command&quot;: &quot;echo hi&quot;}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -879,16 +883,16 @@ DEIS_API_VERSION: 2.0
 DEIS_PLATFORM_VERSION: 2.1.0
 Content-Type: application/json
 
-{&quot;exit_code&quot;: 0, &quot;output&quot;: &quot;hi\n&quot;}</code></pre>
-
+{&quot;exit_code&quot;: 0, &quot;output&quot;: &quot;hi\n&quot;}
+</code></pre>
 
 <h2 id="certificates">Certificates<a class="headerlink" href="#certificates" title="Permanent link">&para;</a></h2>
 <h3 id="list-all-certificates">List all Certificates<a class="headerlink" href="#list-all-certificates" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/certs HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -917,15 +921,15 @@ Content-Type: application/json
       &quot;subject&quot;: &quot;/C=US/ST=CA/L=San Francisco/O=Deis/OU=Engineering/CN=bar.com/emailAddress=engineering@deis.com&quot;
     }
   ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="get-certificate-details">Get Certificate Details<a class="headerlink" href="#get-certificate-details" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/certs/foo HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -947,8 +951,8 @@ Content-Type: application/json
   &quot;starts&quot;: &quot;2016-01-15T23:57:57Z&quot;,
   &quot;issuer&quot;: &quot;/C=US/ST=CA/L=San Francisco/O=Deis/OU=Engineering/CN=bar.com/emailAddress=engineering@deis.com&quot;,
   &quot;subject&quot;: &quot;/C=US/ST=CA/L=San Francisco/O=Deis/OU=Engineering/CN=bar.com/emailAddress=engineering@deis.com&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="create-certificate">Create Certificate<a class="headerlink" href="#create-certificate" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -961,8 +965,8 @@ Authorization: token abc123
     &quot;name&quot;: &quot;foo&quot;
     &quot;certificate&quot;: &quot;-----BEGIN CERTIFICATE-----&quot;,
     &quot;key&quot;: &quot;-----BEGIN RSA PRIVATE KEY-----&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -984,21 +988,21 @@ Content-Type: application/json
   &quot;starts&quot;: &quot;2016-01-15T23:57:57Z&quot;,
   &quot;issuer&quot;: &quot;/C=US/ST=CA/L=San Francisco/O=Deis/OU=Engineering/CN=bar.com/emailAddress=engineering@deis.com&quot;,
   &quot;subject&quot;: &quot;/C=US/ST=CA/L=San Francisco/O=Deis/OU=Engineering/CN=bar.com/emailAddress=engineering@deis.com&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="destroy-a-certificate">Destroy a Certificate<a class="headerlink" href="#destroy-a-certificate" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/certs/foo HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h3 id="attach-a-domain-to-a-certificate">Attach a Domain to a Certificate<a class="headerlink" href="#attach-a-domain-to-a-certificate" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1008,35 +1012,35 @@ Authorization: token abc123
 
 {
     &quot;domain&quot;: &quot;test.com&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h3 id="remove-a-domain-from-a-certificate">Remove a Domain from a Certificate<a class="headerlink" href="#remove-a-domain-from-a-certificate" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/certs/foo/domain/test.com/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h2 id="pods">Pods<a class="headerlink" href="#pods" title="Permanent link">&para;</a></h2>
 <h3 id="list-all-pods">List all Pods<a class="headerlink" href="#list-all-pods" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/pods/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1055,15 +1059,15 @@ Content-Type: application/json
             &quot;type&quot;: &quot;web&quot;
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="list-all-pods-by-type">List all Pods by Type<a class="headerlink" href="#list-all-pods-by-type" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/pods/web/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1082,15 +1086,15 @@ Content-Type: application/json
             &quot;type&quot;: &quot;web&quot;
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="restart-all-pods">Restart All Pods<a class="headerlink" href="#restart-all-pods" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>POST /v2/apps/example-go/pods/restart/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1106,15 +1110,15 @@ Content-Type: application/json
         &quot;state&quot;: &quot;up&quot;,
         &quot;type&quot;: &quot;web&quot;
     }
-]</code></pre>
-
+]
+</code></pre>
 
 <h3 id="restart-pods-by-type">Restart Pods by Type<a class="headerlink" href="#restart-pods-by-type" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>POST /v2/apps/example-go/pods/web/restart/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1130,15 +1134,15 @@ Content-Type: application/json
         &quot;state&quot;: &quot;up&quot;,
         &quot;type&quot;: &quot;web&quot;
     }
-]</code></pre>
-
+]
+</code></pre>
 
 <h3 id="restart-pods-by-type-and-name">Restart Pods by Type and Name<a class="headerlink" href="#restart-pods-by-type-and-name" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>POST /v2/apps/example-go/pods/go-v2-web-atots/restart/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1154,8 +1158,8 @@ Content-Type: application/json
         &quot;state&quot;: &quot;up&quot;,
         &quot;type&quot;: &quot;web&quot;
     }
-]</code></pre>
-
+]
+</code></pre>
 
 <h3 id="scale-pods">Scale Pods<a class="headerlink" href="#scale-pods" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1164,22 +1168,22 @@ Host: deis.example.com
 Content-Type: application/json
 Authorization: token abc123
 
-{&quot;web&quot;: 3}</code></pre>
-
+{&quot;web&quot;: 3}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <h3 id="list-application-configuration">List Application Configuration<a class="headerlink" href="#list-application-configuration" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/config/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1200,8 +1204,8 @@ Content-Type: application/json
     &quot;created&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="create-new-config">Create new Config<a class="headerlink" href="#create-new-config" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1210,8 +1214,8 @@ Host: deis.example.com
 Content-Type: application/json
 Authorization: token abc123
 
-{&quot;values&quot;: {&quot;HELLO&quot;: &quot;world&quot;, &quot;PLATFORM&quot;: &quot;deis&quot;}}</code></pre>
-
+{&quot;values&quot;: {&quot;HELLO&quot;: &quot;world&quot;, &quot;PLATFORM&quot;: &quot;deis&quot;}}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -1237,8 +1241,8 @@ X-Deis-Release: 3
     &quot;created&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="unset-config-variable">Unset Config Variable<a class="headerlink" href="#unset-config-variable" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1247,8 +1251,8 @@ Host: deis.example.com
 Content-Type: application/json
 Authorization: token abc123
 
-{&quot;values&quot;: {&quot;HELLO&quot;: null}}</code></pre>
-
+{&quot;values&quot;: {&quot;HELLO&quot;: null}}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -1272,16 +1276,16 @@ X-Deis-Release: 4
     &quot;created&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h2 id="domains">Domains<a class="headerlink" href="#domains" title="Permanent link">&para;</a></h2>
 <h3 id="list-application-domains">List Application Domains<a class="headerlink" href="#list-application-domains" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/domains/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1302,8 +1306,8 @@ Content-Type: application/json
             &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="add-domain">Add Domain<a class="headerlink" href="#add-domain" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1311,8 +1315,8 @@ Content-Type: application/json
 Host: deis.example.com
 Authorization: token abc123
 
-{'domain': 'example.example.com'}</code></pre>
-
+{'domain': 'example.example.com'}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -1326,29 +1330,29 @@ Content-Type: application/json
     &quot;domain&quot;: &quot;example.example.com&quot;,
     &quot;owner&quot;: &quot;test&quot;,
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="remove-domain">Remove Domain<a class="headerlink" href="#remove-domain" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/apps/example-go/domains/example.example.com HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h2 id="builds">Builds<a class="headerlink" href="#builds" title="Permanent link">&para;</a></h2>
 <h3 id="list-application-builds">List Application Builds<a class="headerlink" href="#list-application-builds" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/builds/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1375,8 +1379,8 @@ Content-Type: application/json
             &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="create-application-build">Create Application Build<a class="headerlink" href="#create-application-build" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1385,16 +1389,16 @@ Host: deis.example.com
 Content-Type: application/json
 Authorization: token abc123
 
-{&quot;image&quot;: &quot;deis/example-go:latest&quot;}</code></pre>
-
+{&quot;image&quot;: &quot;deis/example-go:latest&quot;}
+</code></pre>
 
 <p>Optional Parameters:</p>
 <pre class="codehilite"><code>{
     &quot;procfile&quot;: {
       &quot;web&quot;: &quot;./cmd&quot;
     }
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -1413,16 +1417,16 @@ X-Deis-Release: 4
     &quot;sha&quot;: &quot;&quot;,
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
 <h3 id="list-application-releases">List Application Releases<a class="headerlink" href="#list-application-releases" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/releases/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1469,15 +1473,15 @@ Content-Type: application/json
             &quot;version&quot;: 1
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="list-release-details">List Release Details<a class="headerlink" href="#list-release-details" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/releases/v2/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1495,8 +1499,8 @@ Content-Type: application/json
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;,
     &quot;version&quot;: 1
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="rollback-release">Rollback Release<a class="headerlink" href="#rollback-release" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1505,8 +1509,8 @@ Host: deis.example.com
 Content-Type: application/json
 Authorization: token abc123
 
-{&quot;version&quot;: 1}</code></pre>
-
+{&quot;version&quot;: 1}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -1514,16 +1518,16 @@ DEIS_API_VERSION: 2.0
 DEIS_PLATFORM_VERSION: 2.1.0
 Content-Type: application/json
 
-{&quot;version&quot;: 5}</code></pre>
-
+{&quot;version&quot;: 5}
+</code></pre>
 
 <h2 id="keys">Keys<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h2>
 <h3 id="list-keys">List Keys<a class="headerlink" href="#list-keys" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/keys/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -1545,8 +1549,8 @@ Content-Type: application/json
             &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="add-key-to-user">Add Key to User<a class="headerlink" href="#add-key-to-user" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1557,8 +1561,8 @@ Authorization: token abc123
 {
     &quot;id&quot;: &quot;example&quot;,
     &quot;public&quot;: &quot;ssh-rsa &lt;...&gt;&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
@@ -1573,21 +1577,21 @@ Content-Type: application/json
     &quot;public&quot;: &quot;ssh-rsa &lt;...&gt;&quot;,
     &quot;updated&quot;: &quot;2014-01-01T00:00:00UTC&quot;,
     &quot;uuid&quot;: &quot;de1bf5b5-4a72-4f94-a10c-d2a3741cdf75&quot;
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="remove-key-from-user">Remove Key from User<a class="headerlink" href="#remove-key-from-user" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/keys/example HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h2>
 <h3 id="list-application-permissions">List Application Permissions<a class="headerlink" href="#list-application-permissions" title="Permanent link">&para;</a></h3>
@@ -1598,8 +1602,8 @@ DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/apps/example-go/perms/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1612,8 +1616,8 @@ Content-Type: application/json
         &quot;test&quot;,
         &quot;foo&quot;
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="create-application-permission">Create Application Permission<a class="headerlink" href="#create-application-permission" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
@@ -1621,34 +1625,34 @@ Content-Type: application/json
 Host: deis.example.com
 Authorization: token abc123
 
-{&quot;username&quot;: &quot;example&quot;}</code></pre>
-
+{&quot;username&quot;: &quot;example&quot;}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h3 id="remove-application-permission">Remove Application Permission<a class="headerlink" href="#remove-application-permission" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/apps/example-go/perms/example HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h3 id="list-administrators">List Administrators<a class="headerlink" href="#list-administrators" title="Permanent link">&para;</a></h3>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/admin/perms/ HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1670,8 +1674,8 @@ Content-Type: application/json
             &quot;is_superuser&quot;: true
         }
     ]
-}</code></pre>
-
+}
+</code></pre>
 
 <h3 id="grant-user-administrative-privileges">Grant User Administrative Privileges<a class="headerlink" href="#grant-user-administrative-privileges" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -1683,14 +1687,14 @@ Content-Type: application/json
 Host: deis.example.com
 Authorization: token abc123
 
-{&quot;username&quot;: &quot;example&quot;}</code></pre>
-
+{&quot;username&quot;: &quot;example&quot;}
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 201 CREATED
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h3 id="remove-users-administrative-privileges">Remove User's Administrative Privileges<a class="headerlink" href="#remove-users-administrative-privileges" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -1700,14 +1704,14 @@ DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
 <p>Example Request:</p>
 <pre class="codehilite"><code>DELETE /v2/admin/perms/example HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 204 NO CONTENT
 DEIS_API_VERSION: 2.0
-DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
-
+DEIS_PLATFORM_VERSION: 2.1.0
+</code></pre>
 
 <h2 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h2>
 <h3 id="list-all-users">List all users<a class="headerlink" href="#list-all-users" title="Permanent link">&para;</a></h3>
@@ -1718,8 +1722,8 @@ DEIS_PLATFORM_VERSION: 2.1.0</code></pre>
 <p>Example Request:</p>
 <pre class="codehilite"><code>GET /v2/users HTTP/1.1
 Host: deis.example.com
-Authorization: token abc123</code></pre>
-
+Authorization: token abc123
+</code></pre>
 
 <p>Example Response:</p>
 <pre class="codehilite"><code>HTTP/1.1 200 OK
@@ -1747,7 +1751,8 @@ Content-Type: application/json
             &quot;user_permissions&quot;: []
         }
     ]
-}</code></pre>
+}
+</code></pre>
               </div>
             </div>
           </div>
@@ -2111,6 +2116,10 @@ Content-Type: application/json
         <a class="reference internal" href="../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../changelogs/v2.22.2/">v2.22.2</a>

@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -622,26 +626,27 @@ The key's randomart image is:
 |          .   .  |
 +-----------------+
 $ ssh-add ~/.ssh/id_deis
-Identity added: /Users/admin/.ssh/id_deis (/Users/admin/.ssh/id_deis)</code></pre>
-
+Identity added: /Users/admin/.ssh/id_deis (/Users/admin/.ssh/id_deis)
+</code></pre>
 
 <h2 id="adding-and-removing-ssh-keys">Adding and Removing SSH Keys<a class="headerlink" href="#adding-and-removing-ssh-keys" title="Permanent link">&para;</a></h2>
 <p>By publishing the <strong>public</strong> half of your SSH key to Deis Workflow the component responsible for receiving <code>git push</code>
 will be able to authenticate the user and ensure that they have access to the destination application.</p>
 <pre class="codehilite"><code>$ deis keys:add ~/.ssh/id_deis.pub
-Uploading id_deis.pub to deis... done</code></pre>
-
+Uploading id_deis.pub to deis... done
+</code></pre>
 
 <p>You can always view the keys associated with your user as well:</p>
 <pre class="codehilite"><code>$ deis keys:list
 === admin Keys
 admin@plinth-23437.local ssh-rsa AAAAB3Nz...3437.local
-admin@subgenius.local ssh-rsa AAAAB3Nz...nius.local</code></pre>
-
+admin@subgenius.local ssh-rsa AAAAB3Nz...nius.local
+</code></pre>
 
 <p>Remove keys by their name:</p>
 <pre class="codehilite"><code>$ deis keys:remove admin@plinth-23437.local
-Removing admin@plinth-23437.local SSH Key... don</code></pre>
+Removing admin@plinth-23437.local SSH Key... don
+</code></pre>
               </div>
             </div>
           </div>
@@ -1005,6 +1010,10 @@ Removing admin@plinth-23437.local SSH Key... don</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -598,8 +602,8 @@
                 <h2 id="domains-and-routing">Domains and Routing<a class="headerlink" href="#domains-and-routing" title="Permanent link">&para;</a></h2>
 <p>You can use <code>deis domains</code> to add or remove custom domains to the application:</p>
 <pre class="codehilite"><code>$ deis domains:add hello.bacongobbler.com
-Adding hello.bacongobbler.com to finest-woodshed... done</code></pre>
-
+Adding hello.bacongobbler.com to finest-woodshed... done
+</code></pre>
 
 <p>Once that's done, you can go into a DNS registrar and set up a CNAME from the new
 appname to the old one:</p>
@@ -607,8 +611,8 @@ appname to the old one:</p>
 [...]
 ;; ANSWER SECTION:
 hello.bacongobbler.com.         1759    IN    CNAME    finest-woodshed.deisapp.com.
-finest-woodshed.deisapp.com.    270     IN    A        172.17.8.100</code></pre>
-
+finest-woodshed.deisapp.com.    270     IN    A        172.17.8.100
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -620,13 +624,14 @@ address of the load balancer (if any).</p>
 </div>
 <p>To add or remove the application from the routing mesh, use <code>deis routing</code>:</p>
 <pre class="codehilite"><code>$ deis routing:disable
-Disabling routing for finest-woodshed... done</code></pre>
-
+Disabling routing for finest-woodshed... done
+</code></pre>
 
 <p>This will make the application unreachable through the <a href="../../understanding-workflow/components/#router">Router</a>, but the application is still
 reachable internally through its <a href="../../reference-guide/terms/#service">Kubernetes Service</a>. To re-enable routing:</p>
 <pre class="codehilite"><code>$ deis routing:enable
-Enabling routing for finest-woodshed... done</code></pre>
+Enabling routing for finest-woodshed... done
+</code></pre>
               </div>
             </div>
           </div>
@@ -990,6 +995,10 @@ Enabling routing for finest-woodshed... done</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -639,8 +643,8 @@ should check out the previous release tag and cherry-pick specific commits from 
 <p><strong>Note:</strong> if a patch release, the release artifact will have to be manually promoted by triggering
 the <a href="https://ci.teamhephy.info/job/component-promote">component-promote</a> job with the following values:</p>
 <pre class="codehilite"><code class="language-bash">COMPONENT_NAME=&lt;component name&gt;
-COMPONENT_SHA=&lt;patch commit sha&gt;</code></pre>
-
+COMPONENT_SHA=&lt;patch commit sha&gt;
+</code></pre>
 
 <p>Make sure you have the <a href="https://github.com/teamhephy/deisrel">deisrel</a> release tool in your search <code>$PATH</code>.</p>
 <p>Run <code>deisrel release</code> once with a fake semver tag to proofread the changelog content. (If <code>HEAD</code>
@@ -656,8 +660,8 @@ Creating changelog for controller with tag v2.8.1 through commit 943a49267eeb285
 
 #### Fixes
 
-- [`615b834`](https://github.com/teamhephy/controller/commit/615b834f39cb68a854cc1f1e2f0f82d862ea2731) boot: Ensure DEIS_DEBUG==true for debug output</code></pre>
-
+- [`615b834`](https://github.com/teamhephy/controller/commit/615b834f39cb68a854cc1f1e2f0f82d862ea2731) boot: Ensure DEIS_DEBUG==true for debug output
+</code></pre>
 
 <p>Based on the changelog content, determine whether the component deserves a minor or patch
 release. Run the command again with that semver tag and <code>--dry-run=false</code>. You will still be
@@ -680,8 +684,8 @@ Please review the above changelog contents and ensure:
   2. The changes agree with the semver release tag (major, minor, or patch)
 
 Create release for Deis Controller v2.8.2? [y/n]: y
-New release is available at https://github.com/teamhephy/controller/releases/tag/v2.8.2</code></pre>
-
+New release is available at https://github.com/teamhephy/controller/releases/tag/v2.8.2
+</code></pre>
 
 <h3 id="step-2-verify-the-component-is-available">Step 2: Verify the Component is Available<a class="headerlink" href="#step-2-verify-the-component-is-available" title="Permanent link">&para;</a></h3>
 <p>Tagging the component (see <a href="/roadmap/releases/#step-1-update-code-and-run-the-release-tool">Step 1</a>)
@@ -700,16 +704,16 @@ verify it can be fetched (and verified):</p>
 <pre class="codehilite"><code>$ helm repo add controller https://charts.teamhephy.com/controller
 &quot;controller&quot; has been added to your repositories
 $ helm fetch --verify controller/controller --version v2.17.0
-Verification: &amp;{0xc4207ec870 sha256:026e766e918ff28d2a7041bc3d560d149ee7eb0cb84165c9d9d00a3045ff45c3 controller-v2.17.0.tgz}</code></pre>
-
+Verification: &amp;{0xc4207ec870 sha256:026e766e918ff28d2a7041bc3d560d149ee7eb0cb84165c9d9d00a3045ff45c3 controller-v2.17.0.tgz}
+</code></pre>
 
 <h2 id="how-to-release-workflow">How to Release Workflow<a class="headerlink" href="#how-to-release-workflow" title="Permanent link">&para;</a></h2>
 <p>Deis Workflow integrates multiple component releases together with a <a href="https://github.com/kubernetes/helm">Kubernetes Helm</a> chart
 deliverable. This section leads a maintainer through creating a Workflow release.</p>
 <h3 id="step-1-set-environment-variables">Step 1: Set Environment Variables<a class="headerlink" href="#step-1-set-environment-variables" title="Permanent link">&para;</a></h3>
 <p>Export two environment variables that will be used in later steps:</p>
-<pre class="codehilite"><code class="language-bash">export WORKFLOW_RELEASE=v2.17.0 WORKFLOW_PREV_RELEASE=v2.16.0  # for example</code></pre>
-
+<pre class="codehilite"><code class="language-bash">export WORKFLOW_RELEASE=v2.17.0 WORKFLOW_PREV_RELEASE=v2.16.0  # for example
+</code></pre>
 
 <h3 id="step-2-tag-supporting-repositories">Step 2: Tag Supporting Repositories<a class="headerlink" href="#step-2-tag-supporting-repositories" title="Permanent link">&para;</a></h3>
 <p>Some Workflow components not in the Helm chart must also be tagged in sync with the release.
@@ -752,8 +756,8 @@ the chart versions existing in the <code>WORKFLOW_PREV_RELEASE</code> chart and 
 (Therefore, if there are any unreleased commits in a component repo, they will not appear here):</p>
 <pre class="codehilite"><code class="language-bash">helm repo add hephy https://charts.teamhephy.com/workflow
 helm fetch --untar hephy/workflow --version $WORKFLOW_PREV_RELEASE
-deisrel changelog global workflow/requirements.lock map.json &gt; changelog-$WORKFLOW_RELEASE.md</code></pre>
-
+deisrel changelog global workflow/requirements.lock map.json &gt; changelog-$WORKFLOW_RELEASE.md
+</code></pre>
 
 <p>This master changelog should then be placed into a single gist.  The file will also be added to the documentation
 update PR created in the next step.</p>
@@ -763,8 +767,8 @@ Use <code>git grep $WORKFLOW_PREV_RELEASE</code> to find any references, but be 
 <code>CHANGELOG.md</code>.</p>
 <p>Place the <code>$WORKFLOW_RELEASE</code> master changelog generated in Step 7 in the <code>changelogs</code> directory.
 Make sure to add a header to the page to make it clear that this is for a Workflow release, e.g.:</p>
-<pre class="codehilite"><code>## Workflow v2.16.0 -&gt; v2.17.0</code></pre>
-
+<pre class="codehilite"><code>## Workflow v2.16.0 -&gt; v2.17.0
+</code></pre>
 
 <p>Once the PR has been reviewed and merged, do a <a href="#how-to-release-a-component">component release</a> of
 <a href="https://github.com/teamhephy/workflow">teamhephy/workflow</a> itself. The version number for <a href="https://github.com/teamhephy/workflow">teamhephy/workflow</a> should always match the
@@ -782,16 +786,16 @@ to individual component release tags.</p>
 and then verify <code>stable</code> artifacts are available and appropriately updated after the job completes:</p>
 <pre class="codehilite"><code>$ curl -sSL https://raw.githubusercontent.com/teamhephy/workflow-cli/master/install-v2.sh | bash -s v2.20.0
 $ ./deis version
-# (Should show $WORKFLOW_RELEASE)</code></pre>
-
+# (Should show $WORKFLOW_RELEASE)
+</code></pre>
 
 <h3 id="step-10-let-everyone-know">Step 10: Let Everyone Know<a class="headerlink" href="#step-10-let-everyone-know" title="Permanent link">&para;</a></h3>
 <p>Let the rest of the team know they can start blogging and tweeting about the new Workflow release.
 Post a message to the #company channel on Slack. Include a link to the released chart and to the
 master CHANGELOG:</p>
 <pre class="codehilite"><code>@here Deis Workflow v2.17.0 is now live!
-Master CHANGELOG: https://teamhephy.info/docs/workflow/changelogs/v2.17.0/</code></pre>
-
+Master CHANGELOG: https://teamhephy.info/docs/workflow/changelogs/v2.17.0/
+</code></pre>
 
 <p>You're done with the release. Nice job!</p>
               </div>
@@ -1157,6 +1161,10 @@ Master CHANGELOG: https://teamhephy.info/docs/workflow/changelogs/v2.17.0/</code
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

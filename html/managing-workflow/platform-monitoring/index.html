@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -630,8 +634,8 @@
 │ HOST        │   │          ▼                                    
 │  Telegraf   │───┘    ┌──────────┐                               
 └─────────────┘        │ Grafana  │                               
-                       └──────────┘                               </code></pre>
-
+                       └──────────┘                               
+</code></pre>
 
 <h2 id="grafana"><a href="https://grafana.com/">Grafana</a><a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h2>
 <p>Grafana allows users to create custom dashboards that visualize the data captured to the running InfluxDB component. By default Grafana is exposed using a <a href="https://github.com/teamhephy/router#how-it-works">service annotation</a> through the router at the following URL: <code>http://grafana.mydomain.com</code>. The default login is <code>admin/admin</code>. If you are interested in changing these values please see <a href="../tuning-component-settings/#customizing-the-monitor">Tuning Component Settings</a>.</p>
@@ -654,8 +658,8 @@ production installation.</p>
    # GCP PDs and EBS volumes are supported only
    persistence:
      enabled: true # Set to true to enable persistence
-     size: 5Gi # PVC size</code></pre>
-
+     size: 5Gi # PVC size
+</code></pre>
 
 <h3 id="off-cluster-grafana">Off Cluster Grafana<a class="headerlink" href="#off-cluster-grafana" title="Permanent link">&para;</a></h3>
 <p>If you wish to provide your own Grafana instance you can set <code>grafana_location</code> in the <code>values.yaml</code> file before running <code>helm install</code>.</p>
@@ -668,8 +672,8 @@ production installation.</p>
    # GCP PDs and EBS volumes are supported only
    persistence:
      enabled: true # Set to true to enable persistence
-     size: 5Gi # PVC size</code></pre>
-
+     size: 5Gi # PVC size
+</code></pre>
 
 <h3 id="off-cluster-influxdb">Off Cluster Influxdb<a class="headerlink" href="#off-cluster-influxdb" title="Permanent link">&para;</a></h3>
 <p>To use off-cluster Influx, please provide the following values in the <code>values.yaml</code> file before running <code>helm install</code>.</p>
@@ -1053,6 +1057,10 @@ production installation.</p>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

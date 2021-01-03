@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -598,18 +602,18 @@
                 <h1 id="experimental-native-ingress">Experimental Native Ingress<a class="headerlink" href="#experimental-native-ingress" title="Permanent link">&para;</a></h1>
 <h2 id="install-deis-workflow-with-experimental-native-ingress-support">Install Deis Workflow (With experimental native ingress support)<a class="headerlink" href="#install-deis-workflow-with-experimental-native-ingress-support" title="Permanent link">&para;</a></h2>
 <p>Now that Helm is installed and the repository has been added, install Workflow with a native ingress by running:</p>
-<pre class="codehilite"><code>$ helm install deis/workflow --namespace deis --set global.experimental_native_ingress=true,controller.platform_domain=deis.com</code></pre>
-
+<pre class="codehilite"><code>$ helm install deis/workflow --namespace deis --set global.experimental_native_ingress=true,controller.platform_domain=deis.com
+</code></pre>
 
 <p>Where <code>controller.platform_domain</code> is a <strong>required</strong> parameter that is traditionally not required for Workflow that is explained in the next section. In this example we are using <code>deis.com</code> for <code>$hostname</code>.</p>
 <p>Helm will install a variety of Kubernetes resources in the <code>deis</code> namespace.
 Wait for the pods that Helm launched to be ready. Monitor their status by running:</p>
-<pre class="codehilite"><code>$ kubectl --namespace=deis get pods</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis get pods
+</code></pre>
 
 <p>You should also notice that several Kubernetes ingresses has been installed on your cluster. You can view it by running:</p>
-<pre class="codehilite"><code>$ kubectl get ingress --namespace deis</code></pre>
-
+<pre class="codehilite"><code>$ kubectl get ingress --namespace deis
+</code></pre>
 
 <p>Depending on the order in which the Workflow components initialize, some pods may restart. This is common during the
 installation: if a component's dependencies are not yet available, that component will exit and Kubernetes will
@@ -625,28 +629,28 @@ deis-logger-fluentd-esm60     1/1       Running   0          5m
 deis-logger-sm8b3             1/1       Running   0          5m
 deis-minio-4ww3t              1/1       Running   0          5m
 deis-registry-asozo           1/1       Running   1          5m
-deis-workflow-manager-68nu6   1/1       Running   0          5m</code></pre>
-
+deis-workflow-manager-68nu6   1/1       Running   0          5m
+</code></pre>
 
 <h2 id="install-a-kubernetes-ingress-controller">Install a Kubernetes Ingress Controller<a class="headerlink" href="#install-a-kubernetes-ingress-controller" title="Permanent link">&para;</a></h2>
 <p>Now that Workflow has been deployed with the <code>global.experimental_native_ingress</code> flag set to <code>true</code>, we will need a Kubernetes ingress controller in place to begin routing traffic.</p>
 <p>Here is an example of how to use <a href="https://traefik.io/">traefik</a> as an ingress controller for Workflow. Of course, you are welcome to use any controller you wish.</p>
-<pre class="codehilite"><code>$ helm install stable/traefik --name ingress --namespace kube-system</code></pre>
-
+<pre class="codehilite"><code>$ helm install stable/traefik --name ingress --namespace kube-system
+</code></pre>
 
 <h2 id="configure-dns">Configure DNS<a class="headerlink" href="#configure-dns" title="Permanent link">&para;</a></h2>
 <p>The experimental ingress feature requires a user to set up a hostname, and assumes the <code>deis.$host</code> convention.</p>
 <p>We need to point the <code>*.$host</code> record to the public IP address of your ingress controller. You can get the public IP using the following command. A wildcard entry is necessary here as apps will use the same rule after they are deployed.</p>
 <pre class="codehilite"><code>$ kubectl get svc ingress-traefik --namespace kube-system
 NAME              CLUSTER-IP   EXTERNAL-IP      PORT(S)                      AGE
-ingress-traefik   10.0.25.3    138.91.243.152   80:31625/TCP,443:30871/TCP   33m</code></pre>
-
+ingress-traefik   10.0.25.3    138.91.243.152   80:31625/TCP,443:30871/TCP   33m
+</code></pre>
 
 <p>Additionally, we need to point the <code>deis-builder.$host</code> record to the public IP address of the <a href="../../understanding-workflow/components/#builder">Builder</a>.</p>
 <pre class="codehilite"><code>$ kubectl get svc deis-builder --namespace deis
 NAME           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-deis-builder   10.0.165.140   40.86.182.187   2222:32488/TCP   33m</code></pre>
-
+deis-builder   10.0.165.140   40.86.182.187   2222:32488/TCP   33m
+</code></pre>
 
 <p>If we were using <code>deis.com</code> as a hostname, we would need to create the following A DNS records.</p>
 <table>
@@ -1037,6 +1041,10 @@ deis-builder   10.0.165.140   40.86.182.187   2222:32488/TCP   33m</code></pre>
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

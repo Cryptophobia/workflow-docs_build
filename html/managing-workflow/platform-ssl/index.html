@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -632,12 +636,12 @@ $ cat certificate.key
 /* your unencrypted private key here */
 -----END RSA PRIVATE KEY-----
 $ cat certificate.key | base64 -e
-LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQovKiB5b3VyIHVuZW5jcnlwdGVkIHByaXZhdGUga2V5IGhlcmUgKi8KLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0K</code></pre>
-
+LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQovKiB5b3VyIHVuZW5jcnlwdGVkIHByaXZhdGUga2V5IGhlcmUgKi8KLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0K
+</code></pre>
 
 <p>Open your favorite text editor and create the Kubernetes manifest:</p>
-<pre class="codehilite"><code>$ $EDITOR deis-router-platform-cert.yaml</code></pre>
-
+<pre class="codehilite"><code>$ $EDITOR deis-router-platform-cert.yaml
+</code></pre>
 
 <p>The format of the Secret manifest should match the below example. Make sure you paste the appropriate values for <code>cert</code>
 and <code>key</code> from the above examples:</p>
@@ -650,8 +654,8 @@ metadata:
 type: Opaque
 data:
   tls.crt: LS0...tCg==
-  tls.key: LS0...LQo=</code></pre>
-
+  tls.key: LS0...LQo=
+</code></pre>
 
 <p>Once you've created the <code>deis-router-platform-cert.yaml</code> file, you can install the manifest with <code>kubectl create -f
 deis-router-platform-cert.yaml</code>. The Deis Workflow router will automatically notice the new secret and update its
@@ -1033,6 +1037,10 @@ documentation on <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

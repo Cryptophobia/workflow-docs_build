@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -604,8 +608,8 @@ applications that are deployed and managed by Deis Workflow.</p>
 allocated by Google Cloud for your Deis Workflow cluster:</p>
 <pre class="codehilite"><code>$ kubectl --namespace=deis describe svc deis-router | grep LoadBalancer
 Type:                   LoadBalancer
-LoadBalancer Ingress:   104.197.125.75</code></pre>
-
+LoadBalancer Ingress:   104.197.125.75
+</code></pre>
 
 <h2 id="prepare-the-hostname">Prepare the Hostname<a class="headerlink" href="#prepare-the-hostname" title="Permanent link">&para;</a></h2>
 <p>Now that you have the ip address of your load balancer we can use the <code>nip.io</code>
@@ -619,13 +623,13 @@ above, the address would be: <code>104.197.125.75.nip.io</code>.</p>
 <pre class="codehilite"><code>$ host 104.197.125.75.nip.io
 104.197.125.75.nip.io has address 104.197.125.75
 $ host something-random.104.197.125.75.nip.io
-something-random.104.197.125.75.nip.io has address 104.197.125.75</code></pre>
-
+something-random.104.197.125.75.nip.io has address 104.197.125.75
+</code></pre>
 
 <p>By default, any HTTP traffic for the hostname <code>deis</code> will be sent to the Workflow API service. To test that everything is connected properly you may validate connectivity using <code>curl</code>:</p>
 <pre class="codehilite"><code>$ curl http://deis.104.197.125.75.nip.io/v2/ &amp;&amp; echo
-{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}</code></pre>
-
+{&quot;detail&quot;:&quot;Authentication credentials were not provided.&quot;}
+</code></pre>
 
 <p>You should see a failed request because we provided no credentials to the API server.</p>
 <p>Remember the hostname, we will use it in the next step.</p>
@@ -993,6 +997,10 @@ something-random.104.197.125.75.nip.io has address 104.197.125.75</code></pre>
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>

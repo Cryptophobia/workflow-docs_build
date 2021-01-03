@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -608,16 +612,16 @@ Hephy Workflow, follow the <a href="../quickstart/">quickstart guide</a> for ass
 <p>Check that the <code>helm</code> command is available and the version is v2.5.0 or newer.</p>
 <pre class="codehilite"><code>$ helm version
 Client: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac1a1b2f888144ef5a67b8dab6c2d45be6&quot;, GitTreeState:&quot;clean&quot;}
-Server: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac1a1b2f888144ef5a67b8dab6c2d45be6&quot;, GitTreeState:&quot;clean&quot;}</code></pre>
-
+Server: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac1a1b2f888144ef5a67b8dab6c2d45be6&quot;, GitTreeState:&quot;clean&quot;}
+</code></pre>
 
 <h3 id="check-your-authorization">Check Your Authorization<a class="headerlink" href="#check-your-authorization" title="Permanent link">&para;</a></h3>
 <p>If your cluster uses <a href="https://kubernetes.io/docs/admin/authorization/rbac/">RBAC</a> for authorization, <code>helm</code> will need to be granted the necessary permissions to create Workflow resources.
 This can be done with the following commands:</p>
 <pre class="codehilite"><code>$ kubectl create sa tiller-deploy -n kube-system
 $ kubectl create clusterrolebinding helm --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-deploy
-$ helm init --service-account=tiller-deploy</code></pre>
-
+$ helm init --service-account=tiller-deploy
+</code></pre>
 
 <p>If <code>helm</code> is already installed in cluster without sufficient rights, simply add <code>--upgrade</code> to the <code>init</code> command above.</p>
 <p><strong>Note</strong>: Specific <code>helm</code> permissions haven't been sorted yet and details may change (watch <code>helm</code> <a href="https://github.com/kubernetes/helm/tree/master/docs">docs</a>)</p>
@@ -628,31 +632,31 @@ which is used by Workflow components to store and backup critical data. Should a
 Workflow, the required components can recover from off-cluster storage. See the documentation for <a href="configuring-object-storage/">configuring object
 storage</a> for more details.</p>
 <p>More rigorous installations would benefit from using outside sources for the following things:
-<em> <a href="configuring-postgres/">Postgres</a> - For example AWS RDS.
-</em> <a href="configuring-registry/">Registry</a> - This includes <a href="https://quay.io">quay.io</a>, <a href="https://hub.docker.com">dockerhub</a>, <a href="https://aws.amazon.com/ecr/">Amazon ECR</a>, and <a href="https://cloud.google.com/container-registry/">Google GCR</a>.
-<em> <a href="../managing-workflow/platform-logging/#configuring-off-cluster-redis">Redis</a> - Such as AWS Elasticache
-</em> <a href="../managing-workflow/platform-monitoring/#configuring-off-cluster-influxdb">InfluxDB</a> and <a href="../managing-workflow/platform-monitoring/#off-cluster-grafana">Grafana</a></p>
+* <a href="configuring-postgres/">Postgres</a> - For example AWS RDS.
+* <a href="configuring-registry/">Registry</a> - This includes <a href="https://quay.io">quay.io</a>, <a href="https://hub.docker.com">dockerhub</a>, <a href="https://aws.amazon.com/ecr/">Amazon ECR</a>, and <a href="https://cloud.google.com/container-registry/">Google GCR</a>.
+* <a href="../managing-workflow/platform-logging/#configuring-off-cluster-redis">Redis</a> - Such as AWS Elasticache
+* <a href="../managing-workflow/platform-monitoring/#configuring-off-cluster-influxdb">InfluxDB</a> and <a href="../managing-workflow/platform-monitoring/#off-cluster-grafana">Grafana</a></p>
 <h4 id="experimental-kubernetes-native-ingress">(Experimental) Kubernetes Native Ingress<a class="headerlink" href="#experimental-kubernetes-native-ingress" title="Permanent link">&para;</a></h4>
 <p>Workflow now offers <a href="experimental-native-ingress/">experimental native ingress</a> to take advantage of native Kubernetes routing. Any compatible Kubernetes ingress controller can be used in place of Workflow's nginx-based deis-router. Follow <a href="experimental-native-ingress/">this guide</a> to enable experimental native ingress.</p>
 <h2 id="add-the-hephy-chart-repository">Add the Hephy Chart Repository<a class="headerlink" href="#add-the-hephy-chart-repository" title="Permanent link">&para;</a></h2>
 <p>The Team Hephy Chart Repository contains everything needed to install Hephy Workflow onto a Kubernetes cluster, with a single <code>helm install hephy/workflow --namespace deis</code> command.</p>
 <p>Add this repository to Helm:</p>
-<pre class="codehilite"><code>$ helm repo add hephy https://charts.teamhephy.com/</code></pre>
-
+<pre class="codehilite"><code>$ helm repo add hephy https://charts.teamhephy.com/
+</code></pre>
 
 <h2 id="install-hephy-workflow">Install Hephy Workflow<a class="headerlink" href="#install-hephy-workflow" title="Permanent link">&para;</a></h2>
 <p>Now that Helm is installed and the repository has been added, install Workflow by running:</p>
-<pre class="codehilite"><code>$ helm install hephy/workflow --namespace deis</code></pre>
-
+<pre class="codehilite"><code>$ helm install hephy/workflow --namespace deis
+</code></pre>
 
 <p>Helm will install a variety of Kubernetes resources in the <code>deis</code> namespace.
 Wait for the pods that Helm launched to be ready. Monitor their status by running:</p>
-<pre class="codehilite"><code>$ kubectl --namespace=deis get pods</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis get pods
+</code></pre>
 
 <p>If it's preferred to have <code>kubectl</code> automatically update as the pod states change, run (type Ctrl-C to stop the watch):</p>
-<pre class="codehilite"><code>$ kubectl --namespace=deis get pods -w</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis get pods -w
+</code></pre>
 
 <p>Depending on the order in which the Workflow components initialize, some pods may restart. This is common during the
 installation: if a component's dependencies are not yet available, that component will exit and Kubernetes will
@@ -674,8 +678,8 @@ deis-nsqd-3597503299-6mn2x               1/1       Running   0          4m
 deis-registry-756475849-lwc6b            1/1       Running   1          4m
 deis-registry-proxy-96c4p                1/1       Running   0          4m
 deis-router-2126433040-6sl6z             1/1       Running   0          4m
-deis-workflow-manager-2528409207-jkz2r   1/1       Running   0          4m</code></pre>
-
+deis-workflow-manager-2528409207-jkz2r   1/1       Running   0          4m
+</code></pre>
 
 <p>Once all of the pods are in the <code>READY</code> state, Hephy Workflow is up and running!</p>
 <p>After installing Workflow, <a href="../quickstart/deploy-an-app/">register a user and deploy an application</a>.</p>
@@ -1042,6 +1046,10 @@ deis-workflow-manager-2528409207-jkz2r   1/1       Running   0          4m</code
         <a class="reference internal" href="..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../changelogs/v2.22.2/">v2.22.2</a>

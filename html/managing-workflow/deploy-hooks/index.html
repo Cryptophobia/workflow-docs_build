@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -602,8 +606,8 @@ it can also be used to integrate different systems together.</p>
 <p>After one or more hooks are setup, hook output and errors appear in your application’s logs:</p>
 <pre class="codehilite"><code>$ deis logs
 ...
-2011-03-15T15:07:29-07:00 deis[api]: Deploy hook sent to http://deis.rocks</code></pre>
-
+2011-03-15T15:07:29-07:00 deis[api]: Deploy hook sent to http://deis.rocks
+</code></pre>
 
 <p>Deploy hooks are a generic HTTP hook. An administrator can create and configure multiple deploy
 hooks by <a href="../tuning-component-settings/#customizing-the-controller">tuning the controller settings</a> via the Helm chart.</p>
@@ -611,8 +615,8 @@ hooks by <a href="../tuning-component-settings/#customizing-the-controller">tuni
 <p>The HTTP deploy hook performs an HTTP POST to a URL. The parameters included in the request are the
 same as the variables available in the hook message: <code>app</code>, <code>release</code>, <code>release_summary</code>, <code>sha</code> and
 <code>user</code>. See below for their descriptions:</p>
-<pre class="codehilite"><code>app=secure-woodland&amp;release=v4&amp;release_summary=gabrtv%20deployed%35b3726&amp;sha=35b3726&amp;user=gabrtv</code></pre>
-
+<pre class="codehilite"><code>app=secure-woodland&amp;release=v4&amp;release_summary=gabrtv%20deployed%35b3726&amp;sha=35b3726&amp;user=gabrtv
+</code></pre>
 
 <p>Optionally, if a deploy hook secret key is added to the controller through
 <a href="../tuning-component-settings/#customizing-the-controller">tuning the controller settings</a>, a new <code>Authorization</code> header will be
@@ -624,8 +628,8 @@ this:</p>
 <pre class="codehilite"><code class="language-python">import hashlib
 import hmac
 
-hmac.new(&quot;my_secret_key&quot;, &quot;http://deis.rocks?app=secure-woodland&amp;release=v4&amp;release_summary=gabrtv%20deployed%35b3726&amp;sha=35b3726&amp;user=gabrtv&quot;, digestmod=hashlib.sha1).hexdigest()</code></pre>
-
+hmac.new(&quot;my_secret_key&quot;, &quot;http://deis.rocks?app=secure-woodland&amp;release=v4&amp;release_summary=gabrtv%20deployed%35b3726&amp;sha=35b3726&amp;user=gabrtv&quot;, digestmod=hashlib.sha1).hexdigest()
+</code></pre>
 
 <p>If the value of the computed HMAC hex digest and the value in the <code>Authorization</code> header are
 identical, then the request came from Workflow.</p>
@@ -998,6 +1002,10 @@ the order of the HTTP parameters, but the cryptographic signature will not be th
         <a class="reference internal" href="../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../changelogs/v2.22.2/">v2.22.2</a>

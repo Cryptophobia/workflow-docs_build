@@ -439,6 +439,10 @@
         <ul >
         
           <li class="toctree-l2">
+          <a class="reference internal" id="v2.22.3" href="changelogs/v2.22.3/">v2.22.3</a>
+          </li>
+        
+          <li class="toctree-l2">
           <a class="reference internal" id="v2.22.2" href="changelogs/v2.22.2/">v2.22.2</a>
           </li>
         
@@ -600,43 +604,43 @@
 <p>First check that the <code>helm</code> command is available and the version is v2.5.0 or newer.</p>
 <pre class="codehilite"><code>$ helm version
 Client: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac1a1b2f888144ef5a67b8dab6c2d45be6&quot;, GitTreeState:&quot;clean&quot;}
-Server: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac1a1b2f888144ef5a67b8dab6c2d45be6&quot;, GitTreeState:&quot;clean&quot;}</code></pre>
-
+Server: &amp;version.Version{SemVer:&quot;v2.5.0&quot;, GitCommit:&quot;012cb0ac1a1b2f888144ef5a67b8dab6c2d45be6&quot;, GitTreeState:&quot;clean&quot;}
+</code></pre>
 
 <p>Finally, initialize Helm:</p>
-<pre class="codehilite"><code>helm init</code></pre>
-
+<pre class="codehilite"><code>helm init
+</code></pre>
 
 <p>Ensure the <code>kubectl</code> client is installed and can connect to your Kubernetes cluster.</p>
 <h2 id="add-the-hephy-chart-repository">Add the Hephy Chart Repository<a class="headerlink" href="#add-the-hephy-chart-repository" title="Permanent link">&para;</a></h2>
 <p>The Team Hephy Chart Repository contains everything needed to install Hephy Workflow onto a Kubernetes cluster, with a single <code>helm install hephy/workflow --namespace deis</code> command.</p>
 <p>Add this repository to Helm:</p>
-<pre class="codehilite"><code>$ helm repo add hephy https://charts.teamhephy.com/</code></pre>
-
+<pre class="codehilite"><code>$ helm repo add hephy https://charts.teamhephy.com/
+</code></pre>
 
 <h2 id="create-new-azure-storage-account">Create New Azure Storage Account<a class="headerlink" href="#create-new-azure-storage-account" title="Permanent link">&para;</a></h2>
 <p>It is recommended to use a dedicated storage account for the operational aspects of Workflow, which includes storing slug and container images, database backups, and disaster recovery. This storage account is passed as parameters during the <code>helm install</code> command in the next step. Replace the <code>AZURE_SA_NAME</code> variable with a unique name for your storage account and execute these commands.</p>
 <pre class="codehilite"><code>$ export AZURE_SA_NAME=YourGlobalUniqueName
 $ az storage account create -n $AZURE_SA_NAME -l $AZURE_DC_LOCATION -g $AZURE_RG_NAME --sku Standard_LRS
-$ export AZURE_SA_KEY=`az storage account keys list -n $AZURE_SA_NAME -g $AZURE_RG_NAME --query [0].value --output tsv`</code></pre>
-
+$ export AZURE_SA_KEY=`az storage account keys list -n $AZURE_SA_NAME -g $AZURE_RG_NAME --query [0].value --output tsv`
+</code></pre>
 
 <blockquote>
 <p>Note: Premium Storage skus are not supported yet due to <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/using-blob-service-operations-with-azure-premium-storage">lack of block blob storage support</a> required for the deis database to function.</p>
 </blockquote>
 <h2 id="install-hephy-workflow">Install Hephy Workflow<a class="headerlink" href="#install-hephy-workflow" title="Permanent link">&para;</a></h2>
 <p>Now that Helm is installed and the repository has been added, install Workflow by running:</p>
-<pre class="codehilite"><code>$ helm install hephy/workflow --namespace=deis --set global.storage=azure,azure.accountname=$AZURE_SA_NAME,azure.accountkey=$AZURE_SA_KEY,azure.registry_container=registry,azure.database_container=database,azure.builder_container=builder</code></pre>
-
+<pre class="codehilite"><code>$ helm install hephy/workflow --namespace=deis --set global.storage=azure,azure.accountname=$AZURE_SA_NAME,azure.accountkey=$AZURE_SA_KEY,azure.registry_container=registry,azure.database_container=database,azure.builder_container=builder
+</code></pre>
 
 <p>Helm will install a variety of Kubernetes resources in the <code>deis</code> namespace.
 Wait for the pods that Helm launched to be ready. Monitor their status by running:</p>
-<pre class="codehilite"><code>$ kubectl --namespace=deis get pods</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis get pods
+</code></pre>
 
 <p>If it's preferred to have <code>kubectl</code> automatically update as the pod states change, run (type Ctrl-C to stop the watch):</p>
-<pre class="codehilite"><code>$ kubectl --namespace=deis get pods -w</code></pre>
-
+<pre class="codehilite"><code>$ kubectl --namespace=deis get pods -w
+</code></pre>
 
 <p>Depending on the order in which the Workflow components initialize, some pods may restart. This is common during the
 installation: if a component's dependencies are not yet available, that component will exit and Kubernetes will
@@ -653,8 +657,8 @@ deis-logger-sm8b3             1/1       Running   0          5m
 deis-minio-4ww3t              1/1       Running   0          5m
 deis-registry-asozo           1/1       Running   1          5m
 deis-router-k1ond             1/1       Running   0          5m
-deis-workflow-manager-68nu6   1/1       Running   0          5m</code></pre>
-
+deis-workflow-manager-68nu6   1/1       Running   0          5m
+</code></pre>
 
 <p>Once all of the pods are in the <code>READY</code> state, Hephy Workflow is up and running!</p>
 <p>Next, <a href="../dns/">configure dns</a> so you can register your first user and deploy an application.</p>
@@ -1021,6 +1025,10 @@ deis-workflow-manager-68nu6   1/1       Running   0          5m</code></pre>
         <a class="reference internal" href="../../../..">Changelogs</a>
         
             <ul style="display: none;">
+            
+                <li class="toctree-l2">
+                <a class="reference internal" id="v2.22.3" href="../../../../changelogs/v2.22.3/">v2.22.3</a>
+                </li>
             
                 <li class="toctree-l2">
                 <a class="reference internal" id="v2.22.2" href="../../../../changelogs/v2.22.2/">v2.22.2</a>
